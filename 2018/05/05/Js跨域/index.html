@@ -102,20 +102,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Winnie-bear">
-<meta property="og:url" content="https://github.com/winnie-bear/index.html">
+  <meta name="description" content="JS跨域定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。  同源：  域名，协议，端口均相同。  协议：http、https 域名：分为主域名和子域名 端口：8080  补充小知识  一级域名：也叫根域名，如：sojson.com">
+<meta name="keywords" content="cors">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="https://github.com/winnie-bear/2018/05/05/Js跨域/index.html">
 <meta property="og:site_name" content="Winnie-bear">
+<meta property="og:description" content="JS跨域定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。  同源：  域名，协议，端口均相同。  协议：http、https 域名：分为主域名和子域名 端口：8080  补充小知识  一级域名：也叫根域名，如：sojson.com">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-05T03:38:09.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Winnie-bear">
+<meta name="twitter:title" content="跨域">
+<meta name="twitter:description" content="JS跨域定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。  同源：  域名，协议，端口均相同。  协议：http、https 域名：分为主域名和子域名 端口：8080  补充小知识  一级域名：也叫根域名，如：sojson.com">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2018/05/05/Js跨域/"/>
 
 
 
@@ -125,7 +130,7 @@
   };
 </script>
 
-  <title>Winnie-bear</title>
+  <title>跨域 | Winnie-bear</title>
   
 
 
@@ -172,8 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,7 +217,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
@@ -281,9 +285,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -315,11 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/Js跨域/" itemprop="url">
-                  跨域
-                </a>
+          <h1 class="post-title" itemprop="name headline">跨域
               
             
           </h1>
@@ -400,9 +400,7 @@
       
 
       
-        
-          
-            <h2 id="JS跨域"><a href="#JS跨域" class="headerlink" title="JS跨域"></a>JS跨域</h2><p><strong>定义</strong><br>：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
+        <h2 id="JS跨域"><a href="#JS跨域" class="headerlink" title="JS跨域"></a>JS跨域</h2><p><strong>定义</strong><br>：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
 <hr>
 <p><strong>同源</strong><br>：  域名，协议，端口均相同。</p>
 <ul>
@@ -505,8 +503,6 @@
 &lt;/script&gt;
 </code></pre><p>7.comet</p>
 
-          
-        
       
     </div>
 
@@ -524,165 +520,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2018/03/21/Js原型 /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Winnie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Winnie-bear">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/21/Js原型 /" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-03-21 21:25:27" itemprop="dateCreated datePublished" datetime="2018-03-21T21:25:27+08:00">2018-03-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-03-23 17:00:28" itemprop="dateModified" datetime="2018-03-23T17:00:28+08:00">2018-03-23</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/cors/" rel="tag"># cors</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <html lang="en"><head><br>    <meta charset="UTF-8"><br>    <title></title><br><style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:”C”;    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head><br><body><h2>原型</h2><br><p><strong>1.理解原型对象</strong><br><br></p><br><p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png" alt="avatar"><br></p><br><hr><br><p><strong>2.使用构造函数创建对象</strong><br><br></p><br><p>任何函数，只要通过new操作符来调用，那么它就可以作为构造函数。构造函数也是函数，不存在定义<br>构造函数的特殊语法。使用new创建对象的时候，这个对象就会存在一个默认的不可见属性，指向构造<br>函数的原型对象。这个不可见属性一般用[[prototype]]来表示。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab244ac43529.png" alt="avatar"><br><br></p><br><pre><code>说明：<br><br>1.虽然使用构造函数创建对象，但是对象创建出来以后，就和构造函数没有关系了，它的[[prototype]]属性指向的是构造函数的原型对象。<br><br>2.如果使用构造函数创建多个对象，则多个对象会同时指向构造函数的原型对象。<br><br>3.如果我们手动给这个原型对象添加属性和方法，那么这些对象就会共享新添的属性和方法。<br><br>4.如果给新建对象添加属性，那么它就没法访问到原型上的相同属性，相当于屏蔽了原型中的相同属性。  </code></pre><br><p>   （3.4点类比CSS来说就是给新建对象添加属性和方法，相当于添加行间样式；给原型对象添加属性和<br>   方法，相当于添加class，可以影响一类元素，行间样式的优先级高于class样式的优先级）<br><br></p><br><pre><code>5.新建对象只能读取原型中的属性值，但没法修改。例如：p1.name=’winnie’,并不是修改了原型中的属性值，而是给p1对象新添了一个name属性。</code></pre><br><h2>与原型相关的属性和方法</h2><br><p><strong>1.prototype</strong><br>我们创建的每个<strong>函数</strong>都有一个prototype（原型）属性，它是一个指针，指向一个<strong>原型对象</strong>。原型对象<br>包含了特定类型的所有实例所共享的方法和属性。<br><br></p><br><p><strong>2.constructor</strong><br>constructor属性存在于原型对象中，它指向构造函数。根据需要，我们可以修改构造函数的prototype属性，让它<br>指向新的原型对象，但是constructor属性就不再指向原构造函数了，而是指向新原型对象的构造函数。<br><br></p><br><p><strong>3.[[prototype]]</strong><br><br></p><br><p>用构造方法新建一个<strong>对象</strong>之后，这个对象中默认会有一个不可访问的属性 [[prototype]] , 这个属性就指向了构造方法的原型对象。虽然说[[prototype]]是一个隐藏属性，但很多浏览器都给每一个对象提供了.<strong>proto</strong>属性去访问原型对象<br></p><br><br>4.hasOwnProperty()方法<br>作用：判断一个属性是否来自<strong>对象</strong>本身<br>注意：这个方法不能判断属性是否存在于原型中，因为有可能这个属性不存在<br><br>5.in操作符<br>作用：判断<strong>对象或者原型</strong>中是否有某个属性。只要其中一个有，就返回true<br><br></body></html>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/Js原型 /" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -692,14 +559,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -720,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -801,6 +682,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS跨域"><span class="nav-number">1.</span> <span class="nav-text">JS跨域</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -942,6 +839,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
 
   
 
