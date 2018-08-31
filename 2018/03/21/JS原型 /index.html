@@ -112,7 +112,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png">
 <meta property="og:image" content="https://i.loli.net/2018/03/21/5ab244ac43529.png">
-<meta property="og:updated_time" content="2018-08-31T03:06:36.636Z">
+<meta property="og:updated_time" content="2018-08-31T03:53:32.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型">
 <meta name="twitter:description" content="h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18p">
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-31 11:06:36" itemprop="dateModified" datetime="2018-08-31T11:06:36+08:00">2018-08-31</time>
+                <time title="Modified: 2018-08-31 11:53:32" itemprop="dateModified" datetime="2018-08-31T11:53:32+08:00">2018-08-31</time>
               
             
           </span>
@@ -415,7 +415,7 @@
       
 
       
-        <html lang="en"><head><br>    <meta charset="UTF-8"><br>    <title></title><br><style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:”C”;    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head><br><body><h2>原型</h2><br><p><strong>1.理解原型对象</strong><br><br></p><br><p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png" alt="avatar"><br></p><br><hr><br><p><strong>2.使用构造函数创建对象</strong><br><br></p><br><p>任何函数，只要通过new操作符来调用，那么它就可以作为构造函数。构造函数也是函数，不存在定义<br>构造函数的特殊语法。使用new创建对象的时候，这个对象就会存在一个默认的不可见属性，指向构造<br>函数的原型对象。这个不可见属性一般用[[prototype]]来表示。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab244ac43529.png" alt="avatar"><br><br></p><br><pre><code>说明：<br><br>1.虽然使用构造函数创建对象，但是对象创建出来以后，就和构造函数没有关系了，它的[[prototype]]属性指向的是构造函数的原型对象。<br><br>2.如果使用构造函数创建多个对象，则多个对象会同时指向构造函数的原型对象。<br><br>3.如果我们手动给这个原型对象添加属性和方法，那么这些对象就会共享新添的属性和方法。<br><br>4.如果给新建对象添加属性，那么它就没法访问到原型上的相同属性，相当于屏蔽了原型中的相同属性。  </code></pre><br><p>   （3.4点类比CSS来说就是给新建对象添加属性和方法，相当于添加行间样式；给原型对象添加属性和<br>   方法，相当于添加class，可以影响一类元素，行间样式的优先级高于class样式的优先级）<br><br></p><br><pre><code>5.新建对象只能读取原型中的属性值，但没法修改。例如：p1.name=’winnie’,并不是修改了原型中的属性值，而是给p1对象新添了一个name属性。</code></pre><br><h2>与原型相关的属性和方法</h2><br><p><strong>1.prototype</strong><br>我们创建的每个<strong>函数</strong>都有一个prototype（原型）属性，它是一个指针，指向一个<strong>原型对象</strong>。原型对象<br>包含了特定类型的所有实例所共享的方法和属性。<br><br></p><br><p><strong>2.constructor</strong><br>constructor属性存在于原型对象中，它指向构造函数。根据需要，我们可以修改构造函数的prototype属性，让它<br>指向新的原型对象，但是constructor属性就不再指向原构造函数了，而是指向新原型对象的构造函数。<br><br></p><br><p><strong>3.[[prototype]]</strong><br><br></p><br><p>用构造方法新建一个<strong>对象</strong>之后，这个对象中默认会有一个不可访问的属性 [[prototype]] , 这个属性就指向了构造方法的原型对象。虽然说[[prototype]]是一个隐藏属性，但很多浏览器都给每一个对象提供了.<strong>proto</strong>属性去访问原型对象<br></p><br><br>4.hasOwnProperty()方法<br>作用：判断一个属性是否来自<strong>对象</strong>本身<br>注意：这个方法不能判断属性是否存在于原型中，因为有可能这个属性不存在<br><br>5.in操作符<br>作用：判断<strong>对象或者原型</strong>中是否有某个属性。只要其中一个有，就返回true<br><br></body></html>
+        <html lang="en"><head><br>    <meta charset="UTF-8"><br>    <title></title><br><style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:”C”;    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head><br><body><h2>原型</h2><br><p><strong>1.理解原型对象</strong><br><br></p><br><p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。<br><br></p><br><a id="more"></a><br><p><img src="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png" alt="avatar"><br></p><br><hr><br><p><strong>2.使用构造函数创建对象</strong><br><br></p><br><p>任何函数，只要通过new操作符来调用，那么它就可以作为构造函数。构造函数也是函数，不存在定义<br>构造函数的特殊语法。使用new创建对象的时候，这个对象就会存在一个默认的不可见属性，指向构造<br>函数的原型对象。这个不可见属性一般用[[prototype]]来表示。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab244ac43529.png" alt="avatar"><br><br></p><br><pre><code>说明：<br><br>1.虽然使用构造函数创建对象，但是对象创建出来以后，就和构造函数没有关系了，它的[[prototype]]属性指向的是构造函数的原型对象。<br><br>2.如果使用构造函数创建多个对象，则多个对象会同时指向构造函数的原型对象。<br><br>3.如果我们手动给这个原型对象添加属性和方法，那么这些对象就会共享新添的属性和方法。<br><br>4.如果给新建对象添加属性，那么它就没法访问到原型上的相同属性，相当于屏蔽了原型中的相同属性。  </code></pre><br><p>   （3.4点类比CSS来说就是给新建对象添加属性和方法，相当于添加行间样式；给原型对象添加属性和<br>   方法，相当于添加class，可以影响一类元素，行间样式的优先级高于class样式的优先级）<br><br></p><br><pre><code>5.新建对象只能读取原型中的属性值，但没法修改。例如：p1.name=’winnie’,并不是修改了原型中的属性值，而是给p1对象新添了一个name属性。</code></pre><br><h2>与原型相关的属性和方法</h2><br><p><strong>1.prototype</strong><br>我们创建的每个<strong>函数</strong>都有一个prototype（原型）属性，它是一个指针，指向一个<strong>原型对象</strong>。原型对象<br>包含了特定类型的所有实例所共享的方法和属性。<br><br></p><br><p><strong>2.constructor</strong><br>constructor属性存在于原型对象中，它指向构造函数。根据需要，我们可以修改构造函数的prototype属性，让它<br>指向新的原型对象，但是constructor属性就不再指向原构造函数了，而是指向新原型对象的构造函数。<br><br></p><br><p><strong>3.[[prototype]]</strong><br><br></p><br><p>用构造方法新建一个<strong>对象</strong>之后，这个对象中默认会有一个不可访问的属性 [[prototype]] , 这个属性就指向了构造方法的原型对象。虽然说[[prototype]]是一个隐藏属性，但很多浏览器都给每一个对象提供了.<strong>proto</strong>属性去访问原型对象<br></p><br><br>4.hasOwnProperty()方法<br>作用：判断一个属性是否来自<strong>对象</strong>本身<br>注意：这个方法不能判断属性是否存在于原型中，因为有可能这个属性不存在<br><br>5.in操作符<br>作用：判断<strong>对象或者原型</strong>中是否有某个属性。只要其中一个有，就返回true<br><br></body></html>
       
     </div>
 
@@ -540,14 +540,14 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
                     
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">categories</span>
-                  
+                  </a>
                 </div>
               
 
@@ -555,7 +555,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -564,7 +564,7 @@
                     
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>

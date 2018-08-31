@@ -344,12 +344,24 @@
                 
               
 
-              <time title="Created: 2018-05-05 11:36:00 / Modified: 11:38:09" itemprop="dateCreated datePublished" datetime="2018-05-05T11:36:00+08:00">2018-05-05</time>
+              <time title="Created: 2018-05-05 11:36:00" itemprop="dateCreated datePublished" datetime="2018-05-05T11:36:00+08:00">2018-05-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-31 11:53:21" itemprop="dateModified" datetime="2018-08-31T11:53:21+08:00">2018-08-31</time>
               
             
           </span>
@@ -401,111 +413,15 @@
 
       
         
-          
-            <h2 id="JS跨域"><a href="#JS跨域" class="headerlink" title="JS跨域"></a>JS跨域</h2><p><strong>定义</strong><br>：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
+          <h2 id="JS跨域"><a href="#JS跨域" class="headerlink" title="JS跨域"></a>JS跨域</h2><p><strong>定义</strong><br>：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
 <hr>
-<p><strong>同源</strong><br>：  域名，协议，端口均相同。</p>
-<ul>
-<li>协议：http、https</li>
-<li>域名：分为主域名和子域名</li>
-<li>端口：8080</li>
-</ul>
-<p><strong>补充小知识</strong></p>
-<ul>
-<li>一级域名：也叫根域名，如：sojson.com、baidu.com、sina.com、sina.com.cn、sina.cn.net 等等</li>
-<li>二级域名：指增加了一级，包括www。如：<a href="http://www.sojson.com、icp.sojson.com、zhidao.baidu.com、www.baidu.com" target="_blank" rel="noopener">www.sojson.com、icp.sojson.com、zhidao.baidu.com、www.baidu.com</a>  等等。</li>
-</ul>
-<p>例如：        <a href="http://www.abc.com:8080/scripts/jquery.js" target="_blank" rel="noopener">http://www.abc.com:8080/scripts/jquery.js</a></p>
-<p>协议：http:// ，<br>子域名：www ，<br>主域名：abc.com ，<br>端口号：8080  。 </p>
-<hr>
-<p><strong>解决跨域的方法</strong></p>
-<p>1.<strong>document.domain+iframe</strong>（只有在主域相同的时候才能使用该方法）</p>
-<p><strong>限制</strong><br>：我们只能把document.domain设置成自身或更高一级的域名。</p>
-<p>浏览器有一个同源策略，其限制之一是不能通过ajax的方法去请求不同源中的文档。第二个限制是浏览器中<strong>不同域的框架</strong>之间是不能进行js的交互操作的。不同的框架之间是可以获取window对象的，但却无法获取相应的属性和方法。</p>
-<p>例如：<br>有一个页面，它的地址是<a href="http://www.winnie.cn/a.html" target="_blank" rel="noopener">www.winnie.cn/a.html</a> ， 在这个页面里面有一个iframe，它的src是winnie.cn/b.html, 很显然，这个页面与它里面iframe框架的<strong>主域名相同，二级域名不同（子域名不同）</strong>，所以我们是无法通过在页面中书写js代码来获取iframe中的内容。</p>
-<p>2.<strong>window.name</strong></p>
-<p>原理：window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。</p>
-<p>限制：window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。</p>
-<p>实现过程：windowName.html页面使用一个隐藏的iframe来充当一个中间人的角色，由iframe去获取windowNameData.html中window.name的数据，然后windowName.html再去获取iframe中的数据。<strong>注意</strong>，windowName.html和iframe中的src不在同一个域，无法直接获取iframe中的值，因为浏览器的同源策略。所以在获取到windowNameData.html页面中的数据以后，还要将这个iframe的src设成和windowName.html同一个域才行。<br>windowName.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">      function getData()&#123;//iframe载入windowNameData.html后才执行该函数</span><br><span class="line">          let iframe=document.getElementById(&quot;proxy&quot;);</span><br><span class="line">          iframe.src=&quot;about:blank&quot;;//设置成与当前页面同源的任意一个页面，about:blank也行</span><br><span class="line">          iframe.onload=function()&#123;//这时当前页面与iframe同源，可以互相访问</span><br><span class="line">              let data=iframe.contentWindow.name;</span><br><span class="line">              alert(data);</span><br><span class="line">          &#125;</span><br><span class="line">                   </span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;iframe id=&quot;proxy&quot; src=&quot;http://winnie.cn/windowNameData.html&quot; style=&quot;display:none&quot; onload=&quot;getData()&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
-<p>windowNameData.html的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.name=&quot;我是windowName页面想要获取的数据，所有可以转化成字符串来传递的数据都可以在这里使用，包括Json数据&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>3.<strong>location.hash</strong></p>
-<p>原理：因为父窗口可以对iframe进行URL读写，iframe也可以读写父窗口的URL，URL有一部分被称为hash，就是#号及其后面的字符，它一般用于浏览器锚点定位，Server端并不关心这部分，应该说HTTP请求过程中不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录。此方法的原理就是改变URL的hash部分来进行双向通信。</p>
-<p>限制：由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于父窗口域名下的一个代理iframe。</p>
-<ul>
-<li><p>getHash.html传送数据到hash.html页面</p>
-<ul>
-<li>getHash.html下修改iframe的src为<a href="http://winnie.cn/hash.html#paramdo" target="_blank" rel="noopener">http://winnie.cn/hash.html#paramdo</a> </li>
-<li>hash.html页面监听到url中hash部分的变化，触发相应的操作</li>
-</ul>
-</li>
-<li><p>hash.html页面传送数据到getHash.html页面，由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于父窗口域名下的一个代理iframe</p>
-<ul>
-<li><p>hash.html下创建一个隐藏的iframe,此iframe的src是<a href="http://www.winnie.cn域下的，并挂上要传送hash数据，如src=&quot;http://www.winnie.cn/proxy.html#somedata&quot;" target="_blank" rel="noopener">www.winnie.cn域下的，并挂上要传送hash数据，如src=&quot;http://www.winnie.cn/proxy.html#somedata&quot;</a> </p>
-</li>
-<li><p>proxy.html页面中可以用parent.parent.location.hash修改getHash中的url</p>
-</li>
-<li><p>getHash.html监听到url发生变化，触发相应的操作      </p>
-</li>
-</ul>
-</li>
-</ul>
-<p>hash.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        switch(location.hash)&#123;//参数处理</span><br><span class="line">            case &quot;#paramdo&quot;:</span><br><span class="line">               callBack();</span><br><span class="line">               break;</span><br><span class="line">            case &quot;#paramset&quot;:</span><br><span class="line">               //do something</span><br><span class="line">               break;</span><br><span class="line">        &#125;</span><br><span class="line">   </span><br><span class="line">        function callBack()&#123;</span><br><span class="line">            try&#123;</span><br><span class="line">                parent.location.hash=&quot;somedata&quot;;</span><br><span class="line">            &#125;catch(e)&#123;</span><br><span class="line">                //ie、chrome的安全机制无法修改parent.location.hash，所以要利用一个www.winnie.cn域下的代理iframe  </span><br><span class="line">                let ifrproxy=document.createElement(&quot;iframe&quot;);</span><br><span class="line">                ifrproxy.style.display=&quot;none&quot;;</span><br><span class="line">                ifrproxy.src=&quot;http://www.winnie.cn/proxy.html#somedata&quot;;</span><br><span class="line">                document.body.appendChild(ifrproxy); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>proxy.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">//proxy.html的parent是hash.html,hash.html的parent是getHash.html</span><br><span class="line">        parent.parent.location.hash=self.location.hash.substring(1);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>4.jsonp</p>
-<p>原理：因为通过script标签引入的js是不受同源策略的限制的。JSONP包含两部分：回调函数和数据。回调函数是当响应到来时要放在当前页面被调用的函数。数据就是传入回调函数中的json数据，也就是回调函数的参数了。</p>
-<p>优缺点：</p>
-<ul>
-<li>优点：不受同源策略的影响；兼容性很好，在很古老的浏览器中都可以运行，并且请求完毕以后可以通过调用callback的方式回传结果。</li>
-<li>缺点：只支持GET请求而不支持POST等其它类型的HTTP请求；单向跨域</li>
-</ul>
-<p>jsonp.html关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">      script.src = &quot;https://api.douban.com/v2/book/search?q=javascript&amp;count=1&amp;callback=handleResponse&quot;;</span><br><span class="line">      document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
-<p>5.CORS<br>基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。实现CORS通信的关键是<strong>服务器</strong>。只要服务器实现了CORS接口，就可以跨源通信。</p>
-<p>实现过程：</p>
-<ul>
-<li>简单请求，客户端代码同Ajax相似，但是open方法中的url是绝对路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let request=createCORSRequest(&apos;GET&apos;,&quot;http://winnie.cn/data.php&quot;,true);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>服务器端的代码中要设置Access-Control-Allow-Origin，否则无法进行跨域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&apos;Access-Control-Allow-Origin: http://www.winnie.cn&apos;);</span><br><span class="line">echo &apos;Hello World!&apos;;//输出</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>非简单请求<br>客户端代码和简单请求类似，服务器端代码有所不同，并且会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。<br>preflight.js关键代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">  //之后设置了Access-Control-Allow-Origin，才会允许跨域</span><br><span class="line">  //要处理带凭证的请求，此Header不能使用*。</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://www.winnie.cn&apos;);</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Methods&apos;, &apos;POST, DELETE, GET,PUT&apos;);</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Headers&apos;, &apos;x-token&apos;);</span><br><span class="line">  //设置预请求缓存1天，1天内再次请求，可以跳过预请求</span><br><span class="line">  //此功能需要客户端缓存支持，如果客户端禁用缓存，那么每次都会预请求</span><br><span class="line">  res.setHeader(&apos;Access-Control-Max-Age&apos;, 60 * 60 * 24);</span><br><span class="line">  //只有设置了该Header，才允许带凭证的请求。</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Credentials&apos;, true); </span><br><span class="line">  res.write(&apos;Nodejs&apos;);</span><br><span class="line">  res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(8888, () =&gt; &#123;</span><br><span class="line">  console.log(&apos;started.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>6.postMessage</p>
-<p>使用方法：</p>
-<ul>
-<li><p>otherWindow.postMessage(message, targetOrigin);</p>
-<ul>
-<li>otherWindow:指目标窗口，也就是接收消息的窗口</li>
-<li>message: 是要发送的消息，类型为 String、Object (IE8、9 不支持)</li>
-<li>targetOrigin: 是限定消息接收范围，不限制请使用 ‘*’</li>
-</ul>
-</li>
-</ul>
-<p>getMessage.html页面通过message事件监听并接收消息</p>
-<pre><code>&lt;script&gt;
-   //获取不同源的window对象
-    document.domain=&quot;winnie.cn&quot;;
-   //通过message事件监听并接受消息
-   let handleMessage=function(event){
-       let data=event.data;//消息
-       let origin=event.origin;//消息的源地址
-       let source=event.source;//postMessage.html中的window对象
-       if(origin==&quot;http://www.winnie.cn&quot;){
-           alert(data);
-           alert(source);
-       }  
-   } 
-   if(typeof window.addEventListener != &apos;undefined&apos;){
-       window.addEventListener(&quot;message&quot;,handleMessage,false);
-   }
-   else if(typeof window.attachEvent != &apos;undefined&apos;){
-       //IE
-       window.attachEvent(&quot;onmessage&quot;,handleMessage);
-   }
-&lt;/script&gt;
-</code></pre><p>7.comet</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Js跨域/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -620,7 +536,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-31 11:06:36" itemprop="dateModified" datetime="2018-08-31T11:06:36+08:00">2018-08-31</time>
+                <time title="Modified: 2018-08-31 11:53:32" itemprop="dateModified" datetime="2018-08-31T11:53:32+08:00">2018-08-31</time>
               
             
           </span>
@@ -672,9 +588,14 @@
 
       
         
-          
-            <html lang="en"><head><br>    <meta charset="UTF-8"><br>    <title></title><br><style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:”C”;    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head><br><body><h2>原型</h2><br><p><strong>1.理解原型对象</strong><br><br></p><br><p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png" alt="avatar"><br></p><br><hr><br><p><strong>2.使用构造函数创建对象</strong><br><br></p><br><p>任何函数，只要通过new操作符来调用，那么它就可以作为构造函数。构造函数也是函数，不存在定义<br>构造函数的特殊语法。使用new创建对象的时候，这个对象就会存在一个默认的不可见属性，指向构造<br>函数的原型对象。这个不可见属性一般用[[prototype]]来表示。<br><br></p><br><p><img src="https://i.loli.net/2018/03/21/5ab244ac43529.png" alt="avatar"><br><br></p><br><pre><code>说明：<br><br>1.虽然使用构造函数创建对象，但是对象创建出来以后，就和构造函数没有关系了，它的[[prototype]]属性指向的是构造函数的原型对象。<br><br>2.如果使用构造函数创建多个对象，则多个对象会同时指向构造函数的原型对象。<br><br>3.如果我们手动给这个原型对象添加属性和方法，那么这些对象就会共享新添的属性和方法。<br><br>4.如果给新建对象添加属性，那么它就没法访问到原型上的相同属性，相当于屏蔽了原型中的相同属性。  </code></pre><br><p>   （3.4点类比CSS来说就是给新建对象添加属性和方法，相当于添加行间样式；给原型对象添加属性和<br>   方法，相当于添加class，可以影响一类元素，行间样式的优先级高于class样式的优先级）<br><br></p><br><pre><code>5.新建对象只能读取原型中的属性值，但没法修改。例如：p1.name=’winnie’,并不是修改了原型中的属性值，而是给p1对象新添了一个name属性。</code></pre><br><h2>与原型相关的属性和方法</h2><br><p><strong>1.prototype</strong><br>我们创建的每个<strong>函数</strong>都有一个prototype（原型）属性，它是一个指针，指向一个<strong>原型对象</strong>。原型对象<br>包含了特定类型的所有实例所共享的方法和属性。<br><br></p><br><p><strong>2.constructor</strong><br>constructor属性存在于原型对象中，它指向构造函数。根据需要，我们可以修改构造函数的prototype属性，让它<br>指向新的原型对象，但是constructor属性就不再指向原构造函数了，而是指向新原型对象的构造函数。<br><br></p><br><p><strong>3.[[prototype]]</strong><br><br></p><br><p>用构造方法新建一个<strong>对象</strong>之后，这个对象中默认会有一个不可访问的属性 [[prototype]] , 这个属性就指向了构造方法的原型对象。虽然说[[prototype]]是一个隐藏属性，但很多浏览器都给每一个对象提供了.<strong>proto</strong>属性去访问原型对象<br></p><br><br>4.hasOwnProperty()方法<br>作用：判断一个属性是否来自<strong>对象</strong>本身<br>注意：这个方法不能判断属性是否存在于原型中，因为有可能这个属性不存在<br><br>5.in操作符<br>作用：判断<strong>对象或者原型</strong>中是否有某个属性。只要其中一个有，就返回true<br><br></body></html>
-          
+          <html lang="en"><head><br>    <meta charset="UTF-8"><br>    <title></title><br><style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: “Helvetica Neue”, Helvetica, “Hiragino Sans GB”, Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:”C”;    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head><br><body><h2>原型</h2><br><p><strong>1.理解原型对象</strong><br><br></p><br><p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。<br><br></p><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/21/Js原型 /#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -764,14 +685,14 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
                     
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">categories</span>
-                  
+                  </a>
                 </div>
               
 
@@ -779,7 +700,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -788,7 +709,7 @@
                     
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
