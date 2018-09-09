@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
+  <meta name="description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
 <meta name="keywords" content="cors">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跨域">
 <meta property="og:url" content="https://github.com/winnie-bear/2018/05/05/跨域/index.html">
 <meta property="og:site_name" content="Winnie-bear">
-<meta property="og:description" content="定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
+<meta property="og:description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-08T09:10:05.916Z">
+<meta property="og:updated_time" content="2018-09-09T14:07:42.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
-<meta name="twitter:description" content="定义：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
+<meta name="twitter:description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
 
 
 
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-08 17:10:05" itemprop="dateModified" datetime="2018-09-08T17:10:05+08:00">2018-09-08</time>
+                <time title="Modified: 2018-09-09 22:07:42" itemprop="dateModified" datetime="2018-09-09T22:07:42+08:00">2018-09-09</time>
               
             
           </span>
@@ -404,7 +404,7 @@
       
 
       
-        <p><strong>定义</strong><br>：  js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
+        <p><strong>定义</strong><br>js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。</p>
 <hr>
 <a id="more"></a>
 <p><strong>同源</strong><br>：  域名，协议，端口均相同。</p>
@@ -420,20 +420,47 @@
 </ul>
 <p>例如：<a href="http://www.abc.com:8080/scripts/jquery.js" target="_blank" rel="noopener">http://www.abc.com:8080/scripts/jquery.js</a></p>
 <p>协议：http:// ，<br>子域名：www ，<br>主域名：abc.com ，<br>端口号：8080  。 </p>
+<ul>
+<li>浏览器有一个同源策略，其限制之一是不能通过ajax的方法去请求不同源中的文档。第二个限制是浏览器中<strong>不同域的框架</strong>之间是不能进行js的交互操作的。不同的框架之间是可以获取window对象的，但却无法获取相应的属性和方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 例如：</span><br><span class="line">有一个页面，它的地址是www.winnie.cn/a.html ， 在这个页面里面有一个iframe，它的src是winnie.cn/b.html, 很显然，这个页面与它里面iframe框架的**主域名相同，二级域名不同（子域名不同）**，所以我们是无法通过在页面中书写js代码来获取iframe中的内容。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
 <p><strong>解决跨域的方法</strong></p>
-<p>1.<strong>document.domain+iframe</strong>（只有在主域相同的时候才能使用该方法）</p>
-<p><strong>限制</strong><br>：我们只能把document.domain设置成自身或更高一级的域名。</p>
-<p>浏览器有一个同源策略，其限制之一是不能通过ajax的方法去请求不同源中的文档。第二个限制是浏览器中<strong>不同域的框架</strong>之间是不能进行js的交互操作的。不同的框架之间是可以获取window对象的，但却无法获取相应的属性和方法。</p>
-<p>例如：<br>有一个页面，它的地址是<a href="http://www.winnie.cn/a.html" target="_blank" rel="noopener">www.winnie.cn/a.html</a> ， 在这个页面里面有一个iframe，它的src是winnie.cn/b.html, 很显然，这个页面与它里面iframe框架的<strong>主域名相同，二级域名不同（子域名不同）</strong>，所以我们是无法通过在页面中书写js代码来获取iframe中的内容。</p>
-<p>2.<strong>window.name</strong></p>
-<p>原理：window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。</p>
-<p>限制：window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。</p>
-<p>实现过程：windowName.html页面使用一个隐藏的iframe来充当一个中间人的角色，由iframe去获取windowNameData.html中window.name的数据，然后windowName.html再去获取iframe中的数据。<strong>注意</strong>，windowName.html和iframe中的src不在同一个域，无法直接获取iframe中的值，因为浏览器的同源策略。所以在获取到windowNameData.html页面中的数据以后，还要将这个iframe的src设成和windowName.html同一个域才行。<br>windowName.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">      function getData()&#123;//iframe载入windowNameData.html后才执行该函数</span><br><span class="line">          let iframe=document.getElementById(&quot;proxy&quot;);</span><br><span class="line">          iframe.src=&quot;about:blank&quot;;//设置成与当前页面同源的任意一个页面，about:blank也行</span><br><span class="line">          iframe.onload=function()&#123;//这时当前页面与iframe同源，可以互相访问</span><br><span class="line">              let data=iframe.contentWindow.name;</span><br><span class="line">              alert(data);</span><br><span class="line">          &#125;</span><br><span class="line">                   </span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;iframe id=&quot;proxy&quot; src=&quot;http://winnie.cn/windowNameData.html&quot; style=&quot;display:none&quot; onload=&quot;getData()&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>1.document.domain+iframe（只有在主域相同的时候才能使用该方法）</p>
+<ul>
+<li><p>限制</p>
+<p>我们只能把document.domain设置成自身或更高一级的域名。</p>
+</li>
+<li><p>代码</p>
+<p>  documentDomain.html</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p style=&quot;color:orange;font-size:24px;&quot;&gt;我是需要访问iframe的页面&lt;/p&gt;</span><br><span class="line">    &lt;iframe id=&quot;iframe&quot; src=&quot;http://winnie.cn/documentDomain.html&quot; onload=&quot;test()&quot; name=&quot;winnie.cn&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        /* document.domain=&quot;winnie.cn&quot;; *///设置成主域</span><br><span class="line">        function test()&#123;</span><br><span class="line">            var iframe = document.getElementById(&apos;iframe&apos;);</span><br><span class="line">            var win = iframe.contentWindow;</span><br><span class="line">            var doc = win.document;</span><br><span class="line">            var name= win.name;</span><br><span class="line">            alert(win);</span><br><span class="line">            alert(doc);</span><br><span class="line">            alert(name);         </span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>  iframe.html</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p style=&quot;color:pink;font-size:20px;&quot;&gt;我是iframe要显示的页面&lt;/p&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain=&quot;winnie.cn&quot;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.window.name</p>
+<ul>
+<li><p>原理</p>
+<p> window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。</p>
+</li>
+<li><p>限制</p>
+<p> window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。</p>
+</li>
+<li><p>实现过程</p>
+<p>windowName.html页面使用一个隐藏的iframe来充当一个中间人的角色，由iframe去获取windowNameData.html中window.name的数据，然后windowName.html再去获取iframe中的数据。</p>
+<p><strong>注意</strong></p>
+<p>windowName.html和iframe中的src不在同一个域，无法直接获取iframe中的值，因为浏览器的同源策略。所以在获取到windowNameData.html页面中的数据以后，还要将这个iframe的src设成和windowName.html同一个域才行。</p>
+</li>
+</ul>
+<p>windowName.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">      function getData()&#123;//iframe载入windowNameData.html后才执行该函数</span><br><span class="line">          let iframe=document.getElementById(&quot;proxy&quot;);</span><br><span class="line">          iframe.src=&quot;about:blank&quot;;//设置成与当前页面同源的任意一个页面，about:blank也行</span><br><span class="line">          iframe.onload=function()&#123;//这时当前页面与iframe同源，可以互相访问</span><br><span class="line">              let data=iframe.contentWindow.name;</span><br><span class="line">              alert(data);</span><br><span class="line">          &#125;</span><br><span class="line">                   </span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;iframe id=&quot;proxy&quot; src=&quot;http://winnie.cn/windowNameData.html&quot; style=&quot;display:none&quot; onload=&quot;getData()&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
 <p>windowNameData.html的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.name=&quot;我是windowName页面想要获取的数据，所有可以转化成字符串来传递的数据都可以在这里使用，包括Json数据&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>3.<strong>location.hash</strong></p>
-<p>原理：因为父窗口可以对iframe进行URL读写，iframe也可以读写父窗口的URL，URL有一部分被称为hash，就是#号及其后面的字符，它一般用于浏览器锚点定位，Server端并不关心这部分，应该说HTTP请求过程中不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录。此方法的原理就是改变URL的hash部分来进行双向通信。</p>
-<p>限制：由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于父窗口域名下的一个代理iframe。</p>
+<p>3.location.hash</p>
+<ul>
+<li><p>原理</p>
+<p>因为父窗口可以对iframe进行URL读写，iframe也可以读写父窗口的URL，URL有一部分被称为hash，就是#号及其后面的字符，它一般用于浏览器锚点定位，Server端并不关心这部分，应该说HTTP请求过程中不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录。此方法的原理就是改变URL的hash部分来进行双向通信。</p>
+</li>
+<li><p>限制</p>
+<p>由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于父窗口域名下的一个代理iframe。</p>
 <ul>
 <li><p>getHash.html传送数据到hash.html页面</p>
 <ul>
@@ -450,31 +477,49 @@
 <li><p>getHash.html监听到url发生变化，触发相应的操作      </p>
 </li>
 </ul>
+<p>hash.html页面的关键代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        switch(location.hash)&#123;//参数处理</span><br><span class="line">            case &quot;#paramdo&quot;:</span><br><span class="line">            callBack();</span><br><span class="line">            break;</span><br><span class="line">            case &quot;#paramset&quot;:</span><br><span class="line">            //do something</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function callBack()&#123;</span><br><span class="line">            try&#123;</span><br><span class="line">                parent.location.hash=&quot;somedata&quot;;</span><br><span class="line">            &#125;catch(e)&#123;</span><br><span class="line">                //ie、chrome的安全机制无法修改parent.location.hash，所以要利用一个www.winnie.cn域下的代理iframe  </span><br><span class="line">                let ifrproxy=document.createElement(&quot;iframe&quot;);</span><br><span class="line">                ifrproxy.style.display=&quot;none&quot;;</span><br><span class="line">                ifrproxy.src=&quot;http://www.winnie.cn/proxy.html#somedata&quot;;</span><br><span class="line">                document.body.appendChild(ifrproxy); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>proxy.html页面的关键代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">//proxy.html的parent是hash.html,hash.html的parent是getHash.html</span><br><span class="line">        parent.parent.location.hash=self.location.hash.substring(1);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>hash.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        switch(location.hash)&#123;//参数处理</span><br><span class="line">            case &quot;#paramdo&quot;:</span><br><span class="line">               callBack();</span><br><span class="line">               break;</span><br><span class="line">            case &quot;#paramset&quot;:</span><br><span class="line">               //do something</span><br><span class="line">               break;</span><br><span class="line">        &#125;</span><br><span class="line">   </span><br><span class="line">        function callBack()&#123;</span><br><span class="line">            try&#123;</span><br><span class="line">                parent.location.hash=&quot;somedata&quot;;</span><br><span class="line">            &#125;catch(e)&#123;</span><br><span class="line">                //ie、chrome的安全机制无法修改parent.location.hash，所以要利用一个www.winnie.cn域下的代理iframe  </span><br><span class="line">                let ifrproxy=document.createElement(&quot;iframe&quot;);</span><br><span class="line">                ifrproxy.style.display=&quot;none&quot;;</span><br><span class="line">                ifrproxy.src=&quot;http://www.winnie.cn/proxy.html#somedata&quot;;</span><br><span class="line">                document.body.appendChild(ifrproxy); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>proxy.html页面的关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">//proxy.html的parent是hash.html,hash.html的parent是getHash.html</span><br><span class="line">        parent.parent.location.hash=self.location.hash.substring(1);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
 <p>4.jsonp</p>
-<p>原理：因为通过script标签引入的js是不受同源策略的限制的。JSONP包含两部分：回调函数和数据。回调函数是当响应到来时要放在当前页面被调用的函数。数据就是传入回调函数中的json数据，也就是回调函数的参数了。</p>
-<p>优缺点：</p>
+<ul>
+<li><p>原理</p>
+<p>因为通过script标签引入的js是不受同源策略的限制的。JSONP包含两部分：回调函数和数据。回调函数是当响应到来时要放在当前页面被调用的函数。数据就是传入回调函数中的json数据，也就是回调函数的参数了。</p>
+</li>
+<li><p>优缺点：</p>
 <ul>
 <li>优点：不受同源策略的影响；兼容性很好，在很古老的浏览器中都可以运行，并且请求完毕以后可以通过调用callback的方式回传结果。</li>
 <li>缺点：只支持GET请求而不支持POST等其它类型的HTTP请求；单向跨域</li>
 </ul>
-<p>jsonp.html关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">      script.src = &quot;https://api.douban.com/v2/book/search?q=javascript&amp;count=1&amp;callback=handleResponse&quot;;</span><br><span class="line">      document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
-<p>5.CORS<br>基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。实现CORS通信的关键是<strong>服务器</strong>。只要服务器实现了CORS接口，就可以跨源通信。</p>
-<p>实现过程：</p>
-<ul>
-<li>简单请求，客户端代码同Ajax相似，但是open方法中的url是绝对路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let request=createCORSRequest(&apos;GET&apos;,&quot;http://winnie.cn/data.php&quot;,true);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>服务器端的代码中要设置Access-Control-Allow-Origin，否则无法进行跨域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&apos;Access-Control-Allow-Origin: http://www.winnie.cn&apos;);</span><br><span class="line">echo &apos;Hello World!&apos;;//输出</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>jsonp.html关键代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">      script.src = &quot;https://api.douban.com/v2/book/search?q=javascript&amp;count=1&amp;callback=handleResponse&quot;;</span><br><span class="line">      document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
+<p>5.CORS</p>
 <ul>
-<li>非简单请求<br>客户端代码和简单请求类似，服务器端代码有所不同，并且会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。<br>preflight.js关键代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">  //之后设置了Access-Control-Allow-Origin，才会允许跨域</span><br><span class="line">  //要处理带凭证的请求，此Header不能使用*。</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://www.winnie.cn&apos;);</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Methods&apos;, &apos;POST, DELETE, GET,PUT&apos;);</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Headers&apos;, &apos;x-token&apos;);</span><br><span class="line">  //设置预请求缓存1天，1天内再次请求，可以跳过预请求</span><br><span class="line">  //此功能需要客户端缓存支持，如果客户端禁用缓存，那么每次都会预请求</span><br><span class="line">  res.setHeader(&apos;Access-Control-Max-Age&apos;, 60 * 60 * 24);</span><br><span class="line">  //只有设置了该Header，才允许带凭证的请求。</span><br><span class="line">  res.setHeader(&apos;Access-Control-Allow-Credentials&apos;, true); </span><br><span class="line">  res.write(&apos;Nodejs&apos;);</span><br><span class="line">  res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(8888, () =&gt; &#123;</span><br><span class="line">  console.log(&apos;started.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li><p>基本思想</p>
+<p> 使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。实现CORS通信的关键是<strong>服务器</strong>。只要服务器实现了CORS接口，就可以跨源通信。</p>
+</li>
+<li><p>实现过程：</p>
+<ul>
+<li><p>简单请求，客户端代码同Ajax相似，但是open方法中的url是绝对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let request=createCORSRequest(&apos;GET&apos;,&quot;http://winnie.cn/data.php&quot;,true);</span><br></pre></td></tr></table></figure>
+<p>服务器端的代码中要设置Access-Control-Allow-Origin，否则无法进行跨域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&apos;Access-Control-Allow-Origin: http://www.winnie.cn&apos;);</span><br><span class="line">echo &apos;Hello World!&apos;;//输出</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非简单请求</p>
+<p>客户端代码和简单请求类似，服务器端代码有所不同，并且会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。<br>preflight.js关键代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">//之后设置了Access-Control-Allow-Origin，才会允许跨域</span><br><span class="line">//要处理带凭证的请求，此Header不能使用*。</span><br><span class="line">res.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://www.winnie.cn&apos;);</span><br><span class="line">res.setHeader(&apos;Access-Control-Allow-Methods&apos;, &apos;POST, DELETE, GET,PUT&apos;);</span><br><span class="line">res.setHeader(&apos;Access-Control-Allow-Headers&apos;, &apos;x-token&apos;);</span><br><span class="line">//设置预请求缓存1天，1天内再次请求，可以跳过预请求</span><br><span class="line">//此功能需要客户端缓存支持，如果客户端禁用缓存，那么每次都会预请求</span><br><span class="line">res.setHeader(&apos;Access-Control-Max-Age&apos;, 60 * 60 * 24);</span><br><span class="line">//只有设置了该Header，才允许带凭证的请求。</span><br><span class="line">res.setHeader(&apos;Access-Control-Allow-Credentials&apos;, true); </span><br><span class="line">res.write(&apos;Nodejs&apos;);</span><br><span class="line">res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(8888, () =&gt; &#123;</span><br><span class="line">console.log(&apos;started.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <p>6.postMessage</p>
-<p>使用方法：</p>
+<ul>
+<li><p>使用方法</p>
 <ul>
 <li><p>otherWindow.postMessage(message, targetOrigin);</p>
 <ul>
@@ -484,30 +529,211 @@
 </ul>
 </li>
 </ul>
-<p>getMessage.html页面通过message事件监听并接收消息</p>
-<pre><code>&lt;script&gt;
-   //获取不同源的window对象
-    document.domain=&quot;winnie.cn&quot;;
-   //通过message事件监听并接受消息
-   let handleMessage=function(event){
-       let data=event.data;//消息
-       let origin=event.origin;//消息的源地址
-       let source=event.source;//postMessage.html中的window对象
-       if(origin==&quot;http://www.winnie.cn&quot;){
-           alert(data);
-           alert(source);
-       }  
-   } 
-   if(typeof window.addEventListener != &apos;undefined&apos;){
-       window.addEventListener(&quot;message&quot;,handleMessage,false);
-   }
-   else if(typeof window.attachEvent != &apos;undefined&apos;){
-       //IE
-       window.attachEvent(&quot;onmessage&quot;,handleMessage);
-   }
-&lt;/script&gt;
-</code></pre><p>7.comet</p>
+</li>
+</ul>
+<p>getMessage.html页面通过message事件监听并接收消息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">       //获取不同源的window对象</span><br><span class="line">        document.domain=&quot;winnie.cn&quot;;</span><br><span class="line">       //通过message事件监听并接受消息</span><br><span class="line">       let handleMessage=function(event)&#123;</span><br><span class="line">           let data=event.data;//消息</span><br><span class="line">           let origin=event.origin;//消息的源地址</span><br><span class="line">           let source=event.source;//postMessage.html中的window对象</span><br><span class="line">           if(origin==&quot;http://www.winnie.cn&quot;)&#123;</span><br><span class="line">               alert(data);</span><br><span class="line">               alert(source);</span><br><span class="line">           &#125;  </span><br><span class="line">       &#125; </span><br><span class="line">       if(typeof window.addEventListener != &apos;undefined&apos;)&#123;</span><br><span class="line">           window.addEventListener(&quot;message&quot;,handleMessage,false);</span><br><span class="line">       &#125;</span><br><span class="line">       else if(typeof window.attachEvent != &apos;undefined&apos;)&#123;</span><br><span class="line">           //IE</span><br><span class="line">           window.attachEvent(&quot;onmessage&quot;,handleMessage);</span><br><span class="line">       &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">```    </span><br><span class="line">7.Comet</span><br><span class="line"></span><br><span class="line">**定义**</span><br><span class="line"></span><br><span class="line">  一种服务器向页面推送数据的技术，能够让信息近乎实时地被推送到页面上。有两种实现方式：长轮询和流。</span><br><span class="line"></span><br><span class="line">7.1.长轮询</span><br><span class="line">  * 定义</span><br><span class="line"></span><br><span class="line">    页面发送一个到服务器的请求，然后服务器一直保持连接打开，直到有数据可发送。发送完数据以后，**浏览器**关闭连接，随即又发起一个到服务器的新请求。轮询的优势是所有浏览器都支持，因为使用XHR对象和setTimeout()就能实现。</span><br><span class="line"></span><br><span class="line">  * 代码</span><br><span class="line"></span><br><span class="line">    longpolling.html</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;发送请求&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn = document.querySelector(&quot;#btn&quot;), counter = 1;
+        var poll = function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open(&apos;GET&apos;, &quot;http://localhost:3000/poll/&quot;+counter, true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4) {
+                    var res = document.querySelector(&quot;#result&quot;);
+                    res.innerHTML += xhr.responseText + &quot;&lt;br&gt;&quot;;
+                    if(++counter &lt;= 5){
+                        poll();
+                    } else {
+                        counter = 1;
+                    }
+                }
+            };
+            xhr.send(null);
+        };
+        btn.onclick = function(){
+            document.querySelector(&quot;#result&quot;).innerHTML = &quot;&quot;;
+            poll();
+        };
+    &lt;/script&gt;
+&lt;/body&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cometServer.js</span><br></pre></td></tr></table></figure>
 
+app.get(&quot;/poll/:id&quot;,function (req,res) {
+    res.append(&quot;Access-Control-Allow-Origin&quot;,&quot;http://www.winnie.cn&quot;);
+    setTimeout(function () {
+        res.send(&quot;第&quot;+req.params.id+&quot;次请求&quot;);
+    },2000)
+});
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">7.2.HTTP流</span><br><span class="line">* 定义</span><br><span class="line"></span><br><span class="line">  流不同于轮询，因为它在页面的整个生命周期内只使用**一个HTTP连接**。在Firefox、Safari、Opera、Chrome中，通过侦听readystatechange事件及检测readySate的值是否为3，就可以利用XHR对象实现HTTP流。随着不断从服务器接收数据，readySate的值会周期性地变为3，当readySate值为3时，responseText属性中就会保存接收到的所有数据。</span><br><span class="line">* 代码</span><br><span class="line"></span><br><span class="line">    httpStream.html</span><br></pre></td></tr></table></figure>
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;发送请求&lt;/button&gt;
+    &lt;div id=&quot;results&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn2 = document.querySelector(&quot;#btn&quot;);
+        btn2.onclick = function(){
+            var client = createClient(&quot;http://localhost:3000/stream&quot;, function(data){
+                document.querySelector(&quot;#results&quot;).innerHTML += &quot;Received:&quot;+data+&quot;&lt;br&gt;&quot;;
+            }, function(data){
+                document.querySelector(&quot;#results&quot;).innerHTML += &quot;Done!&quot;;
+            });
+        }
+        function createClient(url, process, finished){
+            var xhr = new XMLHttpRequest(), received = 0;//received用于记录已经处理了多少个字符
+            xhr.open(&apos;GET&apos;, url, true);//true表示异步
+            xhr.onreadystatechange = function(){
+                var result;
+                if(xhr.readyState == 3){
+                    result = xhr.responseText.substring(received);
+                    received += result.length;
+                    process(result);//回调函数处理传入的新数据
+                } else if(xhr.readyState == 4) {
+                    finished(xhr.responseText);
+                }
+            }
+            xhr.send(null);
+            return xhr;
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cometServer.js</span><br></pre></td></tr></table></figure>
+
+app.get(&quot;/stream&quot;,function (req,res) {
+    res.append(&quot;Access-Control-Allow-Origin&quot;,&quot;http://www.winnie.cn&quot;);
+    res.append(&apos;Content-Type&apos;,&apos;text/html&apos;);
+    var count = 0;
+    setTimeout(function generateRandomNum() {
+        res.write(Math.random()+&apos; &apos;);
+        count++;
+        if(count&lt;5){
+            /* 现在已经不推荐使用arguments.callee()；
+            原因：访问 arguments 是个很昂贵的操作，因为它是个很大的对象，
+            每次递归调用时都需要重新创建。影响现代浏览器的性能，还会影响闭包。*/
+            /* setTimeout(arguments.callee,1000); */
+                setTimeout(generateRandomNum,1000);
+        }else{
+        /* 结束响应，告诉客户端所有消息已经发送。当所有要返回的内容发送完毕时，该函数必须被调用一次。
+            如何不调用该函数，客户端将永远处于等待状态。 */
+            res.end();
+        }
+    },1000);
+});
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">8.SSE(Server-Sent Events,服务器发送事件)</span><br><span class="line">* 定义</span><br><span class="line"></span><br><span class="line">  创建到服务器的单向连接，服务器可以通过这个连接发送任意数量的数据，服务器响应的MIME类型必须是text/event-stream.服务器发回的数据以字符串的形式保存在event.data中。响应的格式是纯文本，最简单的情况是每个数据项都带有前缀data:，只有在包含data:的数据行后面有**空行**时，才会触发message事件。</span><br><span class="line"></span><br><span class="line">* 代码</span><br><span class="line"></span><br><span class="line">    SSE.html</span><br></pre></td></tr></table></figure>
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;建立连接&lt;/button&gt;
+    &lt;button id=&quot;btn2&quot;&gt;关闭连接&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var btn=document.querySelector(&quot;#btn&quot;);
+        var btn2=document.querySelector(&quot;#btn2&quot;);
+        var result=document.querySelector(&quot;#result&quot;);
+        var source;
+        btn.onclick=function () {
+            source=new EventSource(&quot;http://localhost:8088/sse&quot;);
+            //参数是false，事件处理程序以冒泡模式触发
+            source.addEventListener(&quot;open&quot;,function () {
+                result.innerHTML+=&quot;建立连接&lt;br/&gt;&quot;;
+            },false);
+            source.addEventListener(&quot;error&quot;,function () {
+                result.innerHTML+=&quot;连接无法建立&lt;br/&gt;&quot;;
+            },false);
+            source.addEventListener(&quot;connecttime&quot;,function (e) {
+                result.innerHTML+=&quot;连接建立时间：&quot;+e.data+&quot;&lt;br/&gt;&quot;;
+            },false);
+            source.addEventListener(&quot;message&quot;,function (e) {
+                result.innerHTML+=&quot;接受更新时间：&quot;+e.data+&quot;&lt;br/&gt;&quot;;
+            },false)
+        };
+        btn2.onclick=function () {
+            if(source){
+                source.close();
+                result.innerHTML+=&quot;关闭连接&lt;br/&gt;&quot;;
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSE.js</span><br></pre></td></tr></table></figure>
+
+var app=require(&quot;express&quot;)();
+app.get(&quot;/sse&quot;,function (req,res) {
+    res.append(&quot;Access-Control-Allow-Origin&quot;,&quot;http://www.winnie.cn&quot;);
+    res.append(&quot;Content-Type&quot;,&quot;text/event-stream&quot;);
+    res.write(&quot;event: connecttime\n&quot;);
+    var timer=setInterval(function () {
+    //\r使光标移动到本行行首，\n使光标移动到下一行行首
+        res.write(`data:${new Date()}\r\n\n`);
+    },2000);
+});
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">9.Web Sockets</span><br><span class="line">* 目标</span><br><span class="line"></span><br><span class="line">    在一个单独的持久连接上提供双工、双向通信。</span><br><span class="line">* 实现</span><br><span class="line"></span><br><span class="line">    利用npm中socket.io的插件，socket.io 会自动重新连接</span><br><span class="line"></span><br><span class="line">* 代码</span><br><span class="line"></span><br><span class="line">    双向交流，模拟情景：客户端不停发送随机数,当随机数大于0.95时,服务端延时1s后向客户端发送警告以及警告次数。</span><br><span class="line"></span><br><span class="line">    客户端 WebSocket.html</span><br><span class="line"></span><br><span class="line">    *注意：在head标签中用script标签引入node_modules/socket.io-client/dist/socket.io.js*</span><br></pre></td></tr></table></figure>
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;连接到服务器&lt;/button&gt;
+    &lt;script&gt;
+        var btn=document.getElementById(&quot;btn&quot;);
+
+        btn.onclick=function () {
+            var socket = io.connect(&apos;http://localhost:8090&apos;);
+            let interval = setTimeInterval(()=&gt;{
+            socket.emit(&apos;random&apos;, Math.random());
+            }, 500);
+
+            socket.on(&apos;warn&apos;, count=&gt;{
+            console.log(&apos;warning count : &apos;+count);
+            });
+
+            socket.on(&apos;disconnect&apos;, ()=&gt;{
+            console.log(&apos;disconnected!&apos;);
+            clearInterval(interval);
+            });
+        };
+    &lt;/script&gt;
+&lt;/body&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务器端 websocket.js</span><br></pre></td></tr></table></figure>
+
+io.on(&apos;connection&apos;, socket=&gt;{
+    socket.on(&apos;random&apos;, value=&gt;{
+    console.log(value);
+    if(value&gt;0.95){
+        if(typeof socket.warnign===&apos;undefined&apos;){
+        socket.warning = 0;// socket对象可用来存储状态和自定义数据
+        }
+        setTimeout(()=&gt;{
+        socket.emit(&apos;warn&apos;, ++socket.warning);
+        }, 1000);
+    }
+    });
+});  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">10.图像Ping</span><br><span class="line">* 定义</span><br><span class="line"></span><br><span class="line">    与服务器进行简单、单向的跨域通信。请求的数据是通过查询字符串形式发送的，而响应可以是任何内容。</span><br><span class="line"></span><br><span class="line">* 用途</span><br><span class="line"></span><br><span class="line">  常用于跟踪用户点击页面或动态广告曝光次数</span><br><span class="line"></span><br><span class="line">* 缺点</span><br><span class="line">  - 只能发送Get请求</span><br><span class="line">  - 无法访问服务器的响应文本</span><br><span class="line"></span><br><span class="line">* 代码</span><br><span class="line"></span><br><span class="line">    imagePing.html</span><br></pre></td></tr></table></figure>
+
+&lt;body&gt;
+&lt;h3&gt;image Ping&lt;/h3&gt;
+&lt;button id=&quot;start-ping&quot;&gt;发送请求&lt;/button&gt;
+&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    var btn=document.getElementById(&apos;start-ping&apos;);
+    btn.onclick=function(){
+    var img=new Image();
+    img.onload=img.onerror=function(){
+        document.getElementById(&apos;result&apos;).innerHTML=&quot;finished&quot;;
+    }
+    img.src=`http://localhost:3000/img?r=${Math.random()}`;
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imagePing.js</span><br></pre></td></tr></table></figure>
+
+var app=require(&apos;express&apos;)();
+app.get(&apos;/img&apos;,function (req,res) {
+res.send(&quot;我是一张图片&quot;);
+});
+app.listen(3000);
+```
+</code></pre>
       
     </div>
 
