@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前端面试准备（个人总结）">
+<meta name="keywords" content="面试
+- JS
+- Vue
+- HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试准备（个人总结）">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/03/10/前端面试准备（个人总结）/index.html">
+<meta property="og:site_name" content="Winnie-bear">
+<meta property="og:description" content="前端面试准备（个人总结）">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
+<meta property="og:updated_time" content="2019-03-10T07:05:44.230Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试准备（个人总结）">
+<meta name="twitter:description" content="前端面试准备（个人总结）">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/03/10/前端面试准备（个人总结）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端面试准备（个人总结） | Winnie-bear</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Winnie-bear</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/03/10/前端面试准备（个人总结）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winnie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Winnie-bear">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试准备（个人总结）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-10 00:00:00 / Modified: 15:05:44" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前端面试准备（个人总结）"><a href="#前端面试准备（个人总结）" class="headerlink" title="前端面试准备（个人总结）"></a>前端面试准备（个人总结）</h2><a id="more"></a>
+<ul>
+<li><h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><blockquote>
+<p>您好，我叫xx，是中南民族大学一名大三的学生，专业是软件工程。</p>
+<ul>
+<li><p>学习方面</p>
+<p>​       虽然我在校主修的是软件工程专业，但是我加入了学校新思路实验室的前端组，在此期间，通过视频，博客等渠道自学了前端相关的知识与技术，并承担学校各个学院网站的开发与维护，积累了相关经验。</p>
+</li>
+<li><p>项目实践</p>
+<p>​       从接触前端到至今也有快一年的时间了，期间写过静态页面也开发过项目，由于学校的网站大多是基于webplus搭建的，所以写了不少静态页面。去年年底接了一个前后端联合开发的项目，第一次利用自己所学的框架去开发一个项目，因此印象很深刻。</p>
+</li>
+<li><p>未来规划</p>
+<p>​        目前的规划就是找到一份不错的实习，然后努力转正。转正以后，还要不断学习晋升，在该奋斗的年纪，决不能马虎。不忘初心，砥砺前行，一直是我大学期间所践行的。</p>
+</li>
+<li><p>最后</p>
+<p>​        对于学习和工作，我一向都是很细心严谨的，并且注重效率和方法。同时，我也是一个很喜欢计划和安排的人，比如我会计划一件事情，应该从什么时候开始，经过多久到哪个阶段，最后什么时候完结。</p>
+<p>​        以上就是我的自我介绍，谢谢倾听。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="对前端的了解"><a href="#对前端的了解" class="headerlink" title="对前端的了解"></a>对前端的了解</h4><blockquote>
+<p>​    现如今前端可谓是包罗万象，各种高大上的基础库和框架，极具效率的构建工具，还有近几年流行的微信小程序等等。一些一两个文件的项目并非是前端技术的主要应用场景，更具商业价值的则是复杂的Web应用，它们功能完善，界面繁多，为用户提供了完整的产品体验。从本质上，所有的Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（简称GUI），即为前端。由于Web应用的复杂程度与日俱增，用户对其前端界面也提出了更高的要求，Web前端开发开始趋于一种工程化。</p>
+<p>​     前端工程开发大致分为四个阶段：</p>
+<p>​     第一阶段：库/框架的选型</p>
+<p>​            现在基本没有人完全从0开始做网站，vue/react等框架横空出世，解放了不少生产力，合理的技     术选型可以为项目节省许多工程量，这点毋庸置疑。在框架选择的时候，要考虑到团队成员的技术栈，作者对文档的维护程度，还有个人对框架原理的理解等等。</p>
+<p>​     第二阶段：简单构建优化</p>
+<p>​            选型之后基本就可以开始敲代码了，不过光解决开发效率还不够，必须要兼顾运行性能。第二阶段会选型一种构建工具，对代码进行压缩，校验，之后再以页面为单位进行简单的资源合并。</p>
+<p>​     第三阶段：JS/CSS模块化开发</p>
+<p>​             分而治之是软件工程中的重要思想，是复杂系统开发和维护的基石，这点放在前端开发中同样适用。在解决了基本开发效率和运行效率之后，就要开始思考维护效率，模块化是目前前端最流行的分治手段。</p>
+<p>​       JS模块化方案：AMD/CommonJS/ES6 Module    CSS模块化开发：less、sass、stylus等预处理器的import/mixin特性支持下实现的</p>
+<p>​      第四阶段：组件化开发与资源管理</p>
+<p>​           <strong>组件化开发</strong></p>
+<p>​            前端作为一种GUI软件，光有JS/CSS的模块化还不够，对于UI组件的分治也有着同样迫切的需求。</p>
+<p>​      <img src="https://i.loli.net/2019/03/08/5c8222d4419dd.png" alt="组件"></p>
+<p>​       前端组件化开发理念，简单解读一下：</p>
+<ol>
+<li>页面上的每个 <strong>独立的</strong> 可视/可交互区域视为一个组件；</li>
+<li><strong>每个组件对应一个工程目录</strong>，组件所需的各种资源都在这个目录下<strong>就近维护</strong>；</li>
+<li>由于组件具有独立性，因此组件与组件之间可以 <strong>自由组合</strong>；</li>
+<li>页面只不过是组件的容器，负责组合组件形成功能完整的界面；</li>
+<li>当不需要某个组件，或者想要替换组件时，可以整个目录删除/替换。</li>
+</ol>
+<p>​      <strong>资源管理</strong></p>
+<p>​      模块化/组件化开发之后，我们最终要解决的，就是模块/组件加载的技术问题。然而前端与客户端GUI软件有一个很大的不同：<strong>前端是一种远程部署，运行时增量下载的GUI软件</strong>。</p>
+<p>​      前端应用没有安装过程，其所需程序资源都部署在远程服务器，用户使用浏览器访问不同的页面来加载不同的资源，随着页面访问的增加，渐进式的将整个程序下载到本地运行，“增量下载”是前端在工程上区别于客户端GUI软件的根本原因。</p>
+<p>​       根据“增量”的原则，我们应该精心规划每个页面的资源加载策略，使得用户无论访问哪个页面都能按需加载页面所需资源，没访问过的无需加载，访问过的可以缓存复用，最终带来流畅的应用体验。这正是Web应用“免安装”的魅力所在。</p>
+<p>​       由“增量”原则引申出的前端优化技巧几乎成为了性能优化的核心，有加载相关的按需加载、延迟加载、预加载、请求合并等策略；有缓存相关的浏览器缓存利用，缓存更新、缓存共享、非覆盖式发布等方案；还有复杂的BigRender、BigPipe、Quickling、PageCache等技术。这些优化方案无不围绕着如何将增量原则做到极致而展开。</p>
+<p>​      <em>参考自<a href="https://github.com/fouber/blog/issues/10">前端工程——基础篇</a></em></p>
+</blockquote>
+</li>
+</ul>
+<p>​          </p>
+<ul>
+<li><h4 id="JS三座大山"><a href="#JS三座大山" class="headerlink" title="JS三座大山"></a>JS三座大山</h4><ul>
+<li><h6 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h6></li>
+</ul>
+<p>​        <em>延伸：原型继承和class实现继承</em>，并不是所有函数都有prototype属性，原型五大规则</p>
+<blockquote>
+<p><strong>原型五大规则</strong></p>
+<p>1.所有引用类型（函数 对象 数组），都具有对象特性，即可自由扩展属性</p>
+<p>2.所有JS对象都有 _ proto _ 属性（隐式原型），属性值是一个普通对象</p>
+<p>3.函数都有prototype属性（显式原型）,除了Function.prototype.bind()，属性值也是一个普通<strong>对象</strong></p>
+<p>4.对象的_ proto <em>属性指向其构造函数的prototype属性值  （obj.</em> _ proto _===  Obj.prototype ）</p>
+<p>5.当试图得到对象的某个属性时，如果此对象本身没有这个属性，那么会去其_ proto _（即其构造函数的prototype）中寻找</p>
+<p><strong>原型链</strong></p>
+<p>​        简单来说，就是_ proto _将对象和原型连接起来。</p>
+<p><strong>原型继承和Class继承</strong></p>
+<p>​        组合继承和寄生组合继承是原型继承的两种方式</p>
+<ul>
+<li><p>组合继承</p>
+<ul>
+<li><p>实现：</p>
+<p>  1.在子类的构造函数里面调用Parent.call(this,value)继承父类的属性</p>
+<p>  2.将子类的prototype指向new Parent()构造出来的实例，继承父类的函数</p>
+</li>
+<li><p>缺点</p>
+<pre><code>继承父类函数的时候，调用了父类的构造函数，导致子类原型上多了不必要的父类属性,存在内存上的浪费
+</code></pre></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Parent.prototype.getValue=funtion()&#123;</span><br><span class="line">&gt;       <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       Parent.call(<span class="keyword">this</span>,val);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Child.prototype=<span class="keyword">new</span> Parent();<span class="comment">//Child.prototype._proto_ === Parent.prototype</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>寄生组合继承</p>
+<ul>
+<li><p>实现</p>
+<p> 优化掉组合继承的缺点，关键在继承父类函数这一步</p>
+</li>
+<li><p>优点</p>
+<p>既解决了无用父类属性的问题，还能正确找到子类的构造函数</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Parent.prototype.getValue=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;       <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="comment">//继承父类属性</span></span><br><span class="line">&gt;      Parent.call(<span class="keyword">this</span>,val); </span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Child.prototype=<span class="built_in">Object</span>.create(Parent.protype,&#123;</span><br><span class="line">&gt;       <span class="keyword">constructor</span>:&#123;</span><br><span class="line">&gt;           value:Child,</span><br><span class="line">&gt;           enumerable:<span class="literal">false</span>,</span><br><span class="line">&gt;           writable:<span class="literal">true</span>,</span><br><span class="line">&gt;           configurable:<span class="literal">true</span></span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   &#125;);<span class="comment">//Object.create()方法创建一个新对象，使用现有对象来提供新建对象的__proto__</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>Class继承</p>
+<ul>
+<li>Class的本质就是函数，它是一种语法糖</li>
+<li>实现核心是extends表明继承哪个类，还有在子类构造函数中调用super函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; Class Parent&#123;</span><br><span class="line">&gt;    <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;        <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;    getValue()&#123;</span><br><span class="line">&gt;        <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Class Child extends Parent&#123;</span><br><span class="line">&gt;    <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;        <span class="keyword">super</span>(val);</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<ul>
+<li><h6 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h6><p><em>延伸：this、自由变量、作用域链、变量提升、执行上下文</em></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>执行上下文（执行环境）的分类<ul>
+<li>全局执行环境：是JS代码开始运行时的默认环境（浏览器中为window对象）。全局执行环境的变量对象始终都是作用域链中的最后一个对象。</li>
+<li>函数执行环境：当某个函数被调用时，会先创建一个执行环境及相应的作用域链。然后使用arguments和其他命名参数的值来初始化执行环境的变量对象。</li>
+<li>使用eval()执行代码</li>
+</ul>
+</li>
+</ul>
+<p>​           注：不涉及ES6中的块级作用域</p>
+<ul>
+<li><p><strong>执行上下文的组成</strong></p>
+<ul>
+<li>Variable Object（VO）  : 变量（variables)，函数声明（function declaration)，函数形参（arguments）</li>
+<li>[[Scope属性]] ：指向作用域链，主要用于变量查找</li>
+<li>this指针:指向一个环境对象，是调用当前可执行代码的对象的引用</li>
+</ul>
+</li>
+<li><p>产生执行上下文的两个阶段</p>
+<ul>
+<li>创建阶段（当函数被调用，但是开始执行函数内部代码之前）<ul>
+<li>创建变量对象VO</li>
+<li>设置[[Scope]]属性的值</li>
+<li>设置this的值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>激活/代码执行阶段</li>
+</ul>
+<p>​         初始化变量对象，即设置变量的值、函数的引用，然后解释/执行代码</p>
+<ul>
+<li><strong>创建变量对象（VO）过程</strong><ul>
+<li>1.根据函数的参数，创建并<strong>初始化arguments object</strong></li>
+<li>2.扫描函数内部代码，查找<strong>函数声明</strong>（function declaration） <ul>
+<li>对于所有找到的函数声明，将函数名和函数引用存入VO中</li>
+<li>如果VO中已经有同名函数，那么就进行覆盖</li>
+</ul>
+</li>
+<li>3.扫描函数内部代码，查找<strong>变量声明</strong>（Variable declaration） <ul>
+<li>对于所有找到的变量声明(通过var声明)，将变量名存入VO中，并初始化为undefined</li>
+<li>如果变量名跟已经声明的形参或函数相同，则什么也不做</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​        注：步骤2和3成为<strong>变量提升</strong>，函数声明提升优于变量声明提升</p>
+<ul>
+<li><p>作用域 VS 执行上下文</p>
+<ul>
+<li><p>作用域的组成</p>
+<p>​       1.作用域内变量信息和代码结构信息的记录（Environment Record)  </p>
+<p>​        2.一个指向当前作用域的父作用域的引用</p>
+</li>
+<li><p>两者的关系</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​                  存储关系，执行上下文中的[[Scope]]属性存储了当前作用域</p>
+<p>​                  执行上下文在运行时确定，是动态的，随时会变；作用域是在定义时确定，永远不会变</p>
+<ul>
+<li><p>闭包</p>
+<ul>
+<li><p>变量的作用域无非就是两种:全局变量和局部变量</p>
+</li>
+<li><p>JS语言的特殊之处，函数内部可以直接读取全局变量，但函数外部无法获取函数内的局部变量</p>
+</li>
+<li><p>闭包的出现：需要得到函数内的局部变量</p>
+</li>
+<li><p>闭包的概念：能够读取到其他函数内部变量的函数。本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+</li>
+<li><p>闭包的用途</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​               1.可以读取函数内部的变量  2.让这些变量的值始终保持在内存中  ——&gt;涉及到垃圾回收机制</p>
+<ul>
+<li>自由变量和作用域链</li>
+</ul>
+<p>​                自由变量是当前作用域没有定义的变量</p>
+<p>​                作用域链：自由变量的查找，函数的父级作用域是定义时的父级作用域，而非执行时的</p>
+<ul>
+<li>this相关</li>
+</ul>
+<p>​       关键：this是执行上下文的组成部分，上下文在代码执行时才确定，所以this要在执行时才能确认值，定义时无法确认。</p>
+<p>使用场景：</p>
+<p>​       1.箭头函数：由包裹箭头函数的第一个普通函数的this决定</p>
+<p>​       2.构造函数：被固化在实例上</p>
+<p>​       3.bind、apply、call：取决于第一个参数</p>
+<p>​       4.对象属性：指向调用的对象</p>
+<p>​       5.普通函数：指向window</p>
+<p>参考：<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">学习Javascript闭包（Closure）</a></p>
+<p>​            <a href="https://www.jianshu.com/p/8f19e45fd1f1" target="_blank" rel="noopener">JavaScript 论代码执行上下文</a></p>
+</blockquote>
+<p>​           </p>
+<ul>
+<li><h6 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h6><p><em>延伸：generator、Promise、async/await</em>、Event Loop</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>Promise  ——&gt;手写一个Promise</p>
+<ul>
+<li><p>Promise 翻译过来有承诺的意思，这个承诺在未来会有一个确切的回复，并且该承诺有三种状态，分别是：1.pengding(等待中)   2.resolved(完成了)  3.rejected(拒绝了)</p>
+<p>注意：这个状态一旦从等待状态变为其他状态就永远无法更改了</p>
+</li>
+<li><p>我们在构造 Promise 的时候，<strong>构造函数内部的代码是立即执行的</strong></p>
+</li>
+<li><p>链式调用：每次调用then之后返回的都是一个Promise,并且是一个全新的Promise。如果在           then中使用了return,那么return的值会被Promise.resolve()封装</p>
+</li>
+<li><p>缺点：1.无法取消Promise(Promise 的设计就是一个状态机，pending 到 resolve / reject 的状态变换是单向且唯一的，没有所谓的 cancel 状态)   2.错误需要通过回调函数捕获</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>generator</p>
+<ul>
+<li>generator函数是<strong>异步操作的一个容器</strong>，在实例化后并没有立即执行，而是返回一个迭代器。</li>
+<li>CO库就是在恰当的时候执行这些操作，基于Promise实现的。generator经常搭配CO一起使用，要求yield是thunk函数或者Promise。</li>
+<li>next执行时传入的参数是上一个yield的返回值，如果不传参，yield永远返回undefined</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>async/await</p>
+<ul>
+<li><p>外异内同：async关键字声明了一个异步函数，函数体内await语句是同步执行的。</p>
+</li>
+<li><p>async：返回的是一个Promise对象。当async函数返回一个值时，会被Promise.resolve()封装</p>
+</li>
+<li><p>await +Promise/值：等待一个表达式，该表达式返回Promise.resolve()中的参数或者一个具体的值。</p>
+</li>
+<li><p>缺点：await将异步代码改造成了同步代码，如果多个异步代码没有依赖却使用了await会导致性能降低。可以使用Promise.all来解决。</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><h4 id="JS其它重要知识"><a href="#JS其它重要知识" class="headerlink" title="JS其它重要知识"></a>JS其它重要知识</h4><ul>
+<li><h6 id="垃圾回收机制（Garbage-Collection-GC-算法）"><a href="#垃圾回收机制（Garbage-Collection-GC-算法）" class="headerlink" title="垃圾回收机制（Garbage Collection,GC 算法）"></a>垃圾回收机制（Garbage Collection,GC 算法）</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>V8为方便实现垃圾回收，将堆分为两个生代：<ul>
+<li>新生代：为新建的对象分配空间，新生代中的对象一般存活时间较短，经常需要进行垃圾回收。其内存空间被分为两半，一半是From空间，另一半是To空间。<strong>新创建的对象会被放入From空间中，当From空间被占满时，新生代GC就会启动。算法会检查From空间中存活的对象并复制到To空间，如果有失活的对象就销毁，复制完成后，将From空间和To空间互换，这样GC就结束了。</strong></li>
+<li>老生代：老生代中的对象一般存活时间较长且数量也多。一般使用标记清除算法和标记压缩算法。<ul>
+<li>标记清除（Mark-Sweep）：分为标记和清除两个阶段。在标记阶段需要遍历堆中的所有对象，并标记活着的对象，然后进入清除阶段。在清除阶段，只清除那些没有被标记的对象（即失活对象）。该算法有个缺点，就是一次标记清除后，内存空间往往是不连续，会产生很多的内存碎片。</li>
+<li>标记压缩（Mark-Compact）：此算法是为了解决内存碎片的问题而出现的。将清除阶段变为压缩阶段，将活着的对象向内存区的一端移动，直到所有对象都移动完成后清理掉不需要的内存。缺点是涉及到对象的移动，所以效率不是很高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对象的晋升（新生代——&gt;老生代）<ul>
+<li>1.对象从From空间复制到To空间时，会检查它的内存地址来判断这个对象是否经历过一次新生代的清理。如果是，则晋升到老生代中。</li>
+<li>2.对象从From空间复制到To空间时，如果To空间已被使用超过25%，那么这个对象将直接晋升到老生代。</li>
+</ul>
+</li>
+</ul>
+<p>参考自<a href="https://segmentfault.com/a/1190000000440270" target="_blank" rel="noopener">浅谈V8引擎中的垃圾回收机制</a></p>
+</blockquote>
+<ul>
+<li><h6 id="bind、call、apply"><a href="#bind、call、apply" class="headerlink" title="bind、call、apply"></a>bind、call、apply</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>如何实现这几个函数</p>
+<ul>
+<li>如果不传入第一个参数，那么上下文默认为window</li>
+<li>改变this指向，让新的对象可以执行该函数，并接受参数  （this的使用场景：对象属性使用）</li>
+</ul>
+</li>
+<li><p>手写call函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="comment">/* 分三步实现：1.将执行函数设为对象的属性 2.执行函数 3.删除函数 */</span></span><br><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myCall(obj)&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt;      obj.fn=<span class="keyword">this</span>;<span class="comment">//设为对象属性</span></span><br><span class="line">&gt;      <span class="keyword">const</span> args=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt;      <span class="keyword">const</span> res=obj.fn(...args);</span><br><span class="line">&gt;      <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt;      <span class="keyword">return</span> res;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>手写 apply</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myApply=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt;      obj.fn=<span class="keyword">this</span>;</span><br><span class="line">&gt;      <span class="keyword">let</span> res;</span><br><span class="line">&gt;      <span class="comment">//是否传入第二个参数</span></span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">1</span>])&#123;</span><br><span class="line">&gt;          res=obj.fn(...arguments[<span class="number">1</span>]);</span><br><span class="line">&gt;      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;          res=obj.fn();</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt;      <span class="keyword">return</span> res;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>手写bind</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="comment">/* 注意三点：1.改变this指向，可用call或apply  2.返回的是一个函数，也可以传参，两次传参要合并   3.对绑定函数的使用new 操作符时，传入的this忽略，但其他参数仍可用（this规则的优先级，new优先级最高） */</span></span><br><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myBind=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Error"</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      <span class="keyword">const</span> execFn=<span class="keyword">this</span>;<span class="comment">//保存调用bind的函数</span></span><br><span class="line">&gt;      <span class="keyword">const</span> args1=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt;      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;          <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> F)&#123;<span class="comment">//this在执行时才确定，此时this指向new F()创建的对象</span></span><br><span class="line">&gt;              <span class="keyword">return</span> <span class="keyword">new</span> exeFn(...args1,...arguments);</span><br><span class="line">&gt;          &#125;</span><br><span class="line">&gt;          <span class="keyword">return</span> exeFn.apply(obj,args1.concat(...arguments));</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>任务类型</p>
+<ul>
+<li>宏任务（macroTask) : script、setTimeout、setInterval、setImmediate、I/O、UI rendering</li>
+<li>微任务（microTask) : promise、process.nextTick、MutationObserver</li>
+</ul>
+</li>
+<li><p>浏览器中的Event Loop</p>
+<ul>
+<li>执行顺序：主线程（同步代码）——&gt;微任务——&gt;宏任务</li>
+<li>当执行JS代码时，遇到异步代码，会被挂起并在需要执行的时候放入Task队列中。一旦<strong>执行栈</strong>为空，Event Loop 会从Task队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说JS中的异步还是同步行为</li>
+</ul>
+</li>
+<li><p>Node中的Event Loop</p>
+<ul>
+<li><p>六个阶段：timers，pengding callbacks，idle、prepare，poll，check，close callbacks</p>
+</li>
+<li><p>执行顺序：按阶段顺序执行，并且每一阶段结束都要查询是否存在微任务，若存在，则全部执行（nextTick优先）</p>
+</li>
+<li><p><strong>timers</strong>      执行setTimeout、setInterval</p>
+</li>
+<li><p><strong>poll</strong>         </p>
+<ul>
+<li>1.回到timers阶段执行回调</li>
+<li>2.执行I/O回调</li>
+</ul>
+</li>
+<li><p><strong>check</strong>         执行setImmediate</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>好处</p>
+<ul>
+<li>解决命名冲突  </li>
+<li>提供复用性</li>
+<li>提高代码可维护性</li>
+</ul>
+</li>
+<li><p>立即执行函数</p>
+<ul>
+<li>通过函数作用域，解决了命名冲突、污染全局作用域的问题</li>
+</ul>
+</li>
+<li><p>AMD/CMD    主要用于浏览器</p>
+<ul>
+<li><p>Asynchronous Module Definition(AMD 异步模块定义)</p>
+<p>​    RequireJS在推广过程中对模块定义的规范化产出。特点是依赖前置，会先尽早地执行依赖模块。</p>
+</li>
+<li><p>Common Module Definition(CMD  公共模块定义)</p>
+<p>  SeaJS在推广过程中对模块定义的规范化产出。特点是依赖就近，延迟执行。</p>
+</li>
+</ul>
+</li>
+<li><p>CommonJS     主要用于服务器</p>
+<ul>
+<li>NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式写的</li>
+</ul>
+</li>
+<li><p>ES6 Module     浏览器和服务器通用的模块解决方案</p>
+<ul>
+<li><p>两个命令构成：import 和 export</p>
+</li>
+<li><p>ES6 Module 与 CommonJS的区别</p>
+<ul>
+<li><p>前者不支持动态导入，后者支持</p>
+</li>
+<li><p>前者是异步导入，因为用于浏览器，需要下载文件，如果采用同步导入会对渲染有很大影响</p>
+<p>后者是同步导入，因为用于服务器，文件都在本地</p>
+</li>
+<li><p>前者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会随导出值变化；后者在导出时都是值拷贝，就算导出值改变了，导入值也不会改变。如果想更新值，就要重新导入一次</p>
+</li>
+<li><p>ES Module 会编译成 require/exports 来执行</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="浏览器相关"><a href="#浏览器相关" class="headerlink" title="浏览器相关"></a>浏览器相关</h4><ul>
+<li><h6 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h6></li>
+<li><h6 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h6></li>
+<li><h6 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h6></li>
+<li><h6 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h6></li>
+<li><h6 id="渲染原理"><a href="#渲染原理" class="headerlink" title="渲染原理"></a>渲染原理</h6></li>
+</ul>
+</li>
+<li><h4 id="安全性相关"><a href="#安全性相关" class="headerlink" title="安全性相关"></a>安全性相关</h4><ul>
+<li><h6 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h6></li>
+<li><h6 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h6></li>
+<li><h6 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h6></li>
+</ul>
+</li>
+<li><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4></li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><ul>
+<li><h6 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>三要素</p>
+<ul>
+<li>响应式：vue 如何监听到data中每个属性的变化</li>
+<li>模板引擎 ：vue的模板如何被解析的</li>
+<li>渲染：Vue如何将监听到的数据变化和解析后的HTML进行渲染</li>
+</ul>
+</li>
+<li>响应式<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h4></li>
+<li><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4></li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4></li>
+<li><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4></li>
+<li><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试-JS-Vue-HTTP/" rel="tag"># 面试
+- JS
+- Vue
+- HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/10/前端面试准备（课程总结）/" rel="next" title="前端面试准备（课程总结）">
+                <i class="fa fa-chevron-left"></i> 前端面试准备（课程总结）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Winnie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Winnie-bear" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端面试准备（个人总结）"><span class="nav-number">1.</span> <span class="nav-text">前端面试准备（个人总结）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端的了解"><span class="nav-number">1.0.2.</span> <span class="nav-text">对前端的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS三座大山"><span class="nav-number">1.0.3.</span> <span class="nav-text">JS三座大山</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#原型和原型链"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">原型和原型链</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#作用域和闭包"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">作用域和闭包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异步和单线程"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">异步和单线程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS其它重要知识"><span class="nav-number">1.0.4.</span> <span class="nav-text">JS其它重要知识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#垃圾回收机制（Garbage-Collection-GC-算法）"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">垃圾回收机制（Garbage Collection,GC 算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#bind、call、apply"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">bind、call、apply</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Event-Loop"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块化"><span class="nav-number">1.0.4.0.4.</span> <span class="nav-text">模块化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器相关"><span class="nav-number">1.0.5.</span> <span class="nav-text">浏览器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件机制"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">事件机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨域"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#缓存机制"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">缓存机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#渲染原理"><span class="nav-number">1.0.5.0.5.</span> <span class="nav-text">渲染原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全性相关"><span class="nav-number">1.0.6.</span> <span class="nav-text">安全性相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#XSS"><span class="nav-number">1.0.6.0.1.</span> <span class="nav-text">XSS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSRF"><span class="nav-number">1.0.6.0.2.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中间人攻击"><span class="nav-number">1.0.6.0.3.</span> <span class="nav-text">中间人攻击</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能优化"><span class="nav-number">1.0.7.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架"><span class="nav-number">1.0.8.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue"><span class="nav-number">1.0.8.0.1.</span> <span class="nav-text">Vue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建工具"><span class="nav-number">1.0.9.</span> <span class="nav-text">构建工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node"><span class="nav-number">1.0.10.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.0.11.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux"><span class="nav-number">1.0.12.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">1.0.13.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Winnie</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
