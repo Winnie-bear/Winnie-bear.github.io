@@ -102,28 +102,25 @@
 
 
 
-  <meta name="description" content="1.理解原型对象 在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。">
-<meta name="keywords" content="prototype">
+  <meta name="description" content="京东金融项目实战 1.业务开发流程1.1技术选型 构建工具  任务管理 gulp: 流式  grant:IO效率低 编译打包 webpack  rollup fis:baidu prepack:facebook   为什么要构建工具？ 资源压缩 静态资源替换 模块化处理 编译处理es6 我们用哪个构建工具? webpack、npm scripts任务管理  MVVM框架选择  Vue.js Rea">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型">
-<meta property="og:url" content="https://github.com/winnie-bear/2018/03/21/原型/index.html">
+<meta property="og:title" content="京东金融项目实战">
+<meta property="og:url" content="https://github.com/winnie-bear/2018/03/10/京东金融项目实战/index.html">
 <meta property="og:site_name" content="Winnie-bear">
-<meta property="og:description" content="1.理解原型对象 在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。">
+<meta property="og:description" content="京东金融项目实战 1.业务开发流程1.1技术选型 构建工具  任务管理 gulp: 流式  grant:IO效率低 编译打包 webpack  rollup fis:baidu prepack:facebook   为什么要构建工具？ 资源压缩 静态资源替换 模块化处理 编译处理es6 我们用哪个构建工具? webpack、npm scripts任务管理  MVVM框架选择  Vue.js Rea">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png">
-<meta property="og:image" content="https://i.loli.net/2018/03/21/5ab244ac43529.png">
-<meta property="og:updated_time" content="2019-03-10T06:42:36.009Z">
+<meta property="og:updated_time" content="2019-03-10T06:44:36.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型">
-<meta name="twitter:description" content="1.理解原型对象 在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。">
-<meta name="twitter:image" content="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png">
+<meta name="twitter:title" content="京东金融项目实战">
+<meta name="twitter:description" content="京东金融项目实战 1.业务开发流程1.1技术选型 构建工具  任务管理 gulp: 流式  grant:IO效率低 编译打包 webpack  rollup fis:baidu prepack:facebook   为什么要构建工具？ 资源压缩 静态资源替换 模块化处理 编译处理es6 我们用哪个构建工具? webpack、npm scripts任务管理  MVVM框架选择  Vue.js Rea">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/2018/03/21/原型/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2018/03/10/京东金融项目实战/"/>
 
 
 
@@ -133,7 +130,7 @@
   };
 </script>
 
-  <title>原型 | Winnie-bear</title>
+  <title>京东金融项目实战 | Winnie-bear</title>
   
 
 
@@ -297,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2018/03/21/原型/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2018/03/10/京东金融项目实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winnie">
@@ -314,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原型
+          <h1 class="post-title" itemprop="name headline">京东金融项目实战
               
             
           </h1>
@@ -339,7 +336,7 @@
                 
               
 
-              <time title="Created: 2018-03-21 11:04:00" itemprop="dateCreated datePublished" datetime="2018-03-21T11:04:00+08:00">2018-03-21</time>
+              <time title="Created: 2018-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-03-10T00:00:00+08:00">2018-03-10</time>
             
 
             
@@ -356,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-10 14:42:36" itemprop="dateModified" datetime="2019-03-10T14:42:36+08:00">2019-03-10</time>
+                <time title="Modified: 2019-03-10 14:44:36" itemprop="dateModified" datetime="2019-03-10T14:44:36+08:00">2019-03-10</time>
               
             
           </span>
@@ -373,7 +370,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
 
                 
                 
@@ -407,33 +404,149 @@
       
 
       
-        <p><strong>1.理解原型对象</strong></p>
-<p>在JS中，只要创建了一个新函数A（就是声明了一个函数），那么浏览器就会在内存中创建一个对象B，<br>而且每个函数都默认有一个属性prototype指向这个对象。这个对象B就是函数A的原型对象，简称原型。<br>这个函数对象B中默认有一个属性constructor（构造器）指向了这个函数A。</p>
-<a id="more"></a>
-<p><img src="https://i.loli.net/2018/03/21/5ab23f1cb0cd0.png" alt="avatar"></p>
-<hr>
-<p><strong>2.使用构造函数创建对象</strong></p>
-<p>任何函数，只要通过new操作符来调用，那么它就可以作为构造函数。构造函数也是函数，不存在定义<br>构造函数的特殊语法。使用new创建对象的时候，这个对象就会存在一个默认的不可见属性，指向构造<br>函数的原型对象。这个不可见属性一般用[[prototype]]来表示。</p>
-<p><img src="https://i.loli.net/2018/03/21/5ab244ac43529.png" alt="avatar"></p>
+        <h3 id="京东金融项目实战"><a href="#京东金融项目实战" class="headerlink" title="京东金融项目实战"></a>京东金融项目实战</h3><hr>
+<h4 id="1-业务开发流程"><a href="#1-业务开发流程" class="headerlink" title="1.业务开发流程"></a>1.业务开发流程</h4><h6 id="1-1技术选型"><a href="#1-1技术选型" class="headerlink" title="1.1技术选型"></a>1.1技术选型</h6><ul>
+<li><p>构建工具</p>
+<ul>
+<li>任务管理 gulp: 流式  grant:IO效率低</li>
+<li>编译打包 webpack  rollup</li>
+<li>fis:baidu prepack:facebook </li>
+</ul>
+<p>为什么要构建工具？</p>
+<p>资源压缩 静态资源替换 模块化处理 编译处理es6</p>
+<p>我们用哪个构建工具?</p>
+<p>webpack、npm scripts任务管理</p>
+</li>
+<li><p>MVVM框架选择</p>
+<ul>
+<li>Vue.js</li>
+<li>React.js</li>
+<li>Angular.js</li>
+</ul>
+<p>作者对文档的维护程度</p>
+<p>对原理的理解</p>
+</li>
+<li><p>模块化设计</p>
+<p>CSS模块化设计</p>
+<p>JS模块化设计</p>
+<p>common.js layout.js public.js util.js page1.js page2.js</p>
+</li>
+<li><p>自适应方案设计</p>
+<p>移动端 设计师只出一份设计稿   一份JS+CSS方案在各个机型适配</p>
+</li>
+<li><p>代码维护及复用性设计的思考</p>
+<p>需求变更 横向 解耦   产品迭代：A A+  Bug定位  新功能开发：单纯一个页面新增或者减少</p>
+</li>
+</ul>
+<h6 id="1-2-业务开发"><a href="#1-2-业务开发" class="headerlink" title="1.2 业务开发"></a>1.2 业务开发</h6><h6 id="1-3测试验证"><a href="#1-3测试验证" class="headerlink" title="1.3测试验证"></a>1.3测试验证</h6><h6 id="1-4-发布上线"><a href="#1-4-发布上线" class="headerlink" title="1.4 发布上线"></a>1.4 发布上线</h6><h4 id="2-项目设计与原理分析"><a href="#2-项目设计与原理分析" class="headerlink" title="2.项目设计与原理分析"></a>2.项目设计与原理分析</h4><h6 id="2-1-CSS模块化设计"><a href="#2-1-CSS模块化设计" class="headerlink" title="2.1 CSS模块化设计"></a>2.1 CSS模块化设计</h6><ul>
+<li><p>设计原则</p>
+<ul>
+<li><p>可复用 能继承 要完整</p>
+</li>
+<li><p>周期性迭代</p>
+<p>优秀的代码是模仿/设计/重构出来的</p>
+</li>
+</ul>
+</li>
+<li><p>设计方法</p>
+<ul>
+<li><p>先整体后部分再颗粒化</p>
+<p>布局  页面 功能 业务</p>
+</li>
+<li><p>先抽象再具体   隐藏 变量设置</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>reset layout  element global scope:模块的复用 继承 私有化</p>
+<h6 id="2-2-JS组件设计"><a href="#2-2-JS组件设计" class="headerlink" title="2.2 JS组件设计"></a>2.2 JS组件设计</h6><ul>
+<li>设计原则<ul>
+<li>高内聚低耦合</li>
+<li>周期性迭代 代码不可能一步到位</li>
+</ul>
+</li>
+<li>设计方法<ul>
+<li>先整体后部分再颗粒化</li>
+<li>尽可能抽象</li>
+</ul>
+</li>
+</ul>
+<h6 id="2-3-自适应"><a href="#2-3-自适应" class="headerlink" title="2.3 自适应"></a>2.3 自适应</h6><ul>
+<li><p>基本概念</p>
+<ul>
+<li><p>CSS像素（逻辑像素）、设备像素（物理像素）、设备像素比</p>
+</li>
+<li><p>viewport</p>
 <blockquote>
-<p>说明：</p>
-<p>  1.虽然使用构造函数创建对象，但是对象创建出来以后，就和构造函数没有关系了，它的[[prototype]]属性指向的是构造函数的原型对象。   </p>
-<p>  2.如果使用构造函数创建多个对象，则多个对象会同时指向构造函数的原型对象。 </p>
-<p>  3.如果我们手动给这个原型对象添加属性和方法，那么这些对象就会共享新添的属性和方法。</p>
-<p>  4.如果给新建对象添加属性，那么它就没法访问到原型上的相同属性，相当于屏蔽了原型中的相同属性&gt;</p>
-<p>  （3.4点类比CSS来说就是给新建对象添加属性和方法，相当于添加行间样式；给原型对象添加属性和方法，相当于添加class，可以影响一类元素，行间样式的优先级高于class样式的优先级） </p>
-<p>  5.新建对象只能读取原型中的属性值，但没法修改。例如：p1.name=’winnie’,并不是修改了原型中的属性值，而是给p1对象新添了一个name属性。</p>
-</blockquote>
-<hr>
-<h3 id="与原型相关的属性和方法"><a href="#与原型相关的属性和方法" class="headerlink" title="与原型相关的属性和方法"></a><strong>与原型相关的属性和方法</strong></h3><p><strong>1.prototype</strong><br>我们创建的每个<strong>函数</strong>都有一个prototype（原型）属性，它是一个指针，指向一个<strong>原型对象</strong>。原型对象<br>包含了特定类型的所有实例所共享的方法和属性。</p>
-<p><strong>2.constructor</strong><br>constructor属性存在于原型对象中，它指向构造函数。根据需要，我们可以修改构造函数的prototype属性，让它<br>指向新的原型对象，但是constructor属性就不再指向原构造函数了，而是指向新原型对象的构造函数。</p>
-<p><strong>3.[[prototype]]</strong></p>
-<p>用构造方法新建一个<strong>对象</strong>之后，这个对象中默认会有一个不可访问的属性 [[prototype]] , 这个属性就指向了构造方法的原型对象。虽然说[[prototype]]是一个隐藏属性，但很多浏览器都给每一个对象提供了.<strong>proto</strong>属性去访问原型对象</p>
-<p><strong>4.hasOwnProperty()方法</strong></p>
-<p>作用：判断一个属性是否来自<strong>对象</strong>本身<br>注意：这个方法不能判断属性是否存在于原型中，因为有可能这个属性不存在                  </p>
-<p><strong>5.in操作符</strong></p>
-<p>作用：判断<strong>对象或者原型</strong>中是否有某个属性。只要其中一个有，就返回true</p>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<p>解析：</p>
+<p>​        把当前viewport宽度设置为ideal viewport的宽度。</p>
+<p>​         width=device-width，所有浏览器都能把当前的viewport宽度变成ideal viewport的宽度，但要注意的是，在iphone和ipad上，无论是竖屏还是横屏，宽度都是竖屏时ideal viewport的宽度。</p>
+<p>​       initial-scale=1 也能把当前的viewport宽度变成 ideal viewport 的宽度，但在IE上 无论是竖屏还是横屏都把宽度设为竖屏时ideal viewport的宽度。</p>
+<p>​        因此，最完美的写法应该是，两者都写上去，这样就 initial-scale=1 解决了 iphone、ipad的毛病，width=device-width则解决了IE的毛病。</p>
+<p>-width: 设置<strong><em>layout viewport</em></strong>  的宽度，可以指定一个具体的值，如600；或者特殊的值，如device-width为设备的宽度（单位为缩放100%时的CSS的像素）</p>
+<p>-height:和 width 相对应，指定高度</p>
+<p>-initial-scale:初始缩放比例，缩放是相对于ideal viewport来缩放的，当前缩放值 = ideal viewport宽度  / visual viewport宽度</p>
+<p>-maximum-scale:允许用户缩放到的最大比例</p>
+<p>-minimum-scale:允许用户缩放到的最小比例</p>
+<p>-user-scalable:用户是否可以手动缩放</p>
+</blockquote>
+<p><strong>补充：layout viewport、visual viewport、ideal viewport</strong></p>
+<ul>
+<li>layout viewport :移动端默认viewport ，与PC端浏览器区域的宽度相同。目的是使PC端开发的页面同样可以显示在移动端上。layout viewport 可以通过 <code>document.documentElement.clientWidth</code>获取</li>
+<li>visual viewport: 移动端浏览器实际的可视区域的宽度。默认情况下layout viewport的宽度是大于visual viewport 的。visual viewport可以通过<code>window.innerWidth</code>获取。</li>
+<li>ideal viewport: 完美适配移动设备的viewport。所谓的完美适配指的是，首先不需要用户缩放和横向滚动条就能正常的查看网站的所有内容；第二，显示的文字大小合适。</li>
+</ul>
+</li>
+<li><p>rem</p>
+</li>
+</ul>
+</li>
+<li><p>工作原理</p>
+<ul>
+<li>利用viewport和设备像素比调整基准像素 （自适应核心原理）</li>
+<li>利用 px2rem自动转换css单位</li>
+</ul>
+</li>
+</ul>
+<h6 id="2-4-SPA设计"><a href="#2-4-SPA设计" class="headerlink" title="2.4 SPA设计"></a>2.4 SPA设计</h6><ul>
+<li>设计意义<ul>
+<li>前后端分离</li>
+<li>减轻服务器压力</li>
+<li>增强用户体验</li>
+<li>Prerender预渲染优化SEO</li>
+</ul>
+</li>
+<li>工作原理<ul>
+<li>History API</li>
+<li>Hash</li>
+</ul>
+</li>
+</ul>
+<h6 id="2-5-构建设计"><a href="#2-5-构建设计" class="headerlink" title="2.5 构建设计"></a>2.5 构建设计</h6><ul>
+<li>Webpack : 配置 安装   plugin</li>
+<li>Babel : 配置  安装   loader</li>
+<li>dev-server : 配置 安装</li>
+<li>npm script</li>
+</ul>
+<h6 id="2-6-上线指导"><a href="#2-6-上线指导" class="headerlink" title="2.6 上线指导"></a>2.6 上线指导</h6><ul>
+<li>生产构建<ul>
+<li>合并：将所有CSS样式和JS代码分别合并到一个文件中</li>
+<li>抽取：样式要从JS中抽取出来</li>
+<li>压缩：JS、CSS都要压缩</li>
+<li>调试：开启sourceMap ，项目上线以后便于调试，找Bug</li>
+</ul>
+</li>
+<li>发布部署<ul>
+<li>提交：使用Git提交代码，管理线上版本</li>
+<li>部署：php、java等从git仓库拉取代码，通过小流量、跨机房、全量部署</li>
+<li>开启gzip压缩</li>
+<li>更新CDN</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-构建工具详解"><a href="#3-构建工具详解" class="headerlink" title="3.构建工具详解"></a>3.构建工具详解</h4>
       
     </div>
 
@@ -453,7 +566,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/prototype/" rel="tag"># prototype</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -466,18 +579,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/10/let 和const命令/" rel="next" title="let 和 const">
-                <i class="fa fa-chevron-left"></i> let 和 const
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/05/跨域/" rel="prev" title="跨域">
-                跨域 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/10/let 和const命令/" rel="prev" title="let 和 const">
+                let 和 const <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -647,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#与原型相关的属性和方法"><span class="nav-number">1.</span> <span class="nav-text">与原型相关的属性和方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#京东金融项目实战"><span class="nav-number">1.</span> <span class="nav-text">京东金融项目实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-业务开发流程"><span class="nav-number">1.1.</span> <span class="nav-text">1.业务开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1技术选型"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.1技术选型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-2-业务开发"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">1.2 业务开发</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3测试验证"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">1.3测试验证</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-4-发布上线"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">1.4 发布上线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-项目设计与原理分析"><span class="nav-number">1.2.</span> <span class="nav-text">2.项目设计与原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-CSS模块化设计"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">2.1 CSS模块化设计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-JS组件设计"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2.2 JS组件设计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3-自适应"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">2.3 自适应</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-4-SPA设计"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">2.4 SPA设计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-5-构建设计"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">2.5 构建设计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-6-上线指导"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">2.6 上线指导</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-构建工具详解"><span class="nav-number">1.3.</span> <span class="nav-text">3.构建工具详解</span></a></li></ol></li></ol></div>
             
 
           </div>

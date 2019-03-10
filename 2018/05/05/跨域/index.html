@@ -103,14 +103,14 @@
 
 
   <meta name="description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
-<meta name="keywords" content="cors">
+<meta name="keywords" content="cross-domain">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跨域">
 <meta property="og:url" content="https://github.com/winnie-bear/2018/05/05/跨域/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-17T13:40:01.878Z">
+<meta property="og:updated_time" content="2019-03-10T06:43:23.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="定义js跨域是指通过js在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，或者通过js获取页面中不同域的框架中(iframe)的数据。只要协议、域名、端口有任何一个不同，都被当作是不同的域。">
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-17 21:40:01" itemprop="dateModified" datetime="2018-09-17T21:40:01+08:00">2018-09-17</time>
+                <time title="Modified: 2019-03-10 14:43:23" itemprop="dateModified" datetime="2019-03-10T14:43:23+08:00">2019-03-10</time>
               
             
           </span>
@@ -571,11 +571,11 @@
 <li><p>实现<br>利用npm中socket.io的插件，socket.io 会自动重新连接</p>
 </li>
 <li><p>代码<br>  双向交流，模拟情景：客户端不停发送随机数,当随机数大于0.95时,服务端延时1s后向客户端发送警告以及警告次数。</p>
-<p>WebSocket.html<br><em>注意：在head标签中用script标签引入node_modules/socket.io-client/dist/socket.io.js</em>   </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var btn=document.getElementById(&quot;btn&quot;);</span><br><span class="line">    btn.onclick=function () &#123;</span><br><span class="line">        var socket = io.connect(&apos;http://localhost:8090&apos;);</span><br><span class="line">        let interval = setTimeInterval(()=&gt;&#123;</span><br><span class="line">        socket.emit(&apos;random&apos;, Math.random());</span><br><span class="line">        &#125;, 500);</span><br><span class="line">        socket.on(&apos;warn&apos;, count=&gt;&#123;</span><br><span class="line">        console.log(&apos;warning count : &apos;+count);</span><br><span class="line">        &#125;);</span><br><span class="line">        socket.on(&apos;disconnect&apos;, ()=&gt;&#123;</span><br><span class="line">        console.log(&apos;disconnected!&apos;);</span><br><span class="line">        clearInterval(interval);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>websocket.js<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">io.on(&apos;connection&apos;, socket=&gt;&#123;</span><br><span class="line">        socket.on(&apos;random&apos;, value=&gt;&#123;</span><br><span class="line">        console.log(value);</span><br><span class="line">        if(value&gt;0.95)&#123;</span><br><span class="line">            if(typeof socket.warnign===&apos;undefined&apos;)&#123;</span><br><span class="line">            socket.warning = 0;// socket对象可用来存储状态和自定义数据</span><br><span class="line">            &#125;</span><br><span class="line">            setTimeout(()=&gt;&#123;</span><br><span class="line">            socket.emit(&apos;warn&apos;, ++socket.warning);</span><br><span class="line">            &#125;, 1000);</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<p> WebSocket.html<br> <em>注意：在head标签中用script标签引入node_modules/socket.io-client/dist/socket.io.js</em>   </p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var btn=document.getElementById(&quot;btn&quot;);</span><br><span class="line">    btn.onclick=function () &#123;</span><br><span class="line">        var socket = io.connect(&apos;http://localhost:8090&apos;);</span><br><span class="line">        let interval = setTimeInterval(()=&gt;&#123;</span><br><span class="line">        socket.emit(&apos;random&apos;, Math.random());</span><br><span class="line">        &#125;, 500);</span><br><span class="line">        socket.on(&apos;warn&apos;, count=&gt;&#123;</span><br><span class="line">        console.log(&apos;warning count : &apos;+count);</span><br><span class="line">        &#125;);</span><br><span class="line">        socket.on(&apos;disconnect&apos;, ()=&gt;&#123;</span><br><span class="line">        console.log(&apos;disconnected!&apos;);</span><br><span class="line">        clearInterval(interval);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+</code></pre><p>websocket.js<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">io.on(&apos;connection&apos;, socket=&gt;&#123;</span><br><span class="line">        socket.on(&apos;random&apos;, value=&gt;&#123;</span><br><span class="line">        console.log(value);</span><br><span class="line">        if(value&gt;0.95)&#123;</span><br><span class="line">            if(typeof socket.warnign===&apos;undefined&apos;)&#123;</span><br><span class="line">            socket.warning = 0;// socket对象可用来存储状态和自定义数据</span><br><span class="line">            &#125;</span><br><span class="line">            setTimeout(()=&gt;&#123;</span><br><span class="line">            socket.emit(&apos;warn&apos;, ++socket.warning);</span><br><span class="line">            &#125;, 1000);</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>10.图像Ping</p>
 <ul>
 <li><p>定义<br>  与服务器进行简单、单向的跨域通信。请求的数据是通过查询字符串形式发送的，而响应可以是任何内容。</p>
@@ -618,7 +618,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cors/" rel="tag"># cors</a>
+            <a href="/tags/cross-domain/" rel="tag"># cross-domain</a>
           
         </div>
       
@@ -708,7 +708,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -725,7 +725,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -748,7 +752,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -797,7 +807,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
