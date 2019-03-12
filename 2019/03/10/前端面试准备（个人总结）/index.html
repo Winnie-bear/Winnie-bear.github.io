@@ -111,7 +111,7 @@
 <meta property="og:description" content="前端面试准备（个人总结）">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
-<meta property="og:updated_time" content="2019-03-10T07:25:49.138Z">
+<meta property="og:updated_time" content="2019-03-12T10:22:09.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试准备（个人总结）">
 <meta name="twitter:description" content="前端面试准备（个人总结）">
@@ -338,12 +338,24 @@
                 
               
 
-              <time title="Created: 2019-03-10 00:00:00 / Modified: 15:25:49" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-12 18:22:09" itemprop="dateModified" datetime="2019-03-12T18:22:09+08:00">2019-03-12</time>
               
             
           </span>
@@ -455,43 +467,43 @@
 <blockquote>
 <p><strong>原型五大规则</strong></p>
 <p>1.所有引用类型（函数 对象 数组），都具有对象特性，即可自由扩展属性</p>
-<p>2.所有JS对象都有 _ proto _ 属性（隐式原型），属性值是一个普通对象</p>
+<p>2.所有JS对象都有 <strong> proto </strong> 属性（隐式原型），属性值是一个普通对象</p>
 <p>3.函数都有prototype属性（显式原型）,除了Function.prototype.bind()，属性值也是一个普通<strong>对象</strong></p>
-<p>4.对象的_ proto <em>属性指向其构造函数的prototype属性值  （obj.</em> _ proto _===  Obj.prototype ）</p>
-<p>5.当试图得到对象的某个属性时，如果此对象本身没有这个属性，那么会去其_ proto _（即其构造函数的prototype）中寻找</p>
+<p>4.对象的  <strong> proto </strong> 属性指向其构造函数的prototype属性值  （obj._ <strong> proto </strong> ===  Obj.prototype ）</p>
+<p>5.当试图得到对象的某个属性时，如果此对象本身没有这个属性，那么会去其<strong> proto </strong> （即其构造函数的prototype）中寻找</p>
 <p><strong>原型链</strong></p>
-<p>​        简单来说，就是_ proto _将对象和原型连接起来。</p>
+<p>​        简单来说，就是<strong> proto </strong> 将对象和原型连接起来。</p>
 <p><strong>原型继承和Class继承</strong></p>
 <p>​        组合继承和寄生组合继承是原型继承的两种方式</p>
 <ul>
 <li><p>组合继承</p>
 <ul>
 <li><p>实现：</p>
-<p>  1.在子类的构造函数里面调用Parent.call(this,value)继承父类的属性</p>
-<p>  2.将子类的prototype指向new Parent()构造出来的实例，继承父类的函数</p>
+<p>1.在子类的构造函数里面调用Parent.call(this,value)继承父类的属性</p>
+<p>2.将子类的prototype指向new Parent()构造出来的实例，继承父类的函数</p>
 </li>
-<li><p>缺点</p>
-<pre><code>继承父类函数的时候，调用了父类的构造函数，导致子类原型上多了不必要的父类属性,存在内存上的浪费
-</code></pre></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Parent.prototype.getValue=funtion()&#123;</span><br><span class="line">&gt;       <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       Parent.call(<span class="keyword">this</span>,val);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Child.prototype=<span class="keyword">new</span> Parent();<span class="comment">//Child.prototype._proto_ === Parent.prototype</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li><p>缺点<br>  继承父类函数的时候，调用了父类的构造函数，导致子类原型上多了不必要的父类属性,存在内存上的浪费</p>
 </li>
 </ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;    <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Parent.prototype.getValue=funtion()&#123;</span><br><span class="line">&gt;    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;    Parent.call(<span class="keyword">this</span>,val);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Child.prototype=<span class="keyword">new</span> Parent();<span class="comment">//Child.prototype._proto_ === Parent.prototype</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <ul>
 <li><p>寄生组合继承</p>
 <ul>
-<li><p>实现</p>
-<p> 优化掉组合继承的缺点，关键在继承父类函数这一步</p>
-</li>
+<li>实现</li>
+</ul>
+<p>​       优化掉组合继承的缺点，关键在继承父类函数这一步</p>
+<ul>
 <li><p>优点</p>
 <p>既解决了无用父类属性的问题，还能正确找到子类的构造函数</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Parent.prototype.getValue=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;       <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="comment">//继承父类属性</span></span><br><span class="line">&gt;      Parent.call(<span class="keyword">this</span>,val); </span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Child.prototype=<span class="built_in">Object</span>.create(Parent.protype,&#123;</span><br><span class="line">&gt;       <span class="keyword">constructor</span>:&#123;</span><br><span class="line">&gt;           value:Child,</span><br><span class="line">&gt;           enumerable:<span class="literal">false</span>,</span><br><span class="line">&gt;           writable:<span class="literal">true</span>,</span><br><span class="line">&gt;           configurable:<span class="literal">true</span></span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   &#125;);<span class="comment">//Object.create()方法创建一个新对象，使用现有对象来提供新建对象的__proto__</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;    <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Parent.prototype.getValue=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;   <span class="comment">//继承父类属性</span></span><br><span class="line">&gt;   Parent.call(<span class="keyword">this</span>,val); </span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Child.prototype=<span class="built_in">Object</span>.create(Parent.protype,&#123;</span><br><span class="line">&gt;    <span class="keyword">constructor</span>:&#123;</span><br><span class="line">&gt;        value:Child,</span><br><span class="line">&gt;        enumerable:<span class="literal">false</span>,</span><br><span class="line">&gt;        writable:<span class="literal">true</span>,</span><br><span class="line">&gt;        configurable:<span class="literal">true</span></span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt; &#125;);<span class="comment">//Object.create()方法创建一个新对象，使用现有对象来提供新建对象的__proto__</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <ul>
@@ -502,7 +514,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; Class Parent&#123;</span><br><span class="line">&gt;    <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;        <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;    getValue()&#123;</span><br><span class="line">&gt;        <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Class Child extends Parent&#123;</span><br><span class="line">&gt;    <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;        <span class="keyword">super</span>(val);</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; Class Parent&#123;</span><br><span class="line">&gt; <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;     <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; getValue()&#123;</span><br><span class="line">&gt;     <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; Class Child extends Parent&#123;</span><br><span class="line">&gt;     <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;         <span class="keyword">super</span>(val);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 </blockquote>
@@ -536,13 +548,12 @@
 <li>设置this的值</li>
 </ul>
 </li>
-</ul>
-</li>
 <li>激活/代码执行阶段</li>
 </ul>
 <p>​         初始化变量对象，即设置变量的值、函数的引用，然后解释/执行代码</p>
+</li>
+<li><p><strong>创建变量对象（VO）过程</strong></p>
 <ul>
-<li><strong>创建变量对象（VO）过程</strong><ul>
 <li>1.根据函数的参数，创建并<strong>初始化arguments object</strong></li>
 <li>2.扫描函数内部代码，查找<strong>函数声明</strong>（function declaration） <ul>
 <li>对于所有找到的函数声明，将函数名和函数引用存入VO中</li>
@@ -559,7 +570,7 @@
 </ul>
 <p>​        注：步骤2和3成为<strong>变量提升</strong>，函数声明提升优于变量声明提升</p>
 <ul>
-<li><p>作用域 VS 执行上下文</p>
+<li><p><strong>作用域 VS 执行上下文</strong></p>
 <ul>
 <li><p>作用域的组成</p>
 <p>​       1.作用域内变量信息和代码结构信息的记录（Environment Record)  </p>
@@ -588,7 +599,7 @@
 </ul>
 </li>
 </ul>
-<p>​               1.可以读取函数内部的变量  2.让这些变量的值始终保持在内存中  ——&gt;涉及到垃圾回收机制</p>
+<p> ​             1.可以读取函数内部的变量  2.让这些变量的值始终保持在内存中  ——&gt;涉及到垃圾回收机制</p>
 <ul>
 <li>自由变量和作用域链</li>
 </ul>
@@ -614,10 +625,22 @@
 </ul>
 <blockquote>
 <ul>
+<li>单线程</li>
+</ul>
+<p>​      所谓单线程，是指在JS引擎中负责解释和执行JS代码的线程只有一个，不妨叫它<strong>主线程</strong>。实际上还存在其他线程，比如处理Ajax请求的线程、处理DOM事件的线程、定时器线程等等，这些可以称之为<strong>工作线程</strong>。</p>
+<ul>
+<li>消息（Task) 队列和事件循环（Event Loop)</li>
+</ul>
+<p>​     异步过程中，工作线程在异步操作完成后需要通知主线程。这个通知机制是利用消息队列和事件循环实现的。工作线程将消息放到消息队列，主线程通过事件循环过程去取消息。</p>
+<ul>
+<li>消息队列：一个先进先出的队列，里面存放着各种消息。消息就是注册异步任务时添加的回调函数。</li>
+<li>事件循环：主线程重复从消息队列中取消息、执行的过程。</li>
+</ul>
+<ul>
 <li><p>Promise  ——&gt;手写一个Promise</p>
 <ul>
 <li><p>Promise 翻译过来有承诺的意思，这个承诺在未来会有一个确切的回复，并且该承诺有三种状态，分别是：1.pengding(等待中)   2.resolved(完成了)  3.rejected(拒绝了)</p>
-<p>注意：这个状态一旦从等待状态变为其他状态就永远无法更改了</p>
+<p> 注意：这个状态一旦从等待状态变为其他状态就永远无法更改了</p>
 </li>
 <li><p>我们在构造 Promise 的时候，<strong>构造函数内部的代码是立即执行的</strong></p>
 </li>
@@ -627,8 +650,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><p>generator</p>
 <ul>
 <li>generator函数是<strong>异步操作的一个容器</strong>，在实例化后并没有立即执行，而是返回一个迭代器。</li>
@@ -636,8 +657,6 @@
 <li>next执行时传入的参数是上一个yield的返回值，如果不传参，yield永远返回undefined</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><p>async/await</p>
 <ul>
 <li><p>外异内同：async关键字声明了一个异步函数，函数体内await语句是同步执行的。</p>
@@ -689,23 +708,21 @@
 </ul>
 </li>
 <li><p>手写call函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="comment">/* 分三步实现：1.将执行函数设为对象的属性 2.执行函数 3.删除函数 */</span></span><br><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myCall(obj)&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt;      obj.fn=<span class="keyword">this</span>;<span class="comment">//设为对象属性</span></span><br><span class="line">&gt;      <span class="keyword">const</span> args=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt;      <span class="keyword">const</span> res=obj.fn(...args);</span><br><span class="line">&gt;      <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt;      <span class="keyword">return</span> res;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">/* 分三步实现：1.将执行函数设为对象的属性 2.执行函数 3.删除函数 */</span></span><br><span class="line">&gt;<span class="built_in">Function</span>.prototype.myCall(obj)&#123;</span><br><span class="line">&gt; <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt; obj.fn=<span class="keyword">this</span>;<span class="comment">//设为对象属性</span></span><br><span class="line">&gt; <span class="keyword">const</span> args=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt; <span class="keyword">const</span> res=obj.fn(...args);</span><br><span class="line">&gt; <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt; <span class="keyword">return</span> res;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <ul>
-<li><p>手写 apply</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myApply=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt;      obj.fn=<span class="keyword">this</span>;</span><br><span class="line">&gt;      <span class="keyword">let</span> res;</span><br><span class="line">&gt;      <span class="comment">//是否传入第二个参数</span></span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">1</span>])&#123;</span><br><span class="line">&gt;          res=obj.fn(...arguments[<span class="number">1</span>]);</span><br><span class="line">&gt;      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;          res=obj.fn();</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt;      <span class="keyword">return</span> res;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>手写 apply</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">Function</span>.prototype.myApply=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt; <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Error'</span>);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; obj=obj || <span class="built_in">window</span>;</span><br><span class="line">&gt; obj.fn=<span class="keyword">this</span>;</span><br><span class="line">&gt; <span class="keyword">let</span> res;</span><br><span class="line">&gt; <span class="comment">//是否传入第二个参数</span></span><br><span class="line">&gt; <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">1</span>])&#123;</span><br><span class="line">&gt;     res=obj.fn(...arguments[<span class="number">1</span>]);</span><br><span class="line">&gt; &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;     res=obj.fn();</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="keyword">delete</span> obj.fn;</span><br><span class="line">&gt; <span class="keyword">return</span> res;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <ul>
-<li><p>手写bind</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="comment">/* 注意三点：1.改变this指向，可用call或apply  2.返回的是一个函数，也可以传参，两次传参要合并   3.对绑定函数的使用new 操作符时，传入的this忽略，但其他参数仍可用（this规则的优先级，new优先级最高） */</span></span><br><span class="line">&gt;  <span class="built_in">Function</span>.prototype.myBind=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Error"</span>);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      <span class="keyword">const</span> execFn=<span class="keyword">this</span>;<span class="comment">//保存调用bind的函数</span></span><br><span class="line">&gt;      <span class="keyword">const</span> args1=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt;      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;          <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> F)&#123;<span class="comment">//this在执行时才确定，此时this指向new F()创建的对象</span></span><br><span class="line">&gt;              <span class="keyword">return</span> <span class="keyword">new</span> exeFn(...args1,...arguments);</span><br><span class="line">&gt;          &#125;</span><br><span class="line">&gt;          <span class="keyword">return</span> exeFn.apply(obj,args1.concat(...arguments));</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>手写bind</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">/* 注意三点：1.改变this指向，可用call或apply  2.返回的是一个函数，也可以传参，两次传参要合并   3.对绑定函数的使用new 操作符时，传入的this忽略，但其他参数仍可用（this规则的优先级，new优先级最高） */</span></span><br><span class="line">&gt;<span class="built_in">Function</span>.prototype.myBind=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt; <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Error"</span>);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="keyword">const</span> execFn=<span class="keyword">this</span>;<span class="comment">//保存调用bind的函数</span></span><br><span class="line">&gt; <span class="keyword">const</span> args1=[...arguments].slice(<span class="number">1</span>);</span><br><span class="line">&gt; <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;     <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> F)&#123;<span class="comment">//this在执行时才确定，此时this指向new F()创建的对象</span></span><br><span class="line">&gt;         <span class="keyword">return</span> <span class="keyword">new</span> exeFn(...args1,...arguments);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">return</span> exeFn.apply(obj,args1.concat(...arguments));</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <ul>
 <li><h6 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h6></li>
@@ -720,8 +737,10 @@
 </li>
 <li><p>浏览器中的Event Loop</p>
 <ul>
-<li>执行顺序：主线程（同步代码）——&gt;微任务——&gt;宏任务</li>
-<li>当执行JS代码时，遇到异步代码，会被挂起并在需要执行的时候放入Task队列中。一旦<strong>执行栈</strong>为空，Event Loop 会从Task队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说JS中的异步还是同步行为</li>
+<li><p>执行顺序：主线程（同步代码）——&gt;微任务——&gt;宏任务</p>
+</li>
+<li><p>当执行JS代码时，遇到异步代码，会被挂起并在需要执行的时候放入Task队列中。一旦<strong>执行栈</strong>为空，Event Loop 会从Task队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说JS中的异步还是同步行为</p>
+</li>
 </ul>
 </li>
 <li><p>Node中的Event Loop</p>
@@ -732,7 +751,7 @@
 </li>
 <li><p><strong>timers</strong>      执行setTimeout、setInterval</p>
 </li>
-<li><p><strong>poll</strong>         </p>
+<li><p><strong>poll</strong>    </p>
 <ul>
 <li>1.回到timers阶段执行回调</li>
 <li>2.执行I/O回调</li>
@@ -764,13 +783,15 @@
 <li><p>AMD/CMD    主要用于浏览器</p>
 <ul>
 <li><p>Asynchronous Module Definition(AMD 异步模块定义)</p>
-<p>​    RequireJS在推广过程中对模块定义的规范化产出。特点是依赖前置，会先尽早地执行依赖模块。</p>
+<p>  RequireJS在推广过程中对模块定义的规范化产出。特点是依赖前置，会先尽早地执行依赖</p>
 </li>
-<li><p>Common Module Definition(CMD  公共模块定义)</p>
-<p>  SeaJS在推广过程中对模块定义的规范化产出。特点是依赖就近，延迟执行。</p>
+<li><p>Common Module Definition(CMD  公共模块定义) ​    </p>
 </li>
 </ul>
 </li>
+</ul>
+<p>​                SeaJS在推广过程中对模块定义的规范化产出。特点是依赖就近，延迟执行。</p>
+<ul>
 <li><p>CommonJS     主要用于服务器</p>
 <ul>
 <li>NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式写的</li>
@@ -785,12 +806,15 @@
 <li><p>前者不支持动态导入，后者支持</p>
 </li>
 <li><p>前者是异步导入，因为用于浏览器，需要下载文件，如果采用同步导入会对渲染有很大影响</p>
-<p>后者是同步导入，因为用于服务器，文件都在本地</p>
 </li>
+</ul>
+</li>
+</ul>
+<p>​              后者是同步导入，因为用于服务器，文件都在本地</p>
+<ul>
 <li><p>前者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会随导出值变化；后者在导出时都是值拷贝，就算导出值改变了，导入值也不会改变。如果想更新值，就要重新导入一次</p>
-</li>
-<li><p>ES Module 会编译成 require/exports 来执行</p>
-</li>
+<ul>
+<li>ES Module 会编译成 require/exports 来执行</li>
 </ul>
 </li>
 </ul>
@@ -800,19 +824,270 @@
 </li>
 <li><h4 id="浏览器相关"><a href="#浏览器相关" class="headerlink" title="浏览器相关"></a>浏览器相关</h4><ul>
 <li><h6 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>事件流的三个阶段（事件触发的三个阶段）<ul>
+<li>捕获阶段      事件从window传递到目标</li>
+<li>命中阶段      事件已经到达目标</li>
+<li>冒泡阶段      事件从目标传达到window</li>
+</ul>
+</li>
+<li>注册事件<ul>
+<li>通常使用 addEventListener 注册事件，该函数的第三个参数可以是布尔值或者对象。</li>
+<li>对于布尔值参数useCapture来说，默认值是false。对于对象参数来说，可以使用以下几个属性：capture——布尔值、once——布尔值，为true时，表示该回调只会调用一次，调用以后会清除监听、passive:布尔值，表示永远不会调用preventDefault</li>
+</ul>
+</li>
+<li>事件代理<ul>
+<li>原理： 事件冒泡</li>
+<li>一个节点的子节点是动态生成的，那么子节点需要注册事件的话应该注册在父节点上</li>
+<li>优点<ul>
+<li>节省内存（绑定一次事件和绑定一千次是不一样的）</li>
+<li>不需要给子节点注销事件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
 <li><h6 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>JSONP<ul>
+<li>原理：利用<script>标签没有跨域限制的漏洞</li>
+<li>优缺点：兼容性很好，但是只限于Get 请求</li>
+</ul>
+</li>
+<li>CORS ( Cross-origin resource sharing ) 跨域资源共享<ul>
+<li>实现CORS通信的关键是后端。服务器设置Access-Control-Allow-origin就可以开启CORS。</li>
+<li>简单请求<ul>
+<li>方法<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+</ul>
+</li>
+<li>Content-Type<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复杂请求<ul>
+<li>不符合简单请求条件的请求，首先会发起一个预检请求，该请求是OPTIONS方法的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>postMessage<ul>
+<li>一个页面发送消息，另一个页面判断来源并接收消息</li>
+<li>可以搭配 MessageChannel实现</li>
+</ul>
+</li>
+<li>document.domain<ul>
+<li>限制  只有在一级域名相同的时候才能使用，要把document.domain设置成自身或更高一级的域名</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
 <li><h6 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>cookie 、localStorage、sessionStorage、indexDB<ul>
+<li>数据生命周期<ul>
+<li>cookie 一般由服务器生成，可以设置过期时间</li>
+<li>localStorage  除非被清理，否则一直存在</li>
+<li>sessionStorage  页面关闭就清理</li>
+<li>indexDB  除非被清理，否则一直存在</li>
+</ul>
+</li>
+<li>数据存储大小<ul>
+<li>4K  5M  5M  无限</li>
+</ul>
+</li>
+<li>与服务端通信<ul>
+<li>cookie    每次请求都会携带在header中，影响请求性能</li>
+<li>其他的都不参与</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cookie安全性<ul>
+<li>http-only      属性值设置为true，则不能通过JS获取cookie，减少XSS攻击</li>
+<li>secure          属性值设置为true  ,则只能在协议为HTTPS的请求中携带</li>
+<li>same-site     属性值设置为true，则规定浏览器不能在跨域请求中携带cookie,减少CSRF攻击</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
 <li><h6 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>缓存位置</p>
+<ul>
+<li>Service Worker     处理网络请求的后台服务，运行在浏览器背后的独立线程，一般用于实现缓存功能。传输协议必须是<strong>HTTPS</strong>。优点是可以自由缓存，并且缓存是持续性的</li>
+<li>Memory  Cache    内存中的缓存，读取高效，但是持续性很短，会随着进程的释放而释放。一旦我们关闭页面，内存中的缓存也就被释放了。</li>
+<li>Disk  Cache     磁盘中的缓存，读取速度慢点，但是较之Memory cache 胜在容量和持续性（存储时效性）上。</li>
+<li>Push Cache   HTTP/2中的内容，当以上三种缓存都没有命中时，它才会被使用。<strong>并且缓存时间很短暂，只在会话中存在，一旦会话结束就被释放</strong>。</li>
+</ul>
+</li>
+<li><p>缓存策略</p>
+<ul>
+<li><p>强缓存和协商缓存，并且都要通过设置HTTP Header 实现</p>
+</li>
+<li><p>强缓存    表示在缓存期间不需要请求</p>
+<ul>
+<li>Expires   HTTP/1 产物 ，受限于本地时间，如果本地时间修改，可能造成缓存失效</li>
+<li>Cache-Control  HTTP/1.1  产物  ，优先级高于Expies，可以在请求头或者响应头中设置  </li>
+</ul>
+</li>
+<li><p>协商缓存</p>
+<ul>
+<li><p>If-Modified-since 和 Last-Modified  有两个弊端</p>
+</li>
+<li><p>If-None-Match 和 Etag    HTTP/1.1，优先级高于Last-Modified</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
 <li><h6 id="渲染原理"><a href="#渲染原理" class="headerlink" title="渲染原理"></a>渲染原理</h6></li>
 </ul>
-</li>
-<li><h4 id="安全性相关"><a href="#安全性相关" class="headerlink" title="安全性相关"></a>安全性相关</h4><ul>
-<li><h6 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h6></li>
-<li><h6 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h6></li>
-<li><h6 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h6></li>
+<blockquote>
+<ul>
+<li>1.HTML 文件——&gt; DOM树<ul>
+<li>字节数据——&gt;字符串——&gt;Token——&gt;Node——&gt;DOM</li>
 </ul>
 </li>
-<li><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4></li>
+<li>2.CSS 文件 ——&gt; CSSOM树<ul>
+<li>字节数据——&gt;字符串——&gt;Token——&gt;Node——&gt;CSSOM</li>
+<li>避免写过于具体的CSS选择器</li>
+</ul>
+</li>
+<li>3.DOM+CSSOM——&gt;Render Tree</li>
+<li>为什么操作DOM慢<ul>
+<li>DOM属于渲染引擎中的东西，JS属于JS引擎中的东西，JS操作DOM，涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗</li>
+</ul>
+</li>
+<li>重绘和回流<ul>
+<li>重绘   不影响布局，只更改节点的外观</li>
+<li>回流    <strong>改变布局</strong>或几何属性</li>
+<li>回流一定会发生重绘，重绘不一定发生回流</li>
+<li>减少回流和重绘<ul>
+<li>使用transform 替代 top</li>
+<li>使用 visibility 替换 display:none</li>
+<li>CSS 选择器从右往左匹配查找，避免层级过多</li>
+<li>将频繁重绘或者回流的节点设置为图层</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="安全性相关"><a href="#安全性相关" class="headerlink" title="安全性相关"></a>安全性相关</h4><ul>
+<li><h6 id="XSS（cross-site-script-跨站脚本攻击"><a href="#XSS（cross-site-script-跨站脚本攻击" class="headerlink" title="XSS（cross site script)   跨站脚本攻击"></a>XSS（cross site script)   跨站脚本攻击</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>定义   攻击者想尽办法将可执行代码注入到网页中</li>
+<li>种类   持久型和非持久型<ul>
+<li>持久型    攻击代码被服务端写入数据库</li>
+<li>非持久型    修改URL参数注入攻击代码</li>
+</ul>
+</li>
+<li>防御方法<ul>
+<li>转义字符   使用 js-xss</li>
+<li>CSP(Content-Security-Policy)   本质上就是建立白名单<ul>
+<li>两种方式开启  设置HTTP Header中Content-Security-Policy和设置meta标签中的http-equiv</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="CSRF（cross-site-request-forgery）跨站请求伪造"><a href="#CSRF（cross-site-request-forgery）跨站请求伪造" class="headerlink" title="CSRF（cross site request forgery）跨站请求伪造"></a>CSRF（cross site request forgery）跨站请求伪造</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>定义      攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。简单的说，就是利用用户的登录态发起恶意请求。</li>
+<li>防御方法<ul>
+<li>不让第三方网站访问到用户Cookie        设置Cookie的same-site属性</li>
+<li>阻止第三方网站请求接口          设置HTTP Header中的Referer字段，它记录了HTTP请求的源地址</li>
+<li>请求时附带验证信息，比如验证码或token    服务器下发一个随机Token，每次请求都将Token带上，服务器验证Token是否有效</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="点击挟持"><a href="#点击挟持" class="headerlink" title="点击挟持"></a>点击挟持</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>定义        又称界面伪装攻击，是一种视觉上的欺骗手段</li>
+<li>防御<ul>
+<li>HTTP 响应头 ——X-FRAME-OPTIONS<ul>
+<li>DENY       不允许通过iframe的方式展示</li>
+<li>SAMEORIGIN     同域名下通过iframe展示</li>
+<li>ALLOW-FROM    指定来源的iframe展示</li>
+</ul>
+</li>
+<li>JS防御</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>定义       攻击方同时与服务端和客户端建立起了连接，并让对方认为连接是安全的，但实际上整个通信过程都被攻击者控制了。</li>
+<li>防御    增加一个安全通道来传输信息，比如可以利用HTTPS协议</li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><ul>
+<li><h6 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>频繁变动的资源    强缓存和协商缓存一起使用，使用Cache-Control : no-cache 使浏览器每次都请求服务器，然后配合If-None-Match 和 Etag 验证资源是否有效。不能减少请求的数量，但是可以显著减少响应数据的大小</li>
+<li>代码文件   对除了HTML 外的代码文件名，进行哈希处理，只有当代码修改后才生成新的文件名</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>CSS 放前面，script 放在body标签底部，或者加上defer或async属性</li>
+<li>减少DOM查询，对DOM查询做缓存</li>
+<li>减少DOM操作，多个操作尽量合并在一起执行</li>
+<li>懒加载   不关键的资源延后加载</li>
+<li>预加载</li>
+<li>预渲染</li>
+</ul>
+</blockquote>
+<ul>
+<li><h6 id="使用CDN"><a href="#使用CDN" class="headerlink" title="使用CDN"></a>使用CDN</h6></li>
+<li><h6 id="函数防抖和节流"><a href="#函数防抖和节流" class="headerlink" title="函数防抖和节流"></a>函数防抖和节流</h6></li>
+<li><h6 id="SSR后端渲染，数据直接输出到HTML"><a href="#SSR后端渲染，数据直接输出到HTML" class="headerlink" title="SSR后端渲染，数据直接输出到HTML"></a>SSR后端渲染，数据直接输出到HTML</h6></li>
+<li><h6 id="尽早执行操作（DOMContentLoaded）"><a href="#尽早执行操作（DOMContentLoaded）" class="headerlink" title="尽早执行操作（DOMContentLoaded）"></a>尽早执行操作（DOMContentLoaded）</h6></li>
+</ul>
+</li>
 </ul>
 <hr>
 <ul>
@@ -821,15 +1096,22 @@
 </ul>
 <blockquote>
 <ul>
-<li><p>三要素</p>
-<ul>
+<li>生命周期     创建  = &gt;  挂载  = &gt;  更新  = &gt; 销毁<ul>
+<li>beforeCreate/created</li>
+<li>beforeMount/mounted</li>
+<li>beforeUpdate/updated</li>
+<li>beforeDestory/destoryed</li>
+</ul>
+</li>
+<li>三要素<ul>
 <li>响应式：vue 如何监听到data中每个属性的变化</li>
 <li>模板引擎 ：vue的模板如何被解析的</li>
 <li>渲染：Vue如何将监听到的数据变化和解析后的HTML进行渲染</li>
 </ul>
 </li>
 <li>响应式<ul>
-<li></li>
+<li>Object.defineProperty (vue 3.0 proxy)</li>
+<li>将data的属性代理到vm上</li>
 </ul>
 </li>
 </ul>
@@ -840,11 +1122,124 @@
 </ul>
 <hr>
 <ul>
-<li><h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4></li>
+<li><h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4><ul>
+<li><h6 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li><p>请求报文</p>
+<ul>
+<li><p>请求行   方法、URI、HTTP版本</p>
+</li>
+<li><p>请求头（请求首部）</p>
+<ul>
+<li>Cookie</li>
+<li>Cache-control:HTTP/1.1的产物，优先级高于Expires,可以在请求头或响应头设置，多种指令如下<ul>
+<li>public 可以被客户端和代理服务器缓存</li>
+<li>private 只可以被客户端缓存</li>
+<li>no-store 不缓存任何响应</li>
+<li>no-cache 资源被缓存但立即失效，下次请求会验证资源是否过期</li>
+<li>If-None-Match  :将当前的Etag发送给服务器</li>
+<li>If-Modified-since ：会将Last-Modified 的值发送给服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>空行</p>
+</li>
+<li><p>请求体</p>
+</li>
+</ul>
+</li>
+<li><p>响应报文</p>
+<ul>
+<li><p>响应行   HTTP版本、状态码、状态码含义</p>
+</li>
+<li><p>响应头（响应首部）</p>
+<ul>
+<li>Expires:HTTP/1的产物，受限于本地时间，如果修改了本地时间，可能会造成缓存失败</li>
+<li>Etag  HTTP/1.1出现</li>
+<li>Last-Modified</li>
+<li>Cache-control</li>
+<li>Content-Security-Policy(CSP)</li>
+</ul>
+</li>
+<li><p>空行</p>
+</li>
+<li><p>响应体</p>
+</li>
+</ul>
+</li>
+<li><p>HTTP 方法</p>
+<ul>
+<li><p>GET  获取资源</p>
+</li>
+<li><p>POST 传输资源</p>
+</li>
+<li><p>PUT  更新资源</p>
+</li>
+<li><p>DELETE 删除资源</p>
+</li>
+<li><p>HEAD  获取报文首部</p>
+</li>
+</ul>
+</li>
+<li><p>HTTP状态码</p>
+<ul>
+<li><p>1xx   提示信息——表示请求已接收，继续处理</p>
+</li>
+<li><p>2xx    成功——表示请求已被成功接收</p>
+<ul>
+<li>200</li>
+<li>206</li>
+</ul>
+</li>
+<li><p>3xx    重定向——要求请求必须进行更进一步的操作</p>
+<ul>
+<li>301</li>
+<li>302</li>
+<li>304</li>
+</ul>
+</li>
+<li><p>4xx    客户端错误——请求有无法错误或者请求无法实现</p>
+<ul>
+<li>400</li>
+<li>401</li>
+<li>403</li>
+<li>404</li>
+</ul>
+</li>
+<li><p>5xx    服务端错误——服务器未能实现合法请求</p>
+<ul>
+<li>500</li>
+<li>503</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>什么是持久连接</p>
+<ul>
+<li>在同一个<code>TCP</code>的连接中可传送多个<code>HTTP</code>请求 &amp; 响应。应用于在请求访问 HTML 页面资源，还要请求图片资源。</li>
+</ul>
+</li>
+<li><p>什么是管线化</p>
+<ul>
+<li><p>将多个HTTP请求整批发送，在发送过程中不用等待对方响应</p>
+</li>
+<li><p>只有GET和HEAD请求可以进行管线化，而POST则有所限制。</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+</li>
 <li><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4></li>
 <li><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4></li>
 </ul>
-
+</script></li></ul></li></ul></blockquote></li></ul>
       
     </div>
 
@@ -1062,7 +1457,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端面试准备（个人总结）"><span class="nav-number">1.</span> <span class="nav-text">前端面试准备（个人总结）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端的了解"><span class="nav-number">1.0.2.</span> <span class="nav-text">对前端的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS三座大山"><span class="nav-number">1.0.3.</span> <span class="nav-text">JS三座大山</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#原型和原型链"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">原型和原型链</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#作用域和闭包"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">作用域和闭包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异步和单线程"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">异步和单线程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS其它重要知识"><span class="nav-number">1.0.4.</span> <span class="nav-text">JS其它重要知识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#垃圾回收机制（Garbage-Collection-GC-算法）"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">垃圾回收机制（Garbage Collection,GC 算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#bind、call、apply"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">bind、call、apply</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Event-Loop"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块化"><span class="nav-number">1.0.4.0.4.</span> <span class="nav-text">模块化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器相关"><span class="nav-number">1.0.5.</span> <span class="nav-text">浏览器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件机制"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">事件机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨域"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#缓存机制"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">缓存机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#渲染原理"><span class="nav-number">1.0.5.0.5.</span> <span class="nav-text">渲染原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全性相关"><span class="nav-number">1.0.6.</span> <span class="nav-text">安全性相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#XSS"><span class="nav-number">1.0.6.0.1.</span> <span class="nav-text">XSS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSRF"><span class="nav-number">1.0.6.0.2.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中间人攻击"><span class="nav-number">1.0.6.0.3.</span> <span class="nav-text">中间人攻击</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能优化"><span class="nav-number">1.0.7.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架"><span class="nav-number">1.0.8.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue"><span class="nav-number">1.0.8.0.1.</span> <span class="nav-text">Vue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建工具"><span class="nav-number">1.0.9.</span> <span class="nav-text">构建工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node"><span class="nav-number">1.0.10.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.0.11.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux"><span class="nav-number">1.0.12.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">1.0.13.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端面试准备（个人总结）"><span class="nav-number">1.</span> <span class="nav-text">前端面试准备（个人总结）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端的了解"><span class="nav-number">1.0.2.</span> <span class="nav-text">对前端的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS三座大山"><span class="nav-number">1.0.3.</span> <span class="nav-text">JS三座大山</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#原型和原型链"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">原型和原型链</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#作用域和闭包"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">作用域和闭包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异步和单线程"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">异步和单线程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS其它重要知识"><span class="nav-number">1.0.4.</span> <span class="nav-text">JS其它重要知识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#垃圾回收机制（Garbage-Collection-GC-算法）"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">垃圾回收机制（Garbage Collection,GC 算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#bind、call、apply"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">bind、call、apply</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Event-Loop"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块化"><span class="nav-number">1.0.4.0.4.</span> <span class="nav-text">模块化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器相关"><span class="nav-number">1.0.5.</span> <span class="nav-text">浏览器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件机制"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">事件机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨域"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">跨域</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
