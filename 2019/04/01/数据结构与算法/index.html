@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/数据结构与算法/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-01T15:01:58.636Z">
+<meta property="og:updated_time" content="2019-04-10T14:31:39.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法">
 
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Created: 2019-04-01 00:00:00 / Modified: 23:01:58" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+              <time title="Created: 2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-10 22:31:39" itemprop="dateModified" datetime="2019-04-10T22:31:39+08:00">2019-04-10</time>
               
             
           </span>
@@ -471,19 +483,78 @@
 </ul>
 <blockquote>
 <ul>
-<li><p>DFS</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="keyword">const</span> deepTraversal=<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">&gt;       <span class="keyword">let</span> [nodeList, stack] = [[],[]];</span><br><span class="line">&gt;       <span class="keyword">let</span> parent, children;</span><br><span class="line">&gt;       <span class="keyword">if</span> (node) &#123;</span><br><span class="line">&gt;           stack.push(node);</span><br><span class="line">&gt;           <span class="keyword">while</span> (stack.length !== <span class="number">0</span>) &#123;</span><br><span class="line">&gt;               parent = stack.pop();</span><br><span class="line">&gt;               nodeList.push(parent);</span><br><span class="line">&gt;               children = parent.children;</span><br><span class="line">&gt;              <span class="keyword">for</span> (<span class="keyword">let</span> i = children.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123; <span class="comment">//先压入右孩子再压入左孩子</span></span><br><span class="line">&gt;                   stack.push(children[i]);</span><br><span class="line">&gt;               &#125;</span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;         <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>DFS</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> deepTraversal=<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">&gt;    <span class="keyword">let</span> [nodeList, stack] = [[],[]];</span><br><span class="line">&gt;    <span class="keyword">let</span> parent, children;</span><br><span class="line">&gt;    <span class="keyword">if</span> (node) &#123;</span><br><span class="line">&gt;        stack.push(node);</span><br><span class="line">&gt;        <span class="keyword">while</span> (stack.length !== <span class="number">0</span>) &#123;</span><br><span class="line">&gt;            parent = stack.pop();</span><br><span class="line">&gt;            nodeList.push(parent);</span><br><span class="line">&gt;            children = parent.children;</span><br><span class="line">&gt;           <span class="keyword">for</span> (<span class="keyword">let</span> i = children.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123; <span class="comment">//先压入右孩子再压入左孩子</span></span><br><span class="line">&gt;                stack.push(children[i]);</span><br><span class="line">&gt;            &#125;</span><br><span class="line">&gt;        &#125;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;      <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <ul>
-<li><p>BFS</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="keyword">const</span> wideTraversal=<span class="function">(<span class="params">node</span>)=&gt;</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">let</span> [nodeList,queue]=[[],[]];</span><br><span class="line">&gt;       <span class="keyword">let</span> parent,children;</span><br><span class="line">&gt;       <span class="keyword">if</span>(node)&#123;</span><br><span class="line">&gt;           queue.push(node);</span><br><span class="line">&gt;           <span class="keyword">while</span>(queue.length!==<span class="number">0</span>)&#123;</span><br><span class="line">&gt;               parent=queue.shift();</span><br><span class="line">&gt;               nodeList.push(parent);</span><br><span class="line">&gt;               children=parent.children;</span><br><span class="line">&gt;               <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;children.length;i++)&#123;</span><br><span class="line">&gt;                   queue.push(children[i]);</span><br><span class="line">&gt;               &#125;</span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li>BFS</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> wideTraversal=<span class="function">(<span class="params">node</span>)=&gt;</span>&#123;</span><br><span class="line">&gt;    <span class="keyword">let</span> [nodeList,queue]=[[],[]];</span><br><span class="line">&gt;    <span class="keyword">let</span> parent,children;</span><br><span class="line">&gt;    <span class="keyword">if</span>(node)&#123;</span><br><span class="line">&gt;        queue.push(node);</span><br><span class="line">&gt;        <span class="keyword">while</span>(queue.length!==<span class="number">0</span>)&#123;</span><br><span class="line">&gt;            parent=queue.shift();</span><br><span class="line">&gt;            nodeList.push(parent);</span><br><span class="line">&gt;            children=parent.children;</span><br><span class="line">&gt;            <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;children.length;i++)&#123;</span><br><span class="line">&gt;                queue.push(children[i]);</span><br><span class="line">&gt;            &#125;</span><br><span class="line">&gt;        &#125;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;    <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>特殊的深度遍历——前序遍历</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> preOrderTraversal=<span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">&gt;   <span class="keyword">let</span> [nodeList, stack] = [[],[]];</span><br><span class="line">&gt;   <span class="keyword">let</span> p=root;</span><br><span class="line">&gt;   <span class="keyword">while</span>(p || stack.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">while</span>(p)&#123;<span class="comment">//圧栈，直至左节点为空</span></span><br><span class="line">&gt;       stack.push(p);</span><br><span class="line">&gt;       nodeList.push(p.val);</span><br><span class="line">&gt;       p=p.left;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     p=stack.pop();</span><br><span class="line">&gt;     p=p.right;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>特殊的深度遍历——中序遍历</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> inOrderTraversal=<span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">&gt;   <span class="keyword">let</span> [nodeList, stack] = [[],[]];</span><br><span class="line">&gt;   <span class="keyword">let</span> p=root;</span><br><span class="line">&gt;   <span class="keyword">while</span>(p || stack.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">while</span>(p)&#123;<span class="comment">//圧栈，直至左节点为空</span></span><br><span class="line">&gt;       stack.push(p);</span><br><span class="line">&gt;       p=p.left;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     p=stack.pop();</span><br><span class="line">&gt;     nodeList.push(p.val);</span><br><span class="line">&gt;     p=p.right;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>特殊的深度遍历——后序遍历</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> postOrderTraversal=<span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">&gt;   <span class="keyword">let</span> [nodeList, stack] = [[],[]];</span><br><span class="line">&gt;   <span class="keyword">let</span> p=root;</span><br><span class="line">&gt;   stack.push(p);</span><br><span class="line">&gt;   stack.push(p);</span><br><span class="line">&gt;   <span class="keyword">while</span>(stack.length!==<span class="number">0</span>)&#123;<span class="comment">//第一次弹出，将node的孩子压入栈中，第二次弹出，访问node</span></span><br><span class="line">&gt;     node=stack.pop();</span><br><span class="line">&gt;     <span class="keyword">if</span>(stack.length!==<span class="number">0</span> &amp;&amp; node===stack[stack.length<span class="number">-1</span>])&#123;</span><br><span class="line">&gt;       <span class="keyword">if</span>(node.right)&#123;</span><br><span class="line">&gt;         stack.push(node.right);</span><br><span class="line">&gt;         stack.push(node.right);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       <span class="keyword">if</span>(node.left)&#123;</span><br><span class="line">&gt;         stack.push(node.left);</span><br><span class="line">&gt;         stack.push(node.left);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;       nodeList.push(node.val);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">return</span> nodeList;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>　　　</p>
+</blockquote>
+<ul>
+<li><h6 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h6></li>
+</ul>
+<blockquote>
+<ul>
+<li>二分搜索树</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">&gt;   <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;     <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;     <span class="keyword">this</span>.left=<span class="literal">null</span>;</span><br><span class="line">&gt;     <span class="keyword">this</span>.right=<span class="literal">null</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">BST</span></span>&#123;</span><br><span class="line">&gt;   <span class="keyword">constructor</span>()&#123;</span><br><span class="line">&gt;     <span class="keyword">this</span>.root=<span class="literal">null</span>;</span><br><span class="line">&gt;     <span class="keyword">this</span>.size=<span class="number">0</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   getSize()&#123;</span><br><span class="line">&gt;     <span class="keyword">return</span> <span class="keyword">this</span>.size;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   isEmpty()&#123;</span><br><span class="line">&gt;     <span class="keyword">return</span> <span class="keyword">this</span>.size===<span class="number">0</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   addNode(val)&#123;</span><br><span class="line">&gt;     <span class="keyword">this</span>.root=<span class="keyword">this</span>._addChild(<span class="keyword">this</span>.root,val);</span><br><span class="line">&gt;   &#125; </span><br><span class="line">&gt;   _addChild(node,val)&#123;</span><br><span class="line">&gt;     <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.size++;</span><br><span class="line">&gt;       <span class="keyword">return</span> <span class="keyword">new</span> Node(val);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">if</span>(node.value&gt;val)&#123;</span><br><span class="line">&gt;       node.left=<span class="keyword">this</span>._addChild(node.left,val);</span><br><span class="line">&gt;     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(node.value&lt;val)&#123;</span><br><span class="line">&gt;       node.right=<span class="keyword">this</span>._addChild(node.right,val);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">return</span> node;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">let</span> bsTree=<span class="keyword">new</span> BST();</span><br><span class="line">&gt; bsTree.addNode(<span class="number">5</span>);</span><br><span class="line">&gt; bsTree.addNode(<span class="number">2</span>);</span><br><span class="line">&gt; bsTree.addNode(<span class="number">6</span>);</span><br><span class="line">&gt; <span class="built_in">console</span>.log(bsTree);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>二分搜索</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">//递归版</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">recursionBS</span>(<span class="params">arr,l,r,k</span>)</span>&#123;<span class="comment">//arr是排好序的数组</span></span><br><span class="line">&gt;   <span class="keyword">if</span>(r-l&lt;<span class="number">0</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//没有元素</span></span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">let</span> mid=<span class="built_in">Math</span>.floor((l+r)/<span class="number">2</span>);</span><br><span class="line">&gt;   <span class="keyword">if</span>(k===arr[mid]) <span class="keyword">return</span> mid;</span><br><span class="line">&gt;   <span class="keyword">else</span> <span class="keyword">if</span>(k&lt;arr[mid])  <span class="keyword">return</span> BS(arr,l,mid<span class="number">-1</span>,k);</span><br><span class="line">&gt;   <span class="keyword">else</span>  <span class="keyword">return</span> BS(arr,mid+<span class="number">1</span>,r,k);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="built_in">console</span>.log(recursionBS([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>));</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">//迭代版</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">iterationBS</span>(<span class="params">arr,l,r,k</span>)</span>&#123;</span><br><span class="line">&gt;   <span class="keyword">if</span>(r-l&lt;<span class="number">0</span>)&#123;</span><br><span class="line">&gt;     <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//没有元素</span></span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">let</span> mid;</span><br><span class="line">&gt;   <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">&gt;     mid=<span class="built_in">Math</span>.floor((l+r)/<span class="number">2</span>);</span><br><span class="line">&gt;     <span class="keyword">if</span>(k===arr[mid]) <span class="keyword">return</span> mid;</span><br><span class="line">&gt;     <span class="keyword">else</span> <span class="keyword">if</span>(k&lt;arr[mid])  r=mid<span class="number">-1</span>;</span><br><span class="line">&gt;     <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="built_in">console</span>.log(iterationBS([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>));</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>动态规划</li>
+</ul>
+<blockquote>
+<ul>
+<li>核心： 记住已经解决过的子问题的解。用空间换时间。</li>
+<li>原理<ul>
+<li>最优子结构：选或不选 ，是两种情况， 同时诞生了两个子问题。求解这两个子问题 然后比较结果     填入最优的那一个。</li>
+<li>重叠子问题：在斐波拉契数列中，可以看到大量的重叠子问题，比如说在求fib（6）的时候，fib（2）被调用了5次。</li>
+</ul>
 </li>
 </ul>
 </blockquote>
+<ul>
+<li><h6 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h6></li>
+</ul>
 <blockquote>
+<ul>
+<li>满足条件<ul>
+<li>1、可行的：即它必须满足问题的约束。</li>
+<li>2、局部最优：他是当前步骤中所有可行选择中最佳的局部选择。</li>
+<li>3、不可取消：即选择一旦做出，在算法的后面步骤就不可改变了。</li>
+</ul>
+</li>
+<li>贪心在解决问题上是目光短浅的，仅仅根据当前的已知信息就做出选择，并且一旦做了选择，就不再更改比如01背包问题，用贪心的话是不可解决的，因为贪心每次只顾眼前最优，即每次选择价值最大的，而忽略了另外一个变量，物品的重量，如果还考虑物品的重量的话，那就是dp了</li>
+</ul>
 </blockquote>
 
       
@@ -522,8 +593,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/JS面试考点解析/" rel="next" title="JavaScript面试考点">
-                <i class="fa fa-chevron-left"></i> JavaScript面试考点
+              <a href="/2019/04/01/HTML和CSS/" rel="next" title="HTML、CSS">
+                <i class="fa fa-chevron-left"></i> HTML、CSS
               </a>
             
           </div>
@@ -608,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -674,7 +745,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -719,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本排序"><span class="nav-number">1.</span> <span class="nav-text">基本排序</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈、队列、链表"><span class="nav-number">2.</span> <span class="nav-text">栈、队列、链表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#树的深度优先遍历和广度优先遍历"><span class="nav-number">3.</span> <span class="nav-text">树的深度优先遍历和广度优先遍历</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本排序"><span class="nav-number">1.</span> <span class="nav-text">基本排序</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈、队列、链表"><span class="nav-number">2.</span> <span class="nav-text">栈、队列、链表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#树的深度优先遍历和广度优先遍历"><span class="nav-number">3.</span> <span class="nav-text">树的深度优先遍历和广度优先遍历</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二分搜索"><span class="nav-number">4.</span> <span class="nav-text">二分搜索</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#贪心算法"><span class="nav-number">5.</span> <span class="nav-text">贪心算法</span></a></li></ol></div>
             
 
           </div>

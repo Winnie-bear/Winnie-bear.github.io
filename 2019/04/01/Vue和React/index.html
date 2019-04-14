@@ -102,16 +102,21 @@
 
 
 
-  <meta name="keywords" content="Vue">
+  <meta name="keywords" content="React,Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue">
-<meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/Vue/index.html">
+<meta property="og:title" content="Vue 和 React">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/Vue和React/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/13/5c8878db480e9.png">
-<meta property="og:updated_time" content="2019-04-01T15:00:49.029Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/05/5ca761722eb57.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/05/5ca7617261a1a.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/05/5ca766a21ff58.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/05/5ca76d0396e55.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg">
+<meta property="og:updated_time" content="2019-04-14T15:55:57.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue">
+<meta name="twitter:title" content="Vue 和 React">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/13/5c8878db480e9.png">
 
 
@@ -119,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/01/Vue/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/01/Vue和React/"/>
 
 
 
@@ -129,7 +134,7 @@
   };
 </script>
 
-  <title>Vue | Winnie-bear</title>
+  <title>Vue 和 React | Winnie-bear</title>
   
 
 
@@ -293,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/01/Vue/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/01/Vue和React/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winnie">
@@ -310,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue
+          <h1 class="post-title" itemprop="name headline">Vue 和 React
               
             
           </h1>
@@ -335,12 +340,24 @@
                 
               
 
-              <time title="Created: 2019-04-01 00:00:00 / Modified: 23:00:49" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+              <time title="Created: 2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-14 23:55:57" itemprop="dateModified" datetime="2019-04-14T23:55:57+08:00">2019-04-14</time>
               
             
           </span>
@@ -554,6 +571,181 @@
 </ul>
 </blockquote>
 </li>
+<li><h6 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h6><blockquote>
+<ul>
+<li><p>使用 State 和 Getter 对状态进行定义；使用 Mutation 和 Action 对状态进行变更；引入 Module 对状态进行模块化分割</p>
+<ul>
+<li>state 用来数据共享数据存储</li>
+<li>getters 用来对共享数据进行过滤操作</li>
+<li>mutation 用来注册改变数据状态</li>
+<li>action 解决异步改变共享数据</li>
+</ul>
+</li>
+<li><p>vuex 使用过程</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/05/5ca761722eb57.png" alt="vuex使用过程"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1.</span>Vue的插件机制，安装Vuex。  Vue.use(Vuex)</span><br><span class="line">&gt; <span class="number">2.</span>实例化store </span><br><span class="line">&gt; <span class="keyword">let</span> store = <span class="keyword">new</span> Vuex.Store(&#123; </span><br><span class="line">&gt;        state,</span><br><span class="line">&gt;        getters,</span><br><span class="line">&gt;        mutations,</span><br><span class="line">&gt;        actions,</span><br><span class="line">&gt;        modules,</span><br><span class="line">&gt; &#125;);</span><br><span class="line">&gt; <span class="number">3.</span>在Vue实例中注入store</span><br><span class="line">&gt; <span class="keyword">new</span> Vue(&#123; </span><br><span class="line">&gt;    store,</span><br><span class="line">&gt;    render: <span class="function"><span class="params">h</span>=&gt;</span>h(app)</span><br><span class="line">&gt; &#125;).$mount(<span class="string">'#app'</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>vuex 构成</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/05/5ca7617261a1a.png" alt="vuex构成"></p>
+<ul>
+<li><p>Vuex的store是如何注入到组件中的?</p>
+<ul>
+<li>1.利用Vue插件机制装载vuex</li>
+<li>2.install Vuex.store()</li>
+<li>3.利用Vue.mixin() 在Vue生命周期beforeCreate之前进行VuexInit (得益于 mixin 机制，this 将指向 Vue 组件实例。<strong>我们可以在 Vue 组件实例上获得 Vuex 的 store 对象的引用 $store</strong>)</li>
+</ul>
+<blockquote>
+<p>总结：Vuex 利用了 Vue 的 mixin 机制，混合 beforeCreate 钩子，将 store 注入至 Vue 组件实例上，并注册了 Vuex store 的引用属性 $store。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/05/5ca766a21ff58.png" alt="store注入到组件"></p>
+<ul>
+<li><p>Vuex 的state 和 getter 是如何映射到各个组件实例中自动更新的呢？</p>
+<ul>
+<li>1.state 是借助 Vue 的响应式 data 实现的。</li>
+<li>2.getter 是借助 Vue 的计算属性 computed 特性实现的。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/05/5ca76d0396e55.png" alt="state个getter实现原理"></p>
+<ul>
+<li>Vuex 核心代码</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">// src/store.js</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line">&gt;  <span class="comment">// 省略无关代码</span></span><br><span class="line">&gt;  Vue.config.silent = <span class="literal">true</span></span><br><span class="line">&gt;  store._vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">&gt;        data: &#123;</span><br><span class="line">&gt;          $$state: state</span><br><span class="line">&gt;        &#125;,</span><br><span class="line">&gt;        computed</span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>​    将我们传入的state作为一个隐藏的vue组件的data，也就是说，我们的commit操作，本质上其实是修改这个组件的data值。<strong>vuex中的store本质就是没有<code>template</code>的隐藏着的vue组件</strong></p>
+</blockquote>
+<ul>
+<li><p>使用场景</p>
+<ul>
+<li>多个视图依赖于同一状态。<ul>
+<li>有A,B,C,D,E,F组件…都需要同一个数据，如果每次都去请求一下接口获取数据，那么每多一次请求就会对服务器多一份负担。这个时候就可以利用vuex，只访问接口一次，获取到这个数据，然后存到这个”全局变量“里，用的时候直接取，不管有多少组件需要，都可以直接拿来用</li>
+</ul>
+</li>
+<li>来自不同视图的行为需要变更同一状态。<ul>
+<li>1、在首页、分类、商品详情页添加商品需要触发一次 </li>
+<li>2、在购物车进入编辑状态,删除购物车项,需要触发一次 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缺点：刷新页面后数据消失</p>
+<ul>
+<li><p>原因</p>
+<ul>
+<li>js代码是运行在内存（栈内存和堆内存）中的，代码运行时的所有变量、函数也都是保存在内存中的。刷新页面，以前申请的内存被释放，重新加载脚本代码，变量重新赋值。</li>
+</ul>
+</li>
+<li><p>问题场景</p>
+<ul>
+<li>用户已经登录，登录状态放到state中，一刷新页面，还要重新登录。</li>
+<li>购物车里的添加的数据，一刷新要重新添加。</li>
+</ul>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li>利用webStorage</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h6 id="跨层级组件通信（provide-inject）"><a href="#跨层级组件通信（provide-inject）" class="headerlink" title="跨层级组件通信（provide + inject）"></a>跨层级组件通信（provide + inject）</h6><blockquote>
+<ul>
+<li><p>应用场景：删除一条数据或者新增数据之后需要重新刷新当前页面</p>
+</li>
+<li><p>为什么选择这个方案去实现</p>
+<ul>
+<li>1.用vue-router重新路由到当前页面，页面是不进行刷新的</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">this</span>.$router.replace(&#123;</span><br><span class="line">&gt;    path:...,</span><br><span class="line">&gt;    name:...</span><br><span class="line">&gt; &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>2.采用window.reload()，或者router.go(0)刷新时，整个浏览器进行了重新加载，闪烁，体验不好</li>
+</ul>
+<ul>
+<li><p>具体实现</p>
+<ul>
+<li><p>provide + inject 组合</p>
+<ul>
+<li>作用：允许一个祖先组件向其所有子孙后代注入一个依赖，<strong>不论组件层次有多深</strong>，并在起上下游关系成立的时间里始终生效。</li>
+</ul>
+</li>
+<li><p>App.vue</p>
+<ul>
+<li>声明reload方法，控制router-view的显示或隐藏，从而控制页面的再次加载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1.</span> &lt;router-view v-<span class="keyword">if</span>=<span class="string">"isRouterAlive"</span>/&gt;</span><br><span class="line">&gt; <span class="number">2.</span> provide()&#123;</span><br><span class="line">&gt;  <span class="keyword">return</span> &#123;</span><br><span class="line">&gt;      reload:<span class="keyword">this</span>.reload</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="number">3.</span> methods:&#123;</span><br><span class="line">&gt;  reload()&#123;</span><br><span class="line">&gt;      <span class="keyword">this</span>.isRouterAlive=<span class="literal">false</span>;</span><br><span class="line">&gt;      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">&gt;          <span class="keyword">this</span>.isRouterAlive=<span class="literal">true</span>;</span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>在页面注入App.vue组件提供（provide）的 reload 依赖，在逻辑完成之后（删除或添加…）,直接this.reload()调用，即可刷新当前页面。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">//刷新项目信息</span></span><br><span class="line">&gt; freshPro()&#123;</span><br><span class="line">&gt;   <span class="keyword">if</span>(<span class="keyword">this</span>.curProPage)&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.getPageData(<span class="keyword">this</span>.curProPage);</span><br><span class="line">&gt;   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.reload();</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+</li>
+<li><h6 id="Vuex-VS-Redux"><a href="#Vuex-VS-Redux" class="headerlink" title="Vuex VS Redux"></a>Vuex VS Redux</h6><blockquote>
+<ul>
+<li><p>Redux</p>
+<ul>
+<li>三大原则：唯一数据源、状态只读、数据的改变只能通过纯函数（reducer）完成</li>
+<li><p>核心三部分：store、reducer、action</p>
+<ul>
+<li>Redux的核心是store，它由Redux提供的 createStore(reducer， defaultState) 这个方法生成，生成三个方法，getState(),dispatch(),subscrible()。</li>
+<li>reducer是一个<strong>纯函数</strong>，它根据previousState和action计算出新的state。reducer(previousState,action)</li>
+<li>action本质上是一个JavaScript对象，其中必须包含一个type字段来表示将要执行的动作，其他的字段都可以根据需求来自定义。</li>
+</ul>
+</li>
+<li><p><code>React</code>：负责组件的UI界面渲染；<code>Redux</code>：数据处理中心；<code>React-Redux</code>：连接组件和数据中心，也就是把React和Redux联系起来。</p>
+<p><img src="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg" alt="React、Redux、React-Redux三者关系"></p>
+</li>
+</ul>
+</li>
+<li><p>React-Redux</p>
+<ul>
+<li><p>Redux 本身和 React 没有关系，只是数据处理中心，是React-Redux让他们联系在一起</p>
+</li>
+<li><p>React-rRedux提供两个方法：connect和Provider。</p>
+</li>
+<li><p>connect连接React组件和Redux store。connect实际上是一个高阶函数，返回一个新的已与 Redux store 连接的组件类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;     const VisibleTodoList = connect(</span><br><span class="line">&gt;       mapStateToProps,</span><br><span class="line">&gt;       mapDispatchToProps</span><br><span class="line">&gt;     )(TodoList)</span><br><span class="line">&gt;     //mapStateToProps：从Redux状态树中提取需要的部分作为props传递给当前的组件。</span><br><span class="line">&gt;     //mapDispatchToProps：将需要绑定的响应事件（action）作为props传递到组件上。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Provider实现store的全局访问，将store传给每个组件。</li>
+</ul>
+<ul>
+<li>两者区别<ul>
+<li>vuex的流向：view—&gt;commit—&gt;mutations—&gt;state变化—&gt;view变化（同步操作）<br>view—&gt;dispatch—&gt;actions—&gt;mutations—&gt;state变化—&gt;view变化（异步操作）</li>
+<li>redux的流向：view —&gt;actions —&gt;reducer —&gt;state变化 —&gt;view变化（同步异步一样）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 
       
@@ -575,6 +767,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/React/" rel="tag"># React</a>
+          
             <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
@@ -588,8 +782,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/计算机网络/" rel="next" title="计算机网络">
-                <i class="fa fa-chevron-left"></i> 计算机网络
+              <a href="/2019/04/01/JS面试考点解析/" rel="next" title="JavaScript面试考点">
+                <i class="fa fa-chevron-left"></i> JavaScript面试考点
               </a>
             
           </div>
@@ -674,7 +868,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -740,7 +934,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -785,7 +981,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应式"><span class="nav-number">3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">4.</span> <span class="nav-text">Vue VS React</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应式"><span class="nav-number">3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">4.</span> <span class="nav-text">Vue VS React</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex"><span class="nav-number">5.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨层级组件通信（provide-inject）"><span class="nav-number">6.</span> <span class="nav-text">跨层级组件通信（provide + inject）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex-VS-Redux"><span class="nav-number">7.</span> <span class="nav-text">Vuex VS Redux</span></a></li></ol></div>
             
 
           </div>

@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
-<meta property="og:updated_time" content="2019-04-01T15:00:17.583Z">
+<meta property="og:updated_time" content="2019-04-10T07:18:24.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript面试考点">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
@@ -335,12 +335,24 @@
                 
               
 
-              <time title="Created: 2019-04-01 00:00:00 / Modified: 23:00:17" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+              <time title="Created: 2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-10 15:18:24" itemprop="dateModified" datetime="2019-04-10T15:18:24+08:00">2019-04-10</time>
               
             
           </span>
@@ -745,7 +757,7 @@
 <ul>
 <li><p>六个阶段：timers，pengding callbacks，idle、prepare，poll，check，close callbacks</p>
 </li>
-<li><p>执行顺序：按阶段顺序执行，并且每一阶段结束都要查询是否存在微任务，若存在，则全部执行（nextTick优先）</p>
+<li><p>执行顺序：按阶段顺序执行，并且每一阶段结束都要查询是否存在微任务，若存在，则全部执行（nextTick优先)</p>
 </li>
 <li><p><strong>timers</strong>      执行setTimeout、setInterval</p>
 </li>
@@ -1216,27 +1228,6 @@
 </blockquote>
 </li>
 </ul>
-<hr>
-<ul>
-<li><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
-<li><h6 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h6></li>
-</ul>
-<blockquote>
-<ul>
-<li>递归版</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; BS(A,low,high,k)</span><br><span class="line">&gt;     if(high-low &lt; 0) return -1  //没有元素</span><br><span class="line">&gt;     mid= ⌊low+high/2⌋</span><br><span class="line">&gt;     if  k=A[mid]  return mid </span><br><span class="line">&gt;     else if  k&lt;A[mid]  return BS(A,low,mid-1,k)</span><br><span class="line">&gt;     else  return BS(A,mid+1,high,k)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>迭代版</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; BS(A,low,high,k)</span><br><span class="line">&gt;   while(low&lt;=high)</span><br><span class="line">&gt;     mid= ⌊low+high/2⌋</span><br><span class="line">&gt;     if k=A[mid] return mid</span><br><span class="line">&gt;     else if k&lt;A[mid] then high &lt;- mid-1</span><br><span class="line">&gt;     else low &lt;- mid+1</span><br><span class="line">&gt;   return -1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
-</li>
-</ul>
 </script></li></ul></li></ul></blockquote></li></ul>
       
     </div>
@@ -1282,8 +1273,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="prev" title="数据结构与算法">
-                数据结构与算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/Vue和React/" rel="prev" title="Vue 和 React">
+                Vue 和 React <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1358,7 +1349,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1424,7 +1415,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
