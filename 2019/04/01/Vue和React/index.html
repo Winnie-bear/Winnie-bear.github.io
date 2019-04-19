@@ -102,7 +102,7 @@
 
 
 
-  <meta name="keywords" content="React,Vue">
+  <meta name="keywords" content="Vue,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 和 React">
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/Vue和React/index.html">
@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/05/5ca766a21ff58.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/05/5ca76d0396e55.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg">
-<meta property="og:updated_time" content="2019-04-14T15:55:57.257Z">
+<meta property="og:updated_time" content="2019-04-18T10:16:25.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 和 React">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/13/5c8878db480e9.png">
@@ -357,7 +357,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-14 23:55:57" itemprop="dateModified" datetime="2019-04-14T23:55:57+08:00">2019-04-14</time>
+                <time title="Modified: 2019-04-18 18:16:25" itemprop="dateModified" datetime="2019-04-18T18:16:25+08:00">2019-04-18</time>
               
             
           </span>
@@ -410,7 +410,7 @@
       
         <hr>
 <a id="more"></a>
-<ul>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><ul>
 <li><h6 id="虚拟DOM和Diff算法"><a href="#虚拟DOM和Diff算法" class="headerlink" title="虚拟DOM和Diff算法"></a>虚拟DOM和Diff算法</h6><blockquote>
 <ul>
 <li>Virtual DOM 其实就是一棵以 JavaScript 对象（ VNode 节点）作为基础的树，用对象属性来描述节点，实际上它只是一层对真实 DOM 的抽象。</li>
@@ -516,61 +516,6 @@
 </li>
 </ul>
 <ul>
-<li><h6 id="Vue-VS-React"><a href="#Vue-VS-React" class="headerlink" title="Vue VS React"></a>Vue VS React</h6><blockquote>
-<ul>
-<li>生命周期<ul>
-<li>Vue    创建  = &gt;  挂载  = &gt;  更新  = &gt; 销毁 （vue 中操作DOM是异步的）<ul>
-<li>beforeCreate/created     创建阶段没有el选项<ul>
-<li>beforeCreate      el,data都未被初始化</li>
-<li>created                已经和data属性进行绑定，el属性还不存在</li>
-</ul>
-</li>
-<li>beforeMount/mounted   <ul>
-<li>beforeMount       el，data都被初始化，但还未渲染到视图中，还是虚拟dom的形式</li>
-<li>mounted              el，data都被初始化，也被渲染到视图中，是真实dom的形式</li>
-</ul>
-</li>
-<li>beforeUpdate/updated<ul>
-<li>beforeUpdate      data已经改变，但并未更新到视图中</li>
-<li>updated                视图已经更新</li>
-</ul>
-</li>
-<li>beforeDestory/destroyed<ul>
-<li>beforeDestroy     实例仍然完全可用</li>
-<li>destroyed             Vue 实例指示的所有东西都会被解绑，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>React   生成期 =&gt; 存在期 =&gt;  销毁期<ul>
-<li>生成期  : constructor componentWillMount  render  componentDidMount</li>
-<li>存在期:  componentWillReceiveProps      shouldComponentUpdate(nextProps, nextState) componentWillUpdate     render    ComponentDidUpdate</li>
-<li>销毁期   componentWillUnmount</li>
-</ul>
-</li>
-<li>区别<ul>
-<li>生命周期  <ul>
-<li>Vue 四个时期</li>
-<li>React 三个时期  render 函数生成虚拟dom,使用diff算法     shouldComponentUpdate 性能优化</li>
-</ul>
-</li>
-<li>设计思想 <ul>
-<li>Vue 是响应式的设计思想，推崇数据可变，支持双向数据流。追求开发简单。</li>
-<li>React 是函数式的设计思想，推崇数据不可变，单向数据流。追求方式是否正确。</li>
-</ul>
-</li>
-<li>模板<ul>
-<li>Vue 采用基于HTML的模板语法</li>
-<li>React采用JSX</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
 <li><h6 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h6><blockquote>
 <ul>
 <li><p>使用 State 和 Getter 对状态进行定义；使用 Mutation 和 Action 对状态进行变更；引入 Module 对状态进行模块化分割</p>
@@ -703,6 +648,161 @@
 <blockquote>
 </blockquote>
 </li>
+</ul>
+<hr>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><ul>
+<li><h6 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h6><blockquote>
+<ul>
+<li><p>基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。</p>
+</li>
+<li><p><strong>Store</strong> </p>
+<ul>
+<li><p>保存数据的地方，可以看成是一个容器，整个应用只能有一个 Store。</p>
+</li>
+<li><p>Redux 提供<code>createStore</code>这个函数，用来生成 Store</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;     import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">&gt;     const store = createStore(reducer);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p><strong>State</strong></p>
+<ul>
+<li><strong><code>Store</code>对象包含所有数据</strong>。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。</li>
+<li>Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。</li>
+</ul>
+</li>
+<li><p><strong>Action</strong></p>
+<ul>
+<li>State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。<strong>Action 是 View 发出的通知，表示 State 要发生变化了</strong>。</li>
+<li><strong>Action 是一个对象。其中的<code>type</code>属性是必须的，表示 Action 的名称</strong>，其他属性可以自由设置</li>
+<li><strong>Action 描述当前发生的事情。改变 State 的唯一办法</strong>，就是使用 Action。它会运送数据到 Store。</li>
+</ul>
+</li>
+<li><p>Action Creator</p>
+<ul>
+<li>View 要发送多少种消息，就会有多少种 Action。如果都手写，会很麻烦。可以定义一个函数来生成 Action，这个函数就叫 Action Creator。</li>
+</ul>
+</li>
+<li><p>store.dispatch()</p>
+<ul>
+<li>View 发出 Action 的唯一方法，接受一个 Action 对象作为参数，将它发送出去。</li>
+</ul>
+</li>
+<li><p><strong>Reducer</strong></p>
+<ul>
+<li><p>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。</p>
+</li>
+<li><p><strong><code>store.dispatch</code>方法会触发 Reducer 的自动执行</strong>。</p>
+</li>
+<li><p><strong>Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</strong></p>
+</li>
+<li><p>为什么这个函数叫做 Reducer 呢？因为它可以作为数组的<code>reduce</code>方法的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;     const actions = [</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 0 &#125;,</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 1 &#125;,</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 2 &#125;</span><br><span class="line">&gt;     ];</span><br><span class="line">&gt;     </span><br><span class="line">&gt;     const total = actions.reduce(reducer, 0);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>Reducer 是一个纯函数，只要是同样的输入，必定得到同样的输出</strong>。</li>
+</ul>
+<ul>
+<li><p>纯函数</p>
+<ul>
+<li>定义（要求）<ul>
+<li>不依赖于程序执行期间函数外部任何状态或数据的变化，必须<strong>只依赖于其输入参数</strong></li>
+<li>不会产生任何可观察的副作用，例如网络请求，输入和输出设备或数据突变（mutation）。</li>
+</ul>
+</li>
+<li>可观察的副作用<ul>
+<li>在函数内部与其外部的<strong>任意</strong>交互，可能是在函数内修改外部的变量，或者在函数里调用另外一个函数等。</li>
+<li>副作用来自，但不限于：<ul>
+<li>进行一个 HTTP 请求</li>
+<li>Mutating data</li>
+<li>输出数据到屏幕或者控制台</li>
+<li>DOM 查询/操作</li>
+<li>Math.random()</li>
+<li>获取的当前时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h6 id="Redux-thunk"><a href="#Redux-thunk" class="headerlink" title="Redux-thunk"></a>Redux-thunk</h6><blockquote>
+<ul>
+<li>中间件就是一个函数，对<code>store.dispatch</code>方法进行了改造，可以接受<strong>函数</strong>作为参数，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</li>
+<li>同步操作只要发出一种 Action 即可，异步操作的差别是它要发出三种 Action。</li>
+<li>异步操作的思路<ul>
+<li>操作开始时，送出一个 Action，触发 State 更新为”正在操作”状态，View 重新渲染</li>
+<li>操作结束后，再送出一个 Action，触发 State 更新为”操作结束”状态，View 再一次重新渲染</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><h6 id="Vue-VS-React"><a href="#Vue-VS-React" class="headerlink" title="Vue VS React"></a>Vue VS React</h6><blockquote>
+<ul>
+<li>生命周期<ul>
+<li>Vue    创建  = &gt;  挂载  = &gt;  更新  = &gt; 销毁 （vue 中操作DOM是异步的）<ul>
+<li>beforeCreate/created     创建阶段没有el选项<ul>
+<li>beforeCreate      el,data都未被初始化</li>
+<li>created                已经和data属性进行绑定，el属性还不存在</li>
+</ul>
+</li>
+<li>beforeMount/mounted   <ul>
+<li>beforeMount       el，data都被初始化，但还未渲染到视图中，还是虚拟dom的形式</li>
+<li>mounted              el，data都被初始化，也被渲染到视图中，是真实dom的形式</li>
+</ul>
+</li>
+<li>beforeUpdate/updated<ul>
+<li>beforeUpdate      data已经改变，但并未更新到视图中</li>
+<li>updated                视图已经更新</li>
+</ul>
+</li>
+<li>beforeDestory/destroyed<ul>
+<li>beforeDestroy     实例仍然完全可用</li>
+<li>destroyed             Vue 实例指示的所有东西都会被解绑，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>React   生成期 =&gt; 存在期 =&gt;  销毁期<ul>
+<li>生成期  : constructor componentWillMount  render  componentDidMount</li>
+<li>存在期:  componentWillReceiveProps      shouldComponentUpdate(nextProps, nextState) componentWillUpdate     render    ComponentDidUpdate</li>
+<li>销毁期   componentWillUnmount</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>生命周期  <ul>
+<li>Vue 四个时期</li>
+<li>React 三个时期  render 函数生成虚拟dom,使用diff算法     shouldComponentUpdate 性能优化</li>
+</ul>
+</li>
+<li>设计思想 <ul>
+<li>Vue 是响应式的设计思想，推崇数据可变，支持双向数据流。追求开发简单。</li>
+<li>React 是函数式的设计思想，推崇数据不可变，单向数据流。追求方式是否正确。</li>
+</ul>
+</li>
+<li>模板<ul>
+<li>Vue 采用基于HTML的模板语法</li>
+<li>React采用JSX</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
 <li><h6 id="Vuex-VS-Redux"><a href="#Vuex-VS-Redux" class="headerlink" title="Vuex VS Redux"></a>Vuex VS Redux</h6><blockquote>
 <ul>
 <li><p>Redux</p>
@@ -710,7 +810,7 @@
 <li>三大原则：唯一数据源、状态只读、数据的改变只能通过纯函数（reducer）完成</li>
 <li><p>核心三部分：store、reducer、action</p>
 <ul>
-<li>Redux的核心是store，它由Redux提供的 createStore(reducer， defaultState) 这个方法生成，生成三个方法，getState(),dispatch(),subscrible()。</li>
+<li>Redux的核心是store，它由Redux提供的 createStore(reducer， defaultState) 这个方法生成，生成三个方法，getState(),dispatch(),subscribe()。</li>
 <li>reducer是一个<strong>纯函数</strong>，它根据previousState和action计算出新的state。reducer(previousState,action)</li>
 <li>action本质上是一个JavaScript对象，其中必须包含一个type字段来表示将要执行的动作，其他的字段都可以根据需求来自定义。</li>
 </ul>
@@ -767,9 +867,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"># React</a>
-          
             <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -782,8 +882,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/JS面试考点解析/" rel="next" title="JavaScript面试考点">
-                <i class="fa fa-chevron-left"></i> JavaScript面试考点
+              <a href="/2019/04/01/HTML和CSS/" rel="next" title="HTML、CSS">
+                <i class="fa fa-chevron-left"></i> HTML、CSS
               </a>
             
           </div>
@@ -792,8 +892,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/HTML和CSS/" rel="prev" title="HTML、CSS">
-                HTML、CSS <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/计算机网络/" rel="prev" title="计算机网络">
+                计算机网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -868,7 +968,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -891,7 +991,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -936,7 +1040,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -981,7 +1091,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应式"><span class="nav-number">3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">4.</span> <span class="nav-text">Vue VS React</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex"><span class="nav-number">5.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨层级组件通信（provide-inject）"><span class="nav-number">6.</span> <span class="nav-text">跨层级组件通信（provide + inject）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex-VS-Redux"><span class="nav-number">7.</span> <span class="nav-text">Vuex VS Redux</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue"><span class="nav-number">1.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应式"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨层级组件通信（provide-inject）"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">跨层级组件通信（provide + inject）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">2.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Redux"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Redux-thunk"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Redux-thunk</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">Vue VS React</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex-VS-Redux"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">Vuex VS Redux</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

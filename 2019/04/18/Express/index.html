@@ -102,22 +102,22 @@
 
 
 
-  <meta name="keywords" content="React">
+  <meta name="keywords" content="Node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React 开发简书项目实战总结">
-<meta property="og:url" content="https://github.com/winnie-bear/2019/04/14/React 开发简书项目实战总结/index.html">
+<meta property="og:title" content="Express">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/04/18/Express/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-14T15:57:51.478Z">
+<meta property="og:updated_time" content="2019-04-18T13:54:41.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React 开发简书项目实战总结">
+<meta name="twitter:title" content="Express">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/14/React 开发简书项目实战总结/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/18/Express/"/>
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>React 开发简书项目实战总结 | Winnie-bear</title>
+  <title>Express | Winnie-bear</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/14/React 开发简书项目实战总结/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/18/Express/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winnie">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">React 开发简书项目实战总结
+          <h1 class="post-title" itemprop="name headline">Express
               
             
           </h1>
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-04-14 00:00:00 / Modified: 23:57:51" itemprop="dateCreated datePublished" datetime="2019-04-14T00:00:00+08:00">2019-04-14</time>
+              <time title="Created: 2019-04-18 00:00:00 / Modified: 21:54:41" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">2019-04-18</time>
             
 
             
@@ -392,33 +392,100 @@
         <hr>
 <a id="more"></a>
 <ul>
-<li><h6 id="问题和解决方案"><a href="#问题和解决方案" class="headerlink" title="问题和解决方案"></a>问题和解决方案</h6><blockquote>
+<li><h6 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h6><blockquote>
 <ul>
-<li><ol>
-<li>create-react-app 构建的项目释放配置文件 webpack 等时，运行 npm run eject 报错</li>
-</ol>
+<li><p>支持类型</p>
 <ul>
-<li><p>解决方案：使用 git 提交一次记录</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;     git add .</span><br><span class="line">&gt;     git commit -m <span class="string">'init'</span></span><br><span class="line">&gt;     npm run eject</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>字符串类型</li>
+<li>字符串模式类型</li>
+<li>正则表达式类型</li>
+<li>参数类型</li>
 </ul>
 </li>
-</ul>
-</blockquote>
-<blockquote>
+<li><p>路由拆分</p>
 <ul>
-<li><ol>
-<li>styled-components 组件升级v4版本的全局样式踩坑，直接像原 injectGlobal 方法一样使用不能生效</li>
-</ol>
-<ul>
-<li><p>解决方案：定义一个全局样式变量，这个变量将作为组件插入文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt;     //style.js,全局样式</span><br><span class="line">&gt;     import &#123;createGlobalStyle&#125; from &apos;styled-components&apos;;</span><br><span class="line">&gt;     export const GlobalStyle=createGlobalStyle`</span><br><span class="line">&gt;     ...</span><br><span class="line">&gt;     `</span><br><span class="line">&gt;     //App.js,全局引入</span><br><span class="line">&gt;     import React, &#123; Component,Fragment &#125; from &apos;react&apos;;</span><br><span class="line">&gt;     import Header from &apos;./common/header&apos;;</span><br><span class="line">&gt;     import &#123; GlobalStyle &#125; from &apos;./style&apos;;</span><br><span class="line">&gt;     import &#123; GlobalIconFont &#125; from &apos;./statics/iconfont/iconfont&apos;;</span><br><span class="line">&gt;     class App extends Component &#123;</span><br><span class="line">&gt;       render() &#123;</span><br><span class="line">&gt;         return (</span><br><span class="line">&gt;           &lt;Fragment&gt;</span><br><span class="line">&gt;             &lt;GlobalStyle /&gt;</span><br><span class="line">&gt;             &lt;GlobalIconFont /&gt;</span><br><span class="line">&gt;             &lt;Header /&gt;</span><br><span class="line">&gt;           &lt;/Fragment&gt;</span><br><span class="line">&gt;         );</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>路由拆分前，无论是新增还是修改路由，都要带着<code>/user</code>前缀，这对于代码的可维护性来说是大忌。</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">&gt;   <span class="keyword">var</span> app = express();</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   app.get(<span class="string">'/user/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">&gt;       res.send(<span class="string">'/list'</span>);</span><br><span class="line">&gt;   &#125;);</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   app.get(<span class="string">'/user/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">&gt;       res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&gt;   &#125;);</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   app.listen(<span class="number">3000</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
 <blockquote>
+<ul>
+<li><p>利用<code>express.Router()</code>进行了路由拆分，新增、修改路由都变得极为便利</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">&gt;   <span class="keyword">var</span> app = express();</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   <span class="keyword">var</span> user = express.Router();</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   user.get(<span class="string">'/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">&gt;       res.send(<span class="string">'/list'</span>);</span><br><span class="line">&gt;   &#125;);</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   user.get(<span class="string">'/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">&gt;       res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&gt;   &#125;);</span><br><span class="line">&gt;    </span><br><span class="line">&gt;   app.use(<span class="string">'/user'</span>, user); <span class="comment">// mini app，通常做应用拆分</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+</blockquote>
+</li>
+<li><h6 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h6><blockquote>
+<ul>
+<li><p>中间件其实是一个函数，在响应发送之前对请求进行一些操作</p>
+</li>
+<li><p>express内部维护一个函数数组，这个函数数组表示在发出响应之前要执行的所有函数，也就是中间件数组。</p>
+</li>
+<li><p>使用<code>app.use(fn)</code>后，传进来的<code>fn</code>就会被扔到这个数组里，执行完毕后调用<code>next()</code>方法执行函数数组里的下一个函数，如果没有调用<code>next()</code>的话，就不会调用下一个函数了，也就是说调用就会被终止。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="comment">//实现原理</span></span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">express</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;       <span class="keyword">var</span> funcs = []; <span class="comment">// 待执行的函数数组</span></span><br><span class="line">&gt;   </span><br><span class="line">&gt;       <span class="keyword">var</span> app = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">&gt;           <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;           <span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&gt;               <span class="keyword">var</span> task = funcs[i++];  <span class="comment">// 取出函数数组里的下一个函数</span></span><br><span class="line">&gt;               <span class="keyword">if</span> (!task) &#123;    <span class="comment">// 如果函数不存在,return</span></span><br><span class="line">&gt;                   <span class="keyword">return</span>;</span><br><span class="line">&gt;               &#125;</span><br><span class="line">&gt;               task(req, res, next);   <span class="comment">// 否则,执行下一个函数</span></span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;           next();</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;       <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;        * use方法就是把函数添加到函数数组中</span></span><br><span class="line"><span class="comment">&gt;        * @param task</span></span><br><span class="line"><span class="comment">&gt;        */</span></span><br><span class="line">&gt;       app.use = <span class="function"><span class="keyword">function</span> (<span class="params">task</span>) </span>&#123;</span><br><span class="line">&gt;           funcs.push(task);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;       <span class="keyword">return</span> app;    <span class="comment">// 返回实例</span></span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+</blockquote>
+</li>
+<li><h6 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h6><blockquote>
+<ul>
+<li><p>jade</p>
+</li>
+<li><p>ejs</p>
+<ul>
+<li><p>语法</p>
+<ul>
+<li>1.&lt;% code %&gt;用于执行其中javascript代码  </li>
+<li>2.&lt;%= code %&gt;会对code进行html转义</li>
+<li>3.&lt;%- code %&gt; 注释</li>
+</ul>
+</li>
+<li><p>类似于JSP</p>
+<ul>
+<li><p>四大作用域：page、request、session、application</p>
+</li>
+<li><p>九大内置对象：page、config、application、request、response、session、out、exception、pageContext</p>
+</li>
+<li><p>指令 </p>
+<ul>
+<li>格式：&lt;%@ directive {attribute=value}  %&gt;</li>
+<li>例子<ul>
+<li><code>language</code>   &lt;%@ page language=”java” contentType=”text/html; charset=UTF-8” pageEncoding=”UTF-8”%&gt;</li>
+<li><code>import</code>    &lt;%@ page import=”java.util.List,java.util.ArrayList”%&gt;</li>
+<li><code>include</code>    &lt;%@ include file=”relativeURL”%&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>行为</p>
+<ul>
+<li><p>格式：&lt;jsp:elements ｛attribute=”value”｝/&gt;　</p>
+</li>
+<li><p>&lt;jsp:include /&gt;行为</p>
+</li>
+<li>&lt;jsp:forward /&gt;行为</li>
+<li>Java bean行为，包括useBean行为、setProperty行为、getProperty行为</li>
+</ul>
+</li>
+<li><p>语法</p>
+<ul>
+<li>1.使用&lt;% 编写java代码 %&gt;，中间java代码必须遵循Java语法</li>
+<li>2.使用&lt;%=xxx %&gt;来输出结果</li>
+<li>3.使用 &lt;%– –%&gt; 来注释</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </blockquote>
 </li>
 </ul>
@@ -442,7 +509,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"># React</a>
+            <a href="/tags/Node/" rel="tag"># Node</a>
           
         </div>
       
@@ -455,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/各种手写代码/" rel="next" title="手写代码题">
-                <i class="fa fa-chevron-left"></i> 手写代码题
+              <a href="/2019/04/18/数据库/" rel="next" title="SQL">
+                <i class="fa fa-chevron-left"></i> SQL
               </a>
             
           </div>
@@ -464,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/18/Linux/" rel="prev" title="Linux">
-                Linux <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#问题和解决方案"><span class="nav-number">1.</span> <span class="nav-text">问题和解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#路由"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中间件"><span class="nav-number">2.</span> <span class="nav-text">中间件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模板引擎"><span class="nav-number">3.</span> <span class="nav-text">模板引擎</span></a></li></ol></div>
             
 
           </div>
