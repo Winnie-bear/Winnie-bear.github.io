@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/18/Linux/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-19T06:27:01.245Z">
+<meta property="og:updated_time" content="2019-04-20T08:42:13.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux">
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-19 14:27:01" itemprop="dateModified" datetime="2019-04-19T14:27:01+08:00">2019-04-19</time>
+                <time title="Modified: 2019-04-20 16:42:13" itemprop="dateModified" datetime="2019-04-20T16:42:13+08:00">2019-04-20</time>
               
             
           </span>
@@ -404,42 +404,21 @@
         <hr>
 <a id="more"></a>
 <ul>
-<li><h6 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h6></li>
+<li><h6 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h6><ul>
+<li><p>用户管理：useradd   passwd   userdel    su   sudo   groupadd   gpasswd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd username -g groupname  //添加用户到某个组</span><br><span class="line">passwd username   // 设置密码</span><br><span class="line">gpasswd -A username groupname //设置某个组的管理员</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进程管理：ps   top   kill   command &amp;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps a //显示所有包括所有终端的进程</span><br><span class="line">ps -a  //显示当前终端下执行的进程</span><br><span class="line">top命令是Linux下常用的系统性能分析工具，能实时显示系统中各进程的资源占用情况</span><br><span class="line">kill PID  //终止一个进程</span><br><span class="line">command &amp; //将一个进程放入后台</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<blockquote>
 <ul>
-<li><p>系统管理</p>
-<ul>
-<li><p>用户管理</p>
-<ul>
-<li>useradd   passwd   userdel    su   sudo   groupadd   gpasswd</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;     useradd username -g groupname  //添加用户到某个组</span><br><span class="line">&gt;     passwd username   // 设置密码</span><br><span class="line">&gt;     gpasswd -A username groupname //设置某个组的管理员</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li><p>文件管理：cd   pwd   ls  cat  tail   touch   mkdir   mv    cp   diff   echo   lsof   chmod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd  切换目录</span><br><span class="line">pwd 查看“当前工作目录”的完整路径</span><br><span class="line">ls -l  列出当前目录下的文件，不包含隐藏文件，显示的信息有文件类型 xrw 拥有者 所在组 文件大小</span><br><span class="line">cat  合并文件</span><br><span class="line">tail 显示后10行</span><br><span class="line">touch 创建文件</span><br><span class="line">mkdir 创建目录</span><br><span class="line">mv  移动和重命名</span><br><span class="line">diff  比较两个文件的不同</span><br><span class="line">echo 向文件追加内容</span><br><span class="line">lsof  list open files 查看进程打开的文件、打开文件文件的进程</span><br><span class="line">chmod 777 filename 修改文件或者目录的读写和执行权限</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><p>进程管理</p>
-<ul>
-<li>ps   top   kill   command &amp;</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;     ps a //显示所有包括所有终端的进程</span><br><span class="line">&gt;     ps -a  //显示当前终端下执行的进程</span><br><span class="line">&gt;     top命令是Linux下常用的系统性能分析工具，能实时显示系统中各进程的资源占用情况</span><br><span class="line">&gt;     kill PID  //终止一个进程</span><br><span class="line">&gt;     command &amp; //将一个进程放入后台</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><p>文件管理</p>
-<ul>
-<li><p>cd   pwd   ls  cat  tail   touch   mkdir   mv    cp   diff   echo   lsof   chmod</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;     cd  切换目录</span><br><span class="line">&gt;     pwd 查看“当前工作目录”的完整路径</span><br><span class="line">&gt;     ls -l  列出当前目录下的文件，不包含隐藏文件，显示的信息有文件类型 xrw 拥有者 所在组 文件大小</span><br><span class="line">&gt;     cat  合并文件</span><br><span class="line">&gt;     tail 显示后10行</span><br><span class="line">&gt;     touch 创建文件</span><br><span class="line">&gt;     mkdir 创建目录</span><br><span class="line">&gt;     mv  移动和重命名</span><br><span class="line">&gt;     diff  比较两个文件的不同</span><br><span class="line">&gt;     echo 向文件追加内容</span><br><span class="line">&gt;     lsof  list open files 查看进程打开的文件、打开文件文件的进程</span><br><span class="line">&gt;     chmod 777 filename 修改文件或者目录的读写和执行权限</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</blockquote>
 
       
     </div>
@@ -473,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/14/React 开发简书项目实战总结/" rel="next" title="React 开发简书项目实战总结">
-                <i class="fa fa-chevron-left"></i> React 开发简书项目实战总结
+              <a href="/2019/04/18/数据库/" rel="next" title="SQL">
+                <i class="fa fa-chevron-left"></i> SQL
               </a>
             
           </div>
@@ -483,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/18/数据库/" rel="prev" title="SQL">
-                SQL <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/18/Express/" rel="prev" title="Express">
+                Express <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

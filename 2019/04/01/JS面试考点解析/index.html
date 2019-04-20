@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
-<meta property="og:updated_time" content="2019-04-10T07:18:24.503Z">
+<meta property="og:updated_time" content="2019-04-20T08:38:39.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript面试考点">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
@@ -352,7 +352,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-10 15:18:24" itemprop="dateModified" datetime="2019-04-10T15:18:24+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-20 16:38:39" itemprop="dateModified" datetime="2019-04-20T16:38:39+08:00">2019-04-20</time>
               
             
           </span>
@@ -406,7 +406,7 @@
         <hr>
 <a id="more"></a>
 <ul>
-<li><h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><blockquote>
+<li><h4 id="自我介绍（中文版）"><a href="#自我介绍（中文版）" class="headerlink" title="自我介绍（中文版）"></a>自我介绍（中文版）</h4><blockquote>
 <p>您好，我叫xx，是中南民族大学一名大三的学生，专业是软件工程。</p>
 <ul>
 <li>学习方面</li>
@@ -425,6 +425,19 @@
 </ul>
 <p>​        对于学习和工作，我一向都是很细心严谨的，并且注重效率和方法。同时，我也是一个很喜欢计划和安排的人，比如我会计划一件事情，应该从什么时候开始，经过多久到哪个阶段，最后什么时候完结。</p>
 <p>​        以上就是我的自我介绍，谢谢~</p>
+</blockquote>
+</li>
+<li><h4 id="self-introduction"><a href="#self-introduction" class="headerlink" title="self-introduction"></a>self-introduction</h4><blockquote>
+<p>Hello,my name is winnie,a junior student in South-Central University for Nationalities.And my major is software engineering.</p>
+<ul>
+<li><p>Learning  aspect</p>
+<p>​     At school, I joined the front-end group of the NewThread lab, and learned front-end knowledge and technology by myself through video, blog and other ways. Our team is mainly responsible for the development and maintenance of the school’s various college websites, so I have accumulated relevant experience.</p>
+</li>
+<li><p>the last</p>
+<p>​    As for study and work, I am always careful and rigorous, and pay attention to efficiency and methods. At the same time, I am also a person who likes planning and arrangement very much. For example, I will plan one thing, from when to start, how long to next stage, and when to finish.</p>
+<p>​    Above is my self-introduction, thanks ~</p>
+</li>
+</ul>
 </blockquote>
 </li>
 <li><h4 id="对前端的了解"><a href="#对前端的了解" class="headerlink" title="对前端的了解"></a>对前端的了解</h4><blockquote>
@@ -459,13 +472,7 @@
 </li>
 </ul>
 <p>​          </p>
-<ul>
-<li><h4 id="JS三座大山"><a href="#JS三座大山" class="headerlink" title="JS三座大山"></a>JS三座大山</h4><ul>
-<li><h6 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h6></li>
-</ul>
-<p>​        <em>延伸：原型继承和class实现继承</em>，并不是所有函数都有prototype属性，原型五大规则</p>
-<blockquote>
-<ul>
+<h3 id="JS三座大山"><a href="#JS三座大山" class="headerlink" title="JS三座大山"></a>JS三座大山</h3><h4 id="1-原型和原型链"><a href="#1-原型和原型链" class="headerlink" title="1.原型和原型链"></a>1.原型和原型链</h4><ul>
 <li><p><strong>原型五大规则</strong></p>
 <ul>
 <li>1.所有引用类型（函数 对象 数组），都具有对象特性，即可自由扩展属性</li>
@@ -480,10 +487,11 @@
 <li>简单来说，就是<strong> proto </strong> 将对象和原型连接起来。</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li><p><strong>原型继承和Class继承</strong></p>
 <ul>
-<li>组合继承和寄生组合继承是原型继承的两种方式</li>
-</ul>
+<li><p>组合继承和寄生组合继承是原型继承的两种方式</p>
 </li>
 <li><p>组合继承</p>
 <ul>
@@ -495,48 +503,42 @@
 </li>
 <li><p>缺点</p>
 <ul>
-<li>继承父类函数的时候，调用了父类的构造函数，导致子类原型上多了不必要的父类属性,存在内存上的浪费</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;     	<span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     Parent.prototype.getValue=funtion()&#123;</span><br><span class="line">&gt;     	<span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;     	Parent.call(<span class="keyword">this</span>,val);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     Child.prototype=<span class="keyword">new</span> Parent();<span class="comment">//Child.prototype._proto_ === Parent.prototype</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li><p>继承父类函数的时候，调用了父类的构造函数，导致子类原型上多了不必要的父类属性,存在内存上的浪费</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value=val;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getValue=funtion()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>,val);</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype=<span class="keyword">new</span> Parent();</span><br><span class="line"><span class="comment">//Child.prototype._proto_ ===Parent.prototype</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
+</li>
 <li><p>寄生组合继承</p>
 <ul>
-<li>实现<ul>
+<li><p>实现</p>
+<ul>
 <li>优化掉组合继承的缺点，关键在继承父类函数这一步</li>
 </ul>
 </li>
-<li>优点</li>
-</ul>
-<p>​             既解决了无用父类属性的问题，还能正确找到子类的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;  	<span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  Parent.prototype.getValue=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;  	<span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="comment">//继承父类属性</span></span><br><span class="line">&gt;      Parent.call(<span class="keyword">this</span>,val); </span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  Child.prototype=<span class="built_in">Object</span>.create(Parent.prototype,&#123;</span><br><span class="line">&gt;  <span class="keyword">constructor</span>:&#123;</span><br><span class="line">&gt;  value:Child,</span><br><span class="line">&gt;  enumerable:<span class="literal">false</span>,</span><br><span class="line">&gt;  writable:<span class="literal">true</span>,</span><br><span class="line">&gt;  configurable:<span class="literal">true</span></span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  &#125;);<span class="comment">//Object.create()方法创建一个新对象，使用现有对象来提供新建对象的__proto__</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li><p>优点</p>
+<ul>
+<li><p>既解决了无用父类属性的问题，还能正确找到子类的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.value=val;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getValue=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//继承父类属性</span></span><br><span class="line">  Parent.call(<span class="keyword">this</span>,val); </span><br><span class="line">&#125;</span><br><span class="line">Child.prototype=<span class="built_in">Object</span>.create(Parent.prototype,&#123;</span><br><span class="line">    <span class="keyword">constructor</span>:&#123;</span><br><span class="line">    value:Child,</span><br><span class="line">    enumerable:<span class="literal">false</span>,</span><br><span class="line">    writable:<span class="literal">true</span>,</span><br><span class="line">    configurable:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);<span class="comment">//Object.create()方法创建一个新对象，使用现有对象来提供新建对象的__proto__</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
+</li>
+</ul>
+</li>
 <li><p>Class继承</p>
 <ul>
-<li>Class的本质就是函数，它是一种语法糖</li>
-<li>实现核心是extends表明继承哪个类，还有在子类构造函数中调用super函数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;  Class Parent&#123;</span><br><span class="line">&gt;      <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;      <span class="keyword">this</span>.value=val;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  getValue()&#123;</span><br><span class="line">&gt;      <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  Class Child extends Parent&#123;</span><br><span class="line">&gt;      <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">&gt;      <span class="keyword">super</span>(val);</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<li><p>Class的本质就是函数，它是一种语法糖</p>
+</li>
+<li><p>实现核心是extends表明继承哪个类，还有在子类构造函数中调用super函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Class Parent&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">  <span class="keyword">this</span>.value=val;</span><br><span class="line">&#125;</span><br><span class="line">getValue()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Class Child extends Parent&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(val)&#123;</span><br><span class="line">  <span class="keyword">super</span>(val);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-</blockquote>
-<ul>
-<li><h6 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h6><p><em>延伸：this、自由变量、作用域链、变量提升、执行上下文</em></p>
 </li>
 </ul>
-<blockquote>
-<ul>
+</li>
+</ul>
+<h4 id="2-作用域和闭包"><a href="#2-作用域和闭包" class="headerlink" title="2.作用域和闭包"></a>2.作用域和闭包</h4><ul>
 <li>预编译<ul>
 <li>每进入到一个不同的运行环境（全局环境、函数环境）都会创建 一个相应的<strong>执行上下文（execution context，EC）</strong>，那么在一段js程序中一般都会创建多个执行上下文，js引擎会以栈的数据结构对这些执行进行处理，形成<strong>执行上下文栈（ECStack），</strong>栈底永远是<strong>全局执行上下文（global execution context）</strong>，栈顶则永远时当前的执行上下文。</li>
 </ul>
@@ -575,8 +577,7 @@
 <p>console.log(this.window===this);//true </p>
 </blockquote>
 <ul>
-<li><p><strong>作用域 VS 执行上下文</strong></p>
-<ul>
+<li><strong>作用域 VS 执行上下文</strong><ul>
 <li>JavaScript 采用的是词法作用域(lexical scoping)，也就是静态作用域，函数的作用域在函数定义的时候就决定了</li>
 <li>两者的关系<ul>
 <li>存储关系，执行上下文中的[[Scope]]属性存储了当前作用域</li>
@@ -603,8 +604,7 @@
 <li>4.函数执行完毕，函数上下文出栈</li>
 </ul>
 </li>
-<li><p>闭包</p>
-<ul>
+<li>闭包<ul>
 <li>变量的作用域无非就是两种:全局变量和局部变量</li>
 <li>JS语言的特殊之处，函数内部可以直接读取全局变量，但函数外部无法获取函数内的局部变量</li>
 <li>闭包的出现：需要得到函数内的局部变量</li>
@@ -627,13 +627,7 @@
 <p>​       5.普通函数：指向window</p>
 <p>参考：<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">学习Javascript闭包（Closure）</a></p>
 <p>​            <a href="https://www.jianshu.com/p/8f19e45fd1f1" target="_blank" rel="noopener">JavaScript 论代码执行上下文</a></p>
-</blockquote>
-<p>​           </p>
-<ul>
-<li><h6 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h6><p><em>延伸：generator、Promise、async/await</em>、Event Loop</p>
-</li>
-</ul>
-<blockquote>
+<h4 id="3-异步和单线程"><a href="#3-异步和单线程" class="headerlink" title="3. 异步和单线程"></a>3. 异步和单线程</h4><p><em>延伸：generator、Promise、async/await</em>、Event Loop</p>
 <ul>
 <li>单线程</li>
 </ul>
@@ -647,8 +641,6 @@
 </li>
 <li><p>事件循环：主线程重复从消息队列中取消息、执行的过程。</p>
 </li>
-</ul>
-<ul>
 <li><p>Promise  ——&gt;手写一个Promise</p>
 <ul>
 <li>Promise 翻译过来有承诺的意思，这个承诺在未来会有一个确切的回复，并且该承诺有三种状态，分别是：1.pengding(等待中)   2.resolved(完成了)  3.rejected(拒绝了)      <code>注意：这个状态一旦从等待状态变为其他状态就永远无法更改了</code></li>
@@ -666,15 +658,18 @@
 </li>
 <li><p>async/await</p>
 <ul>
-<li>外异内同：async关键字声明了一个异步函数，函数体内await语句是同步执行的。</li>
-<li>async：返回的是一个Promise对象。当async函数返回一个值时，会被Promise.resolve()封装</li>
-<li>await +Promise/值：等待一个表达式，该表达式返回Promise.resolve()中的参数或者一个具体的值。</li>
-<li>缺点：await将异步代码改造成了同步代码，如果多个异步代码没有依赖却使用了await会导致性能降低。可以使用Promise.all来解决。</li>
+<li><p>外异内同：async关键字声明了一个异步函数，函数体内await语句是同步执行的。</p>
+</li>
+<li><p>async：返回的是一个Promise对象。当async函数返回一个值时，会被Promise.resolve()封装</p>
+</li>
+<li><p>await +Promise/值：等待一个表达式，该表达式返回Promise.resolve()中的参数或者一个具体的值。</p>
+</li>
+<li><p>缺点：await将异步代码改造成了同步代码，如果多个异步代码没有依赖却使用了await会导致性能降低。可以使用Promise.all来解决。</p>
+</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
+<ul>
 <li><h4 id="JS其它重要知识"><a href="#JS其它重要知识" class="headerlink" title="JS其它重要知识"></a>JS其它重要知识</h4><ul>
 <li><h6 id="垃圾回收机制（Garbage-Collection-GC-算法）"><a href="#垃圾回收机制（Garbage-Collection-GC-算法）" class="headerlink" title="垃圾回收机制（Garbage Collection,GC 算法）"></a>垃圾回收机制（Garbage Collection,GC 算法）</h6></li>
 </ul>
@@ -698,10 +693,7 @@
 <p>参考自<a href="https://segmentfault.com/a/1190000000440270" target="_blank" rel="noopener">浅谈V8引擎中的垃圾回收机制</a></p>
 </blockquote>
 <ul>
-<li><h6 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h6></li>
-</ul>
-<blockquote>
-<ul>
+<li><h6 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h6><ul>
 <li><p>浅拷贝</p>
 <ul>
 <li>浅拷贝只是拷贝基本类型的数据，如果要复制对象的属性是引用类型，那么拷贝的是地址</li>
@@ -710,8 +702,10 @@
 </li>
 <li><p>深拷贝</p>
 <ul>
-<li>深拷贝可以拷贝引用类型的数据</li>
-<li>通过JSON.parse(JSON.stringify(object))解决，反序列化和序列化<ul>
+<li><p>深拷贝可以拷贝引用类型的数据</p>
+</li>
+<li><p>通过JSON.parse(JSON.stringify(object))解决，反序列化和序列化</p>
+<ul>
 <li>局限性<ul>
 <li>会忽略 undefined、symbol</li>
 <li>不能序列化函数</li>
@@ -720,22 +714,15 @@
 </li>
 </ul>
 </li>
-<li>通过MessageChannel实现，可以处理undefind和循环引用对象，但还是不能解决函数的问题</li>
+<li><p>通过MessageChannel实现，可以处理undefind和循环引用对象，但还是不能解决函数的问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">structuralClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,rejcct</span>) =&gt;</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; port1,port2 &#125;=<span class="keyword">new</span> MessageChannel();<span class="comment">//解构赋值</span></span><br><span class="line">     port2.onmessage=<span class="function">(<span class="params">ev</span>)=&gt;</span>&#123; resolve(ev.data)&#125;;</span><br><span class="line">     port1.postMessage(obj);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">  a:<span class="number">1</span>,</span><br><span class="line">  b:&#123;</span><br><span class="line">    c:<span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  d:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line">obj.b.e=obj.b;</span><br><span class="line"><span class="keyword">const</span> test=<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> clone=<span class="keyword">await</span> structuralClone(obj);<span class="comment">//await等待resolve中的参数值</span></span><br><span class="line">  <span class="built_in">console</span>.log(clone);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">structuralClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,rejcct</span>) =&gt;</span>&#123;</span><br><span class="line">&gt;         <span class="keyword">let</span> &#123; port1,port2 &#125;=<span class="keyword">new</span> MessageChannel();<span class="comment">//解构赋值</span></span><br><span class="line">&gt;         port2.onmessage=<span class="function">(<span class="params">ev</span>)=&gt;</span>&#123; resolve(ev.data)&#125;;</span><br><span class="line">&gt;         port1.postMessage(obj);</span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="keyword">var</span> obj=&#123;</span><br><span class="line">&gt;      a:<span class="number">1</span>,</span><br><span class="line">&gt;      b:&#123;</span><br><span class="line">&gt;        c:<span class="number">2</span></span><br><span class="line">&gt;      &#125;,</span><br><span class="line">&gt;      d:<span class="literal">undefined</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; obj.b.e=obj.b;</span><br><span class="line">&gt; <span class="keyword">const</span> test=<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line">&gt;      <span class="keyword">const</span> clone=<span class="keyword">await</span> structuralClone(obj);<span class="comment">//await等待resolve中的参数值</span></span><br><span class="line">&gt;      <span class="built_in">console</span>.log(clone);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; test();</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>手写一个深拷贝</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;     <span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">&gt;         	<span class="keyword">return</span> (<span class="keyword">typeof</span> o ===<span class="string">'object'</span>|| <span class="keyword">typeof</span> o ===<span class="string">'function'</span>)&amp;&amp;o!==<span class="literal">null</span>);</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">if</span>(!isObject(obj))&#123;</span><br><span class="line">&gt;         	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'非对象'</span>)</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="keyword">let</span> isArray=<span class="built_in">Array</span>.isArray(obj);</span><br><span class="line">&gt;     <span class="keyword">let</span> newObj=isArray?[...obj]:&#123;...obj&#125;;</span><br><span class="line">&gt;      <span class="comment">//遍历属性，若属性值是引用类型，则需要深拷贝</span></span><br><span class="line">&gt;      <span class="built_in">Reflect</span>.ownKeys(newObj).forEach(<span class="function"><span class="params">key</span>=&gt;</span>&#123;</span><br><span class="line">&gt;        	newObj[key]=isObject(obj[key])?deepClone(obj[key]):obj[key];  </span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt;      <span class="keyword">return</span> newObj;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="keyword">let</span> obj=&#123;</span><br><span class="line">&gt;  a:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">&gt;  b:&#123;</span><br><span class="line">&gt;      c:<span class="number">4</span>,</span><br><span class="line">&gt;      d:<span class="number">5</span></span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="keyword">let</span> newObj=deepClone(obj);</span><br><span class="line">&gt; obj.b.c=<span class="number">2</span>;</span><br><span class="line">&gt; <span class="built_in">console</span>.log(newObj.b.c);<span class="comment">//4</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
-<ul>
-<li><h6 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h6></li>
+</li>
+<li><p>Event Loop</p>
+</li>
 </ul>
 <blockquote>
 <ul>
@@ -1263,8 +1250,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/电子商城项目总结/" rel="next" title="电子商城项目总结">
-                <i class="fa fa-chevron-left"></i> 电子商城项目总结
+              <a href="/2019/04/01/HTML和CSS/" rel="next" title="HTML、CSS">
+                <i class="fa fa-chevron-left"></i> HTML、CSS
               </a>
             
           </div>
@@ -1273,8 +1260,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="prev" title="数据结构与算法">
-                数据结构与算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/高频面试题/" rel="prev" title="高频面试题">
+                高频面试题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1472,7 +1459,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端的了解"><span class="nav-number">2.</span> <span class="nav-text">对前端的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS三座大山"><span class="nav-number">3.</span> <span class="nav-text">JS三座大山</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#原型和原型链"><span class="nav-number">3.0.1.</span> <span class="nav-text">原型和原型链</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#作用域和闭包"><span class="nav-number">3.0.2.</span> <span class="nav-text">作用域和闭包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异步和单线程"><span class="nav-number">3.0.3.</span> <span class="nav-text">异步和单线程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS其它重要知识"><span class="nav-number">4.</span> <span class="nav-text">JS其它重要知识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#垃圾回收机制（Garbage-Collection-GC-算法）"><span class="nav-number">4.0.1.</span> <span class="nav-text">垃圾回收机制（Garbage Collection,GC 算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">4.0.2.</span> <span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Event-Loop"><span class="nav-number">4.0.3.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块化"><span class="nav-number">4.0.4.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#严格模式"><span class="nav-number">4.0.5.</span> <span class="nav-text">严格模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器相关"><span class="nav-number">5.</span> <span class="nav-text">浏览器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件机制"><span class="nav-number">5.0.1.</span> <span class="nav-text">事件机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨域"><span class="nav-number">5.0.2.</span> <span class="nav-text">跨域</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自我介绍（中文版）"><span class="nav-number">1.</span> <span class="nav-text">自我介绍（中文版）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#self-introduction"><span class="nav-number">2.</span> <span class="nav-text">self-introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端的了解"><span class="nav-number">3.</span> <span class="nav-text">对前端的了解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS三座大山"><span class="nav-number"></span> <span class="nav-text">JS三座大山</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-原型和原型链"><span class="nav-number">1.</span> <span class="nav-text">1.原型和原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-作用域和闭包"><span class="nav-number">2.</span> <span class="nav-text">2.作用域和闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-异步和单线程"><span class="nav-number">3.</span> <span class="nav-text">3. 异步和单线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS其它重要知识"><span class="nav-number">4.</span> <span class="nav-text">JS其它重要知识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#垃圾回收机制（Garbage-Collection-GC-算法）"><span class="nav-number">4.0.1.</span> <span class="nav-text">垃圾回收机制（Garbage Collection,GC 算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">4.0.2.</span> <span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块化"><span class="nav-number">4.0.3.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#严格模式"><span class="nav-number">4.0.4.</span> <span class="nav-text">严格模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器相关"><span class="nav-number">5.</span> <span class="nav-text">浏览器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件机制"><span class="nav-number">5.0.1.</span> <span class="nav-text">事件机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨域"><span class="nav-number">5.0.2.</span> <span class="nav-text">跨域</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

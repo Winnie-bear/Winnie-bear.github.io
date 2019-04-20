@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/14/React 开发简书项目实战总结/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-14T15:57:51.478Z">
+<meta property="og:updated_time" content="2019-04-20T09:24:51.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 开发简书项目实战总结">
 
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Created: 2019-04-14 00:00:00 / Modified: 23:57:51" itemprop="dateCreated datePublished" datetime="2019-04-14T00:00:00+08:00">2019-04-14</time>
+              <time title="Created: 2019-04-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-14T00:00:00+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-20 17:24:51" itemprop="dateModified" datetime="2019-04-20T17:24:51+08:00">2019-04-20</time>
               
             
           </span>
@@ -391,37 +403,16 @@
       
         <hr>
 <a id="more"></a>
+<h4 id="问题和解决方案"><a href="#问题和解决方案" class="headerlink" title="问题和解决方案"></a>问题和解决方案</h4><p>1.create-react-app 构建的项目释放配置文件 webpack 等时，运行 npm run eject 报错</p>
 <ul>
-<li><h6 id="问题和解决方案"><a href="#问题和解决方案" class="headerlink" title="问题和解决方案"></a>问题和解决方案</h6><blockquote>
+<li>解决方案：使用 git 提交一次记录</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'init'</span></span><br><span class="line">npm run eject</span><br></pre></td></tr></table></figure>
+<p>2.styled-components 组件升级v4版本的全局样式踩坑，直接像原 injectGlobal 方法一样使用不能生效</p>
 <ul>
-<li><ol>
-<li>create-react-app 构建的项目释放配置文件 webpack 等时，运行 npm run eject 报错</li>
-</ol>
-<ul>
-<li><p>解决方案：使用 git 提交一次记录</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;     git add .</span><br><span class="line">&gt;     git commit -m <span class="string">'init'</span></span><br><span class="line">&gt;     npm run eject</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>解决方案：定义一个全局样式变量，这个变量将作为组件插入文档</li>
 </ul>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><ol>
-<li>styled-components 组件升级v4版本的全局样式踩坑，直接像原 injectGlobal 方法一样使用不能生效</li>
-</ol>
-<ul>
-<li><p>解决方案：定义一个全局样式变量，这个变量将作为组件插入文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt;     //style.js,全局样式</span><br><span class="line">&gt;     import &#123;createGlobalStyle&#125; from &apos;styled-components&apos;;</span><br><span class="line">&gt;     export const GlobalStyle=createGlobalStyle`</span><br><span class="line">&gt;     ...</span><br><span class="line">&gt;     `</span><br><span class="line">&gt;     //App.js,全局引入</span><br><span class="line">&gt;     import React, &#123; Component,Fragment &#125; from &apos;react&apos;;</span><br><span class="line">&gt;     import Header from &apos;./common/header&apos;;</span><br><span class="line">&gt;     import &#123; GlobalStyle &#125; from &apos;./style&apos;;</span><br><span class="line">&gt;     import &#123; GlobalIconFont &#125; from &apos;./statics/iconfont/iconfont&apos;;</span><br><span class="line">&gt;     class App extends Component &#123;</span><br><span class="line">&gt;       render() &#123;</span><br><span class="line">&gt;         return (</span><br><span class="line">&gt;           &lt;Fragment&gt;</span><br><span class="line">&gt;             &lt;GlobalStyle /&gt;</span><br><span class="line">&gt;             &lt;GlobalIconFont /&gt;</span><br><span class="line">&gt;             &lt;Header /&gt;</span><br><span class="line">&gt;           &lt;/Fragment&gt;</span><br><span class="line">&gt;         );</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-</blockquote>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//style.js,全局样式</span><br><span class="line">import &#123;createGlobalStyle&#125; from &apos;styled-components&apos;;</span><br><span class="line">export const GlobalStyle=createGlobalStyle`</span><br><span class="line">...</span><br><span class="line">`</span><br><span class="line">//App.js,全局引入</span><br><span class="line">import React, &#123; Component,Fragment &#125; from &apos;react&apos;;</span><br><span class="line">import Header from &apos;./common/header&apos;;</span><br><span class="line">import &#123; GlobalStyle &#125; from &apos;./style&apos;;</span><br><span class="line">import &#123; GlobalIconFont &#125; from &apos;./statics/iconfont/iconfont&apos;;</span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Fragment&gt;</span><br><span class="line">        &lt;GlobalStyle /&gt;</span><br><span class="line">        &lt;GlobalIconFont /&gt;</span><br><span class="line">        &lt;Header /&gt;</span><br><span class="line">      &lt;/Fragment&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/各种手写代码/" rel="next" title="手写代码题">
-                <i class="fa fa-chevron-left"></i> 手写代码题
+              <a href="/2019/04/01/Vue和React/" rel="next" title="Vue 和 React">
+                <i class="fa fa-chevron-left"></i> Vue 和 React
               </a>
             
           </div>
@@ -465,8 +456,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/18/Linux/" rel="prev" title="Linux">
-                Linux <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/18/数据库/" rel="prev" title="SQL">
+                SQL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -664,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#问题和解决方案"><span class="nav-number">1.</span> <span class="nav-text">问题和解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题和解决方案"><span class="nav-number">1.</span> <span class="nav-text">问题和解决方案</span></a></li></ol></div>
             
 
           </div>

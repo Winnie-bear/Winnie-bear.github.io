@@ -102,7 +102,7 @@
 
 
 
-  <meta name="keywords" content="Vue,React">
+  <meta name="keywords" content="React,Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 和 React">
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/Vue和React/index.html">
@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/05/5ca766a21ff58.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/05/5ca76d0396e55.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg">
-<meta property="og:updated_time" content="2019-04-18T10:16:25.022Z">
+<meta property="og:updated_time" content="2019-04-20T08:55:26.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 和 React">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/13/5c8878db480e9.png">
@@ -357,7 +357,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-18 18:16:25" itemprop="dateModified" datetime="2019-04-18T18:16:25+08:00">2019-04-18</time>
+                <time title="Modified: 2019-04-20 16:55:26" itemprop="dateModified" datetime="2019-04-20T16:55:26+08:00">2019-04-20</time>
               
             
           </span>
@@ -410,9 +410,8 @@
       
         <hr>
 <a id="more"></a>
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><ul>
-<li><h6 id="虚拟DOM和Diff算法"><a href="#虚拟DOM和Diff算法" class="headerlink" title="虚拟DOM和Diff算法"></a>虚拟DOM和Diff算法</h6><blockquote>
-<ul>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><hr>
+<h4 id="虚拟DOM和Diff算法"><a href="#虚拟DOM和Diff算法" class="headerlink" title="虚拟DOM和Diff算法"></a>虚拟DOM和Diff算法</h4><ul>
 <li>Virtual DOM 其实就是一棵以 JavaScript 对象（ VNode 节点）作为基础的树，用对象属性来描述节点，实际上它只是一层对真实 DOM 的抽象。</li>
 <li>vnode 有几个重要的属性<ul>
 <li><code>tag</code> 属性即这个<code>vnode</code>的标签属性</li>
@@ -433,17 +432,14 @@
 </li>
 <li>initial render 和 updates（初始渲染和更新）</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&gt; Vue.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">vnode: VNode, hydrating?: boolean</span>) </span>&#123;</span><br><span class="line">&gt; ...</span><br><span class="line">&gt; <span class="comment">// 如果需要diff的prevVnode不存在，那么就用新的vnode创建一个真实dom节点</span></span><br><span class="line">&gt;  <span class="keyword">if</span> (!prevVnode) &#123;</span><br><span class="line">&gt;    <span class="comment">// initial render</span></span><br><span class="line">&gt;    <span class="comment">// 第一个参数为真实的node节点</span></span><br><span class="line">&gt;    vm.$el = vm.__patch__(</span><br><span class="line">&gt;      vm.$el, vnode, hydrating, <span class="literal">false</span> <span class="comment">/* removeOnly */</span>,</span><br><span class="line">&gt;      vm.$options._parentElm,</span><br><span class="line">&gt;      vm.$options._refElm</span><br><span class="line">&gt;    )</span><br><span class="line">&gt;  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&gt;    <span class="comment">// updates</span></span><br><span class="line">&gt;    <span class="comment">// 如果需要diff的prevVnode存在，那么首先对prevVnode和vnode进行diff,并将需要的更新的dom操作已patch的形式打到prevVnode上，并完成真实dom的更新工作</span></span><br><span class="line">&gt;    vm.$el = vm.__patch__(prevVnode, vnode)</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;  ...</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;  </span><br><span class="line">&gt; <span class="comment">//vm.__patch__ 函数</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">patch</span> (<span class="params">oldVnode, vnode, hydrating, removeOnly, parentElm, refElm</span>) </span>&#123;</span><br><span class="line">&gt;  <span class="comment">// 当oldVnode不存在时</span></span><br><span class="line">&gt;  <span class="keyword">if</span> (isUndef(oldVnode)) &#123;</span><br><span class="line">&gt;      <span class="comment">// 创建新的节点</span></span><br><span class="line">&gt;      createElm(vnode, insertedVnodeQueue, parentElm, refElm)</span><br><span class="line">&gt;  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&gt;      <span class="comment">//当oldVnode存在，且和vnode满足sameVnode时</span></span><br><span class="line">&gt;      <span class="keyword">const</span> isRealElement = isDef(oldVnode.nodeType)</span><br><span class="line">&gt;      <span class="keyword">if</span> (!isRealElement &amp;&amp; sameVnode(oldVnode, vnode)) &#123;</span><br><span class="line">&gt;          <span class="comment">// patch existing root node</span></span><br><span class="line">&gt;          <span class="comment">// 对oldVnode和vnode进行diff，并对oldVnode打patch</span></span><br><span class="line">&gt;          patchVnode(oldVnode, vnode, insertedVnodeQueue, removeOnly)</span><br><span class="line">&gt;      &#125; </span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">vnode: VNode, hydrating?: boolean</span>) </span>&#123;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// 如果需要diff的prevVnode不存在，那么就用新的vnode创建一个真实dom节点</span></span><br><span class="line"><span class="keyword">if</span> (!prevVnode) &#123;</span><br><span class="line"><span class="comment">// initial render</span></span><br><span class="line"><span class="comment">// 第一个参数为真实的node节点</span></span><br><span class="line">vm.$el = vm.__patch__(</span><br><span class="line">  vm.$el, vnode, hydrating, <span class="literal">false</span> <span class="comment">/* removeOnly */</span>,</span><br><span class="line">  vm.$options._parentElm,</span><br><span class="line">  vm.$options._refElm</span><br><span class="line">)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// updates</span></span><br><span class="line"><span class="comment">// 如果需要diff的prevVnode存在，那么首先对prevVnode和vnode进行diff,并将需要的更新的dom操作已patch的形式打到prevVnode上，并完成真实dom的更新工作</span></span><br><span class="line">vm.$el = vm.__patch__(prevVnode, vnode)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vm.__patch__ 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">patch</span> (<span class="params">oldVnode, vnode, hydrating, removeOnly, parentElm, refElm</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 当oldVnode不存在时</span></span><br><span class="line"><span class="keyword">if</span> (isUndef(oldVnode)) &#123;</span><br><span class="line">  <span class="comment">// 创建新的节点</span></span><br><span class="line">  createElm(vnode, insertedVnodeQueue, parentElm, refElm)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//当oldVnode存在，且和vnode满足sameVnode时</span></span><br><span class="line">  <span class="keyword">const</span> isRealElement = isDef(oldVnode.nodeType)</span><br><span class="line">  <span class="keyword">if</span> (!isRealElement &amp;&amp; sameVnode(oldVnode, vnode)) &#123;</span><br><span class="line">      <span class="comment">// patch existing root node</span></span><br><span class="line">      <span class="comment">// 对oldVnode和vnode进行diff，并对oldVnode打patch</span></span><br><span class="line">      patchVnode(oldVnode, vnode, insertedVnodeQueue, removeOnly)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>sameVnode( patchVnode在符合  sameVnode 的条件下触发的，所以会进行「比对」)</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">/* sameVnode会对传入的2个vnode进行基本属性的比较，只有当基本属性相同的情况下才认为这个2个vnode只是局部发生了更新，然后才会对这2个vnode进行diff，如果2个vnode的基本属性存在不一致的情况，那么就会直接跳过diff的过程，进而依据vnode新建一个真实的dom，同时删除老的dom节点。*/</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">sameVnode</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;     <span class="keyword">return</span> (</span><br><span class="line">&gt;       a.key === b.key &amp;&amp; </span><br><span class="line">&gt;       a.tag === b.tag &amp;&amp;</span><br><span class="line">&gt;       a.isComment === b.isCommet &amp;&amp;</span><br><span class="line">&gt;       (!!a.data) === (!!b.data) &amp;&amp;</span><br><span class="line">&gt;        	sameInputType(a,b)</span><br><span class="line">&gt;     )</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">sameInputType</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">if</span> (a.tag !== <span class="string">'input'</span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&gt;     <span class="keyword">let</span> i</span><br><span class="line">&gt;     <span class="keyword">const</span> typeA = (i = a.data) &amp;&amp; (i = i.attrs) &amp;&amp; i.type</span><br><span class="line">&gt;     <span class="keyword">const</span> typeB = (i = b.data) &amp;&amp; (i = i.attrs) &amp;&amp; i.type</span><br><span class="line">&gt;     <span class="keyword">return</span> typeA === typeB</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="comment">/* key,tag,isComment(是否为注释结点)，data同时定义或者不定义，并且满足当标签类型为input的时候 type 相同 */</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* sameVnode会对传入的2个vnode进行基本属性的比较，只有当基本属性相同的情况下才认为这个2个vnode只是局部发生了更新，然后才会对这2个vnode进行diff，如果2个vnode的基本属性存在不一致的情况，那么就会直接跳过diff的过程，进而依据vnode新建一个真实的dom，同时删除老的dom节点。*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sameVnode</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> (</span><br><span class="line">   a.key === b.key &amp;&amp; </span><br><span class="line">   a.tag === b.tag &amp;&amp;</span><br><span class="line">   a.isComment === b.isCommet &amp;&amp;</span><br><span class="line">   (!!a.data) === (!!b.data) &amp;&amp;</span><br><span class="line">    	sameInputType(a,b)</span><br><span class="line"> )</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sameInputType</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.tag !== <span class="string">'input'</span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    <span class="keyword">let</span> i</span><br><span class="line">    <span class="keyword">const</span> typeA = (i = a.data) &amp;&amp; (i = i.attrs) &amp;&amp; i.type</span><br><span class="line">    <span class="keyword">const</span> typeB = (i = b.data) &amp;&amp; (i = i.attrs) &amp;&amp; i.type</span><br><span class="line">    <span class="keyword">return</span> typeA === typeB</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* key,tag,isComment(是否为注释结点)，data同时定义或者不定义，并且满足当标签类型为input的时候 type 相同 */</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>patchVnode （ diff 算法的体现 ）<ul>
+<li><p>patchVnode （ diff 算法的体现 ）</p>
+<ul>
 <li>接收两个参数 oldVnode和 vnode</li>
 <li>实现<ul>
 <li>第一种情况是<strong>新老 VNode 节点相同</strong>的情况下，就不需要做任何改变了，直接 return </li>
@@ -453,71 +449,64 @@
 </li>
 </ul>
 </li>
-<li>updateChildren <ul>
-<li>头头类型相同、尾尾类型相同的节点</li>
-<li>头尾类型相同的节点</li>
-<li>新增的节点</li>
-<li>删除的节点</li>
-<li>更新节点（位置移动）</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><h6 id="编译-模板如何被解析的"><a href="#编译-模板如何被解析的" class="headerlink" title="编译(模板如何被解析的)"></a>编译(模板如何被解析的)</h6><blockquote>
+<li><p>updateChildren </p>
 <ul>
-<li>三个阶段<ul>
-<li>parse(分析)<ul>
+<li><p>头头类型相同、尾尾类型相同的节点</p>
+</li>
+<li><p>头尾类型相同的节点</p>
+</li>
+<li><p>新增的节点</p>
+</li>
+<li><p>删除的节点</p>
+</li>
+<li><p>更新节点（位置移动）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="编译-模板如何被解析的"><a href="#编译-模板如何被解析的" class="headerlink" title="编译(模板如何被解析的)"></a>编译(模板如何被解析的)</h4><ul>
+<li><p>三个阶段</p>
+<ul>
+<li><p>parse(分析)</p>
+<ul>
 <li>parse 会用正则等方式解析 template 模板中的指令、class、style 等数据，形成 AST</li>
 </ul>
 </li>
-<li>optimize（优化）<ul>
+<li><p>optimize（优化）</p>
+<ul>
 <li>主要作用是标记 <strong>static 静态节点</strong>，这是 Vue 在编译过程中的一处优化，后面当 update 更新界面时，会有一个  patch 的过程， <strong>diff 算法会直接跳过静态节点</strong>，从而减少了比较的过程，优化了  patch 的性能。</li>
 </ul>
 </li>
-<li>generate(生成)<ul>
+<li><p>generate(生成)</p>
+<ul>
 <li>generate 是将 AST 转化成 render function 字符串的过程，得到结果是 render 的字符串</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h6><blockquote>
-<ul>
+<h4 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h4><ul>
 <li>「 依赖收集」的过程就是把  Subscriber 实例存放到对应的  Publisher 对象中去。  get 方法可以让当前的  Subscriber  对象（ Publisher.target ）存放到它的 subs 中（  addSub ）方法，在数据变化时，  set 会调用  Publisher对象的  notify 方法通知它内部所有的 Subscriber  对象进行视图更新。</li>
 </ul>
 <p>（  get 进行「依赖收集」。  set 通过发布者通知订阅者进行更新。更新操作会触发patch函数，接收         vnode做参数。patch函数用到diff算法 ）</p>
 <ul>
-<li><p>「 依赖收集」的前提条件还有两个：</p>
-<ul>
+<li>「 依赖收集」的前提条件还有两个：<ul>
 <li>1.触发  get 方法；（ render function 进行渲染，那么其中的依赖的对象都会被「读取」）</li>
 <li>2.新建一个 Subscriber 对象。( 在 Vue 的构造类中处理 ,data字段)</li>
 </ul>
 </li>
-<li><p>Object.defineProperty 和发布订阅模式</p>
-</li>
-<li><p>Proxy和Reflect</p>
-</li>
-<li><p>实现</p>
-<ul>
+<li>Object.defineProperty 和发布订阅模式</li>
+<li>Proxy和Reflect</li>
+<li>实现<ul>
 <li>数据劫持结合发布—订阅模式（publisher 发布者、event center 事件中心、subscriber 订阅者)</li>
 <li>Object.defineProperty (vue 3.0 proxy)</li>
 <li>将data的属性代理到vm上</li>
 <li><img src="https://i.loli.net/2019/03/13/5c8878db480e9.png" alt="发布订阅"></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="comment">//Publisher 依赖收集，收集事件有哪些订阅者，同时事件更新时通知更新</span></span><br><span class="line">&gt;   <span class="class"><span class="keyword">class</span> <span class="title">Publisher</span></span>&#123;</span><br><span class="line">&gt;       <span class="keyword">constructor</span>()&#123;</span><br><span class="line">&gt;           <span class="keyword">this</span>.subs=[];<span class="comment">//收集订阅者</span></span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       <span class="comment">//添加订阅者</span></span><br><span class="line">&gt;       addSub(sub)&#123;</span><br><span class="line">&gt;           <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       <span class="comment">//通知更新</span></span><br><span class="line">&gt;       notify()&#123;</span><br><span class="line">&gt;           <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="params">sub</span>=&gt;</span>&#123;</span><br><span class="line">&gt;               sub.update();</span><br><span class="line">&gt;           &#125;)</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   Publisher.target=<span class="literal">null</span>;<span class="comment">//用于收集订阅者，一个接一个的收集</span></span><br><span class="line">&gt;   </span><br><span class="line">&gt;   <span class="comment">//Subscriber 订阅者，在Vue实例 mount 的时候实例化，订阅事件,让发布者的收集目标指向自己</span></span><br><span class="line">&gt;   <span class="class"><span class="keyword">class</span> <span class="title">Subscriber</span></span>&#123;</span><br><span class="line">&gt;       <span class="keyword">constructor</span>(obj,key,cb)&#123;</span><br><span class="line">&gt;           Publisher.target=<span class="keyword">this</span>;</span><br><span class="line">&gt;           <span class="keyword">this</span>.obj=obj;</span><br><span class="line">&gt;           <span class="keyword">this</span>.key=key;</span><br><span class="line">&gt;           <span class="keyword">this</span>.value=obj[key];</span><br><span class="line">&gt;           <span class="keyword">this</span>.cb=cb;</span><br><span class="line">&gt;           <span class="comment">//收集完当前订阅者，就要收集下一个</span></span><br><span class="line">&gt;           Publisher.target=<span class="literal">null</span>;</span><br><span class="line">&gt;       &#125; </span><br><span class="line">&gt;       update()&#123;</span><br><span class="line">&gt;           <span class="comment">//获取更新</span></span><br><span class="line">&gt;           <span class="keyword">this</span>.value=<span class="keyword">this</span>.obj[<span class="keyword">this</span>.key];</span><br><span class="line">&gt;           <span class="keyword">this</span>.cb(<span class="keyword">this</span>.value);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   <span class="comment">//Event center 事件中心，发布和订阅的一个代理，就像报刊亭，发布者是出版社，订阅者是订报人</span></span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">if</span>(!obj || <span class="keyword">typeof</span> obj !== <span class="string">'object'</span>)&#123;</span><br><span class="line">&gt;           <span class="keyword">return</span> </span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span>&#123;</span><br><span class="line">&gt;           defineReactive(obj,key,obj[key]);</span><br><span class="line">&gt;       &#125;)</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj,key,val</span>)</span>&#123;</span><br><span class="line">&gt;       observe(val);<span class="comment">//递归子属性</span></span><br><span class="line">&gt;       <span class="keyword">let</span> pub=<span class="keyword">new</span> Publisher();<span class="comment">//每个属性都有一个发布者</span></span><br><span class="line">&gt;       <span class="built_in">Object</span>.defineProperty(obj,key,&#123;</span><br><span class="line">&gt;           enumerable:<span class="literal">true</span>,</span><br><span class="line">&gt;           configurable:<span class="literal">true</span>,</span><br><span class="line">&gt;           get:<span class="function"><span class="keyword">function</span> <span class="title">getter</span>(<span class="params"></span>)</span>&#123;<span class="comment">//代理订阅事件</span></span><br><span class="line">&gt;               <span class="built_in">console</span>.log(<span class="string">'get value'</span>);</span><br><span class="line">&gt;               <span class="keyword">if</span>(Publisher.target)&#123;</span><br><span class="line">&gt;                   pub.addSub(Publisher.target);</span><br><span class="line">&gt;               &#125;</span><br><span class="line">&gt;               <span class="keyword">return</span> val;</span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;           set:<span class="function"><span class="keyword">function</span> <span class="title">setter</span>(<span class="params">newVal</span>)</span>&#123;<span class="comment">//代理发布更新事件</span></span><br><span class="line">&gt;                <span class="built_in">console</span>.log(<span class="string">'set value'</span>);</span><br><span class="line">&gt;                val=newVal;</span><br><span class="line">&gt;                <span class="comment">//通知更新</span></span><br><span class="line">&gt;                pub.notify();</span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;       &#125;)</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><h6 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h6><blockquote>
-<ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Publisher 依赖收集，收集事件有哪些订阅者，同时事件更新时通知更新</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Publisher</span></span>&#123;</span><br><span class="line">   <span class="keyword">constructor</span>()&#123;</span><br><span class="line">       <span class="keyword">this</span>.subs=[];<span class="comment">//收集订阅者</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//添加订阅者</span></span><br><span class="line">   addSub(sub)&#123;</span><br><span class="line">       <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//通知更新</span></span><br><span class="line">   notify()&#123;</span><br><span class="line">       <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="params">sub</span>=&gt;</span>&#123;</span><br><span class="line">           sub.update();</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">Publisher.target=<span class="literal">null</span>;<span class="comment">//用于收集订阅者，一个接一个的收集</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Subscriber 订阅者，在Vue实例 mount 的时候实例化，订阅事件,让发布者的收集目标指向自己</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subscriber</span></span>&#123;</span><br><span class="line">   <span class="keyword">constructor</span>(obj,key,cb)&#123;</span><br><span class="line">       Publisher.target=<span class="keyword">this</span>;</span><br><span class="line">       <span class="keyword">this</span>.obj=obj;</span><br><span class="line">       <span class="keyword">this</span>.key=key;</span><br><span class="line">       <span class="keyword">this</span>.value=obj[key];</span><br><span class="line">       <span class="keyword">this</span>.cb=cb;</span><br><span class="line">       <span class="comment">//收集完当前订阅者，就要收集下一个</span></span><br><span class="line">       Publisher.target=<span class="literal">null</span>;</span><br><span class="line">   &#125; </span><br><span class="line">   update()&#123;</span><br><span class="line">       <span class="comment">//获取更新</span></span><br><span class="line">       <span class="keyword">this</span>.value=<span class="keyword">this</span>.obj[<span class="keyword">this</span>.key];</span><br><span class="line">       <span class="keyword">this</span>.cb(<span class="keyword">this</span>.value);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Event center 事件中心，发布和订阅的一个代理，就像报刊亭，发布者是出版社，订阅者是订报人</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(!obj || <span class="keyword">typeof</span> obj !== <span class="string">'object'</span>)&#123;</span><br><span class="line">       <span class="keyword">return</span> </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span>&#123;</span><br><span class="line">       defineReactive(obj,key,obj[key]);</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj,key,val</span>)</span>&#123;</span><br><span class="line">   observe(val);<span class="comment">//递归子属性</span></span><br><span class="line">   <span class="keyword">let</span> pub=<span class="keyword">new</span> Publisher();<span class="comment">//每个属性都有一个发布者</span></span><br><span class="line">   <span class="built_in">Object</span>.defineProperty(obj,key,&#123;</span><br><span class="line">       enumerable:<span class="literal">true</span>,</span><br><span class="line">       configurable:<span class="literal">true</span>,</span><br><span class="line">       get:<span class="function"><span class="keyword">function</span> <span class="title">getter</span>(<span class="params"></span>)</span>&#123;<span class="comment">//代理订阅事件</span></span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">'get value'</span>);</span><br><span class="line">           <span class="keyword">if</span>(Publisher.target)&#123;</span><br><span class="line">               pub.addSub(Publisher.target);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> val;</span><br><span class="line">       &#125;</span><br><span class="line">       set:<span class="function"><span class="keyword">function</span> <span class="title">setter</span>(<span class="params">newVal</span>)</span>&#123;<span class="comment">//代理发布更新事件</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'set value'</span>);</span><br><span class="line">            val=newVal;</span><br><span class="line">            <span class="comment">//通知更新</span></span><br><span class="line">            pub.notify();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h4><ul>
 <li><p>使用 State 和 Getter 对状态进行定义；使用 Mutation 和 Action 对状态进行变更；引入 Module 对状态进行模块化分割</p>
 <ul>
 <li>state 用来数据共享数据存储</li>
@@ -530,12 +519,7 @@
 </li>
 </ul>
 <p><img src="https://i.loli.net/2019/04/05/5ca761722eb57.png" alt="vuex使用过程"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1.</span>Vue的插件机制，安装Vuex。  Vue.use(Vuex)</span><br><span class="line">&gt; <span class="number">2.</span>实例化store </span><br><span class="line">&gt; <span class="keyword">let</span> store = <span class="keyword">new</span> Vuex.Store(&#123; </span><br><span class="line">&gt;        state,</span><br><span class="line">&gt;        getters,</span><br><span class="line">&gt;        mutations,</span><br><span class="line">&gt;        actions,</span><br><span class="line">&gt;        modules,</span><br><span class="line">&gt; &#125;);</span><br><span class="line">&gt; <span class="number">3.</span>在Vue实例中注入store</span><br><span class="line">&gt; <span class="keyword">new</span> Vue(&#123; </span><br><span class="line">&gt;    store,</span><br><span class="line">&gt;    render: <span class="function"><span class="params">h</span>=&gt;</span>h(app)</span><br><span class="line">&gt; &#125;).$mount(<span class="string">'#app'</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>vuex 构成</li>
-</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>Vue的插件机制，安装Vuex。  Vue.use(Vuex)</span><br><span class="line"><span class="number">2.</span>实例化store </span><br><span class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Vuex.Store(&#123; </span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions,</span><br><span class="line">    modules,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="number">3.</span>在Vue实例中注入store</span><br><span class="line"><span class="keyword">new</span> Vue(&#123; </span><br><span class="line">store,</span><br><span class="line">render: <span class="function"><span class="params">h</span>=&gt;</span>h(app)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/04/05/5ca7617261a1a.png" alt="vuex构成"></p>
 <ul>
 <li><p>Vuex的store是如何注入到组件中的?</p>
@@ -551,8 +535,7 @@
 </ul>
 <p><img src="https://i.loli.net/2019/04/05/5ca766a21ff58.png" alt="store注入到组件"></p>
 <ul>
-<li><p>Vuex 的state 和 getter 是如何映射到各个组件实例中自动更新的呢？</p>
-<ul>
+<li>Vuex 的state 和 getter 是如何映射到各个组件实例中自动更新的呢？<ul>
 <li>1.state 是借助 Vue 的响应式 data 实现的。</li>
 <li>2.getter 是借助 Vue 的计算属性 computed 特性实现的。</li>
 </ul>
@@ -562,9 +545,7 @@
 <ul>
 <li>Vuex 核心代码</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">// src/store.js</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line">&gt;  <span class="comment">// 省略无关代码</span></span><br><span class="line">&gt;  Vue.config.silent = <span class="literal">true</span></span><br><span class="line">&gt;  store._vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">&gt;        data: &#123;</span><br><span class="line">&gt;          $$state: state</span><br><span class="line">&gt;        &#125;,</span><br><span class="line">&gt;        computed</span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/store.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 省略无关代码</span></span><br><span class="line">Vue.config.silent = <span class="literal">true</span></span><br><span class="line">store._vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">      $$state: state</span><br><span class="line">    &#125;,</span><br><span class="line">    computed</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>​    将我们传入的state作为一个隐藏的vue组件的data，也就是说，我们的commit操作，本质上其实是修改这个组件的data值。<strong>vuex中的store本质就是没有<code>template</code>的隐藏着的vue组件</strong></p>
 </blockquote>
@@ -603,24 +584,16 @@
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="跨层级组件通信（provide-inject）"><a href="#跨层级组件通信（provide-inject）" class="headerlink" title="跨层级组件通信（provide + inject）"></a>跨层级组件通信（provide + inject）</h6><blockquote>
+<h4 id="跨层级组件通信（provide-inject）"><a href="#跨层级组件通信（provide-inject）" class="headerlink" title="跨层级组件通信（provide + inject）"></a>跨层级组件通信（provide + inject）</h4><ul>
+<li>应用场景：删除一条数据或者新增数据之后需要重新刷新当前页面</li>
+</ul>
 <ul>
-<li><p>应用场景：删除一条数据或者新增数据之后需要重新刷新当前页面</p>
-</li>
 <li><p>为什么选择这个方案去实现</p>
 <ul>
-<li>1.用vue-router重新路由到当前页面，页面是不进行刷新的</li>
-</ul>
+<li><p>1.用vue-router重新路由到当前页面，页面是不进行刷新的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.$router.replace(&#123;</span><br><span class="line">path:...,</span><br><span class="line">name:...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">this</span>.$router.replace(&#123;</span><br><span class="line">&gt;    path:...,</span><br><span class="line">&gt;    name:...</span><br><span class="line">&gt; &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>2.采用window.reload()，或者router.go(0)刷新时，整个浏览器进行了重新加载，闪烁，体验不好</li>
-</ul>
+<li><p>2.采用window.reload()，或者router.go(0)刷新时，整个浏览器进行了重新加载，闪烁，体验不好</p>
 <ul>
 <li><p>具体实现</p>
 <ul>
@@ -631,127 +604,113 @@
 </li>
 <li><p>App.vue</p>
 <ul>
-<li>声明reload方法，控制router-view的显示或隐藏，从而控制页面的再次加载</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1.</span> &lt;router-view v-<span class="keyword">if</span>=<span class="string">"isRouterAlive"</span>/&gt;</span><br><span class="line">&gt; <span class="number">2.</span> provide()&#123;</span><br><span class="line">&gt;  <span class="keyword">return</span> &#123;</span><br><span class="line">&gt;      reload:<span class="keyword">this</span>.reload</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="number">3.</span> methods:&#123;</span><br><span class="line">&gt;  reload()&#123;</span><br><span class="line">&gt;      <span class="keyword">this</span>.isRouterAlive=<span class="literal">false</span>;</span><br><span class="line">&gt;      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">&gt;          <span class="keyword">this</span>.isRouterAlive=<span class="literal">true</span>;</span><br><span class="line">&gt;      &#125;)</span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<li><p>声明reload方法，控制router-view的显示或隐藏，从而控制页面的再次加载\</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. &lt;router-view v-if=&quot;isRouterAlive&quot;/&gt;</span><br><span class="line">2. provide()&#123;</span><br><span class="line">return &#123;</span><br><span class="line">  reload:this.reload</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">3. methods:&#123;</span><br><span class="line">reload()&#123;</span><br><span class="line">  this.isRouterAlive=false;</span><br><span class="line">  this.$nextTick(()=&gt;&#123;</span><br><span class="line">      this.isRouterAlive=true;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在页面注入App.vue组件提供（provide）的 reload 依赖，在逻辑完成之后（删除或添加…）,直接this.reload()调用，即可刷新当前页面。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">//刷新项目信息</span></span><br><span class="line">&gt; freshPro()&#123;</span><br><span class="line">&gt;   <span class="keyword">if</span>(<span class="keyword">this</span>.curProPage)&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.getPageData(<span class="keyword">this</span>.curProPage);</span><br><span class="line">&gt;   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;       <span class="keyword">this</span>.reload();</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><ul>
-<li><h6 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h6><blockquote>
-<ul>
-<li><p>基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。</p>
-</li>
-<li><p><strong>Store</strong> </p>
-<ul>
-<li><p>保存数据的地方，可以看成是一个容器，整个应用只能有一个 Store。</p>
-</li>
-<li><p>Redux 提供<code>createStore</code>这个函数，用来生成 Store</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;     import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">&gt;     const store = createStore(reducer);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//刷新项目信息</span><br><span class="line">freshPro()&#123;</span><br><span class="line">if(this.curProPage)&#123;</span><br><span class="line">   this.getPageData(this.curProPage);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   this.reload();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><hr>
+<h4 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h4><ul>
+<li>基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。</li>
+<li><strong>Store</strong> <ul>
+<li>保存数据的地方，可以看成是一个容器，整个应用只能有一个 Store。</li>
+<li>Redux 提供<code>createStore</code>这个函数，用来生成 Store</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">const store = createStore(reducer);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong>State</strong></p>
-<ul>
+<li><strong>State</strong><ul>
 <li><strong><code>Store</code>对象包含所有数据</strong>。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。</li>
 <li>Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。</li>
 </ul>
 </li>
-<li><p><strong>Action</strong></p>
-<ul>
+<li><strong>Action</strong><ul>
 <li>State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。<strong>Action 是 View 发出的通知，表示 State 要发生变化了</strong>。</li>
 <li><strong>Action 是一个对象。其中的<code>type</code>属性是必须的，表示 Action 的名称</strong>，其他属性可以自由设置</li>
 <li><strong>Action 描述当前发生的事情。改变 State 的唯一办法</strong>，就是使用 Action。它会运送数据到 Store。</li>
 </ul>
 </li>
-<li><p>Action Creator</p>
-<ul>
+<li>Action Creator<ul>
 <li>View 要发送多少种消息，就会有多少种 Action。如果都手写，会很麻烦。可以定义一个函数来生成 Action，这个函数就叫 Action Creator。</li>
 </ul>
 </li>
-<li><p>store.dispatch()</p>
-<ul>
+<li>store.dispatch()<ul>
 <li>View 发出 Action 的唯一方法，接受一个 Action 对象作为参数，将它发送出去。</li>
 </ul>
 </li>
-<li><p><strong>Reducer</strong></p>
-<ul>
-<li><p>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。</p>
-</li>
-<li><p><strong><code>store.dispatch</code>方法会触发 Reducer 的自动执行</strong>。</p>
-</li>
-<li><p><strong>Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</strong></p>
-</li>
-<li><p>为什么这个函数叫做 Reducer 呢？因为它可以作为数组的<code>reduce</code>方法的参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;     const actions = [</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 0 &#125;,</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 1 &#125;,</span><br><span class="line">&gt;       &#123; type: &apos;ADD&apos;, payload: 2 &#125;</span><br><span class="line">&gt;     ];</span><br><span class="line">&gt;     </span><br><span class="line">&gt;     const total = actions.reduce(reducer, 0);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li><strong>Reducer</strong><ul>
+<li>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。</li>
+<li><strong><code>store.dispatch</code>方法会触发 Reducer 的自动执行</strong>。</li>
+<li><strong>Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</strong></li>
+<li>为什么这个函数叫做 Reducer 呢？因为它可以作为数组的<code>reduce</code>方法的参数。</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const actions = [</span><br><span class="line">  &#123; type: &apos;ADD&apos;, payload: 0 &#125;,</span><br><span class="line">  &#123; type: &apos;ADD&apos;, payload: 1 &#125;,</span><br><span class="line">  &#123; type: &apos;ADD&apos;, payload: 2 &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const total = actions.reduce(reducer, 0);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>Reducer 是一个纯函数，只要是同样的输入，必定得到同样的输出</strong>。</li>
-</ul>
-<ul>
+<li><p><strong>Reducer 是一个纯函数，只要是同样的输入，必定得到同样的输出</strong>。</p>
+</li>
 <li><p>纯函数</p>
 <ul>
-<li>定义（要求）<ul>
+<li><p>定义（要求）</p>
+<ul>
 <li>不依赖于程序执行期间函数外部任何状态或数据的变化，必须<strong>只依赖于其输入参数</strong></li>
 <li>不会产生任何可观察的副作用，例如网络请求，输入和输出设备或数据突变（mutation）。</li>
 </ul>
 </li>
-<li>可观察的副作用<ul>
-<li>在函数内部与其外部的<strong>任意</strong>交互，可能是在函数内修改外部的变量，或者在函数里调用另外一个函数等。</li>
-<li>副作用来自，但不限于：<ul>
-<li>进行一个 HTTP 请求</li>
-<li>Mutating data</li>
-<li>输出数据到屏幕或者控制台</li>
-<li>DOM 查询/操作</li>
-<li>Math.random()</li>
-<li>获取的当前时间</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><h6 id="Redux-thunk"><a href="#Redux-thunk" class="headerlink" title="Redux-thunk"></a>Redux-thunk</h6><blockquote>
+<li><p>可观察的副作用</p>
 <ul>
-<li>中间件就是一个函数，对<code>store.dispatch</code>方法进行了改造，可以接受<strong>函数</strong>作为参数，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</li>
-<li>同步操作只要发出一种 Action 即可，异步操作的差别是它要发出三种 Action。</li>
-<li>异步操作的思路<ul>
+<li><p>在函数内部与其外部的<strong>任意</strong>交互，可能是在函数内修改外部的变量，或者在函数里调用另外一个函数等。</p>
+</li>
+<li><p>副作用来自，但不限于：</p>
+<ul>
+<li><p>进行一个 HTTP 请求</p>
+</li>
+<li><p>Mutating data</p>
+</li>
+<li><p>输出数据到屏幕或者控制台</p>
+</li>
+<li><p>DOM 查询/操作</p>
+</li>
+<li><p>Math.random()</p>
+</li>
+<li><p>获取的当前时间</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Redux-thunk"><a href="#Redux-thunk" class="headerlink" title="Redux-thunk"></a>Redux-thunk</h4><ul>
+<li><p>中间件就是一个函数，对<code>store.dispatch</code>方法进行了改造，可以接受<strong>函数</strong>作为参数，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p>
+</li>
+<li><p>同步操作只要发出一种 Action 即可，异步操作的差别是它要发出三种 Action。</p>
+</li>
+<li><p>异步操作的思路</p>
+<ul>
 <li>操作开始时，送出一个 Action，触发 State 更新为”正在操作”状态，View 重新渲染</li>
 <li>操作结束后，再送出一个 Action，触发 State 更新为”操作结束”状态，View 再一次重新渲染</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="Vue-VS-React"><a href="#Vue-VS-React" class="headerlink" title="Vue VS React"></a>Vue VS React</h6><blockquote>
+<h4 id="Vue-VS-React"><a href="#Vue-VS-React" class="headerlink" title="Vue VS React"></a>Vue VS React</h4><p>生命周期</p>
 <ul>
-<li>生命周期<ul>
-<li>Vue    创建  = &gt;  挂载  = &gt;  更新  = &gt; 销毁 （vue 中操作DOM是异步的）<ul>
+<li><p>Vue    创建  = &gt;  挂载  = &gt;  更新  = &gt; 销毁 （vue 中操作DOM是异步的）</p>
+<ul>
 <li>beforeCreate/created     创建阶段没有el选项<ul>
 <li>beforeCreate      el,data都未被初始化</li>
 <li>created                已经和data属性进行绑定，el属性还不存在</li>
@@ -774,77 +733,67 @@
 </li>
 </ul>
 </li>
-<li>React   生成期 =&gt; 存在期 =&gt;  销毁期<ul>
+<li><p>React   生成期 =&gt; 存在期 =&gt;  销毁期</p>
+<ul>
 <li>生成期  : constructor componentWillMount  render  componentDidMount</li>
 <li>存在期:  componentWillReceiveProps      shouldComponentUpdate(nextProps, nextState) componentWillUpdate     render    ComponentDidUpdate</li>
 <li>销毁期   componentWillUnmount</li>
 </ul>
 </li>
-<li>区别<ul>
-<li>生命周期  <ul>
+<li><p>区别</p>
+<ul>
+<li><p>生命周期  </p>
+<ul>
 <li>Vue 四个时期</li>
 <li>React 三个时期  render 函数生成虚拟dom,使用diff算法     shouldComponentUpdate 性能优化</li>
 </ul>
 </li>
-<li>设计思想 <ul>
+<li><p>设计思想 </p>
+<ul>
 <li>Vue 是响应式的设计思想，推崇数据可变，支持双向数据流。追求开发简单。</li>
 <li>React 是函数式的设计思想，推崇数据不可变，单向数据流。追求方式是否正确。</li>
 </ul>
 </li>
-<li>模板<ul>
-<li>Vue 采用基于HTML的模板语法</li>
-<li>React采用JSX</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><h6 id="Vuex-VS-Redux"><a href="#Vuex-VS-Redux" class="headerlink" title="Vuex VS Redux"></a>Vuex VS Redux</h6><blockquote>
+<li><p>模板</p>
 <ul>
+<li><p>Vue 采用基于HTML的模板语法</p>
+</li>
+<li><p>React采用JSX</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vuex-VS-Redux"><a href="#Vuex-VS-Redux" class="headerlink" title="Vuex VS Redux"></a>Vuex VS Redux</h4><ul>
 <li><p>Redux</p>
 <ul>
 <li>三大原则：唯一数据源、状态只读、数据的改变只能通过纯函数（reducer）完成</li>
-<li><p>核心三部分：store、reducer、action</p>
-<ul>
+<li>核心三部分：store、reducer、action<ul>
 <li>Redux的核心是store，它由Redux提供的 createStore(reducer， defaultState) 这个方法生成，生成三个方法，getState(),dispatch(),subscribe()。</li>
 <li>reducer是一个<strong>纯函数</strong>，它根据previousState和action计算出新的state。reducer(previousState,action)</li>
 <li>action本质上是一个JavaScript对象，其中必须包含一个type字段来表示将要执行的动作，其他的字段都可以根据需求来自定义。</li>
 </ul>
 </li>
-<li><p><code>React</code>：负责组件的UI界面渲染；<code>Redux</code>：数据处理中心；<code>React-Redux</code>：连接组件和数据中心，也就是把React和Redux联系起来。</p>
-<p><img src="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg" alt="React、Redux、React-Redux三者关系"></p>
-</li>
+<li><code>React</code>：负责组件的UI界面渲染；<code>Redux</code>：数据处理中心；<code>React-Redux</code>：连接组件和数据中心，也就是把React和Redux联系起来。</li>
 </ul>
+<p><img src="https://i.loli.net/2019/04/14/5cb34404943a9.jpeg" alt="React、Redux、React-Redux三者关系"></p>
 </li>
 <li><p>React-Redux</p>
 <ul>
-<li><p>Redux 本身和 React 没有关系，只是数据处理中心，是React-Redux让他们联系在一起</p>
-</li>
-<li><p>React-rRedux提供两个方法：connect和Provider。</p>
-</li>
-<li><p>connect连接React组件和Redux store。connect实际上是一个高阶函数，返回一个新的已与 Redux store 连接的组件类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;     const VisibleTodoList = connect(</span><br><span class="line">&gt;       mapStateToProps,</span><br><span class="line">&gt;       mapDispatchToProps</span><br><span class="line">&gt;     )(TodoList)</span><br><span class="line">&gt;     //mapStateToProps：从Redux状态树中提取需要的部分作为props传递给当前的组件。</span><br><span class="line">&gt;     //mapDispatchToProps：将需要绑定的响应事件（action）作为props传递到组件上。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Redux 本身和 React 没有关系，只是数据处理中心，是React-Redux让他们联系在一起</li>
+<li>React-rRedux提供两个方法：connect和Provider。</li>
+<li>connect连接React组件和Redux store。connect实际上是一个高阶函数，返回一个新的已与 Redux store 连接的组件类。</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const VisibleTodoList = connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(TodoList)</span><br><span class="line">//mapStateToProps：从Redux状态树中提取需要的部分作为props传递给当前的组件。</span><br><span class="line">//mapDispatchToProps：将需要绑定的响应事件（action）作为props传递到组件上。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Provider实现store的全局访问，将store传给每个组件。</li>
-</ul>
-<ul>
 <li>两者区别<ul>
 <li>vuex的流向：view—&gt;commit—&gt;mutations—&gt;state变化—&gt;view变化（同步操作）<br>view—&gt;dispatch—&gt;actions—&gt;mutations—&gt;state变化—&gt;view变化（异步操作）</li>
 <li>redux的流向：view —&gt;actions —&gt;reducer —&gt;state变化 —&gt;view变化（同步异步一样）</li>
 </ul>
-</li>
-</ul>
-</blockquote>
 </li>
 </ul>
 
@@ -867,9 +816,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
-          
             <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -882,8 +831,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/HTML和CSS/" rel="next" title="HTML、CSS">
-                <i class="fa fa-chevron-left"></i> HTML、CSS
+              <a href="/2019/04/01/高频面试题/" rel="next" title="高频面试题">
+                <i class="fa fa-chevron-left"></i> 高频面试题
               </a>
             
           </div>
@@ -892,8 +841,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/计算机网络/" rel="prev" title="计算机网络">
-                计算机网络 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/14/React 开发简书项目实战总结/" rel="prev" title="React 开发简书项目实战总结">
+                React 开发简书项目实战总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1091,7 +1040,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue"><span class="nav-number">1.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应式"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨层级组件通信（provide-inject）"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">跨层级组件通信（provide + inject）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">2.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Redux"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Redux-thunk"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Redux-thunk</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">Vue VS React</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Vuex-VS-Redux"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">Vuex VS Redux</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue"><span class="nav-number">1.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟DOM和Diff算法"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟DOM和Diff算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译-模板如何被解析的"><span class="nav-number">1.2.</span> <span class="nav-text">编译(模板如何被解析的)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式"><span class="nav-number">1.3.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex"><span class="nav-number">1.4.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨层级组件通信（provide-inject）"><span class="nav-number">1.5.</span> <span class="nav-text">跨层级组件通信（provide + inject）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">2.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux"><span class="nav-number">2.1.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux-thunk"><span class="nav-number">2.2.</span> <span class="nav-text">Redux-thunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-VS-React"><span class="nav-number">2.3.</span> <span class="nav-text">Vue VS React</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex-VS-Redux"><span class="nav-number">2.4.</span> <span class="nav-text">Vuex VS Redux</span></a></li></ol></li></ol></div>
             
 
           </div>

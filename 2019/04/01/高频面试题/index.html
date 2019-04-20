@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/高频面试题/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-01T15:01:01.619Z">
+<meta property="og:updated_time" content="2019-04-20T09:48:41.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高频面试题">
 
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Created: 2019-04-01 00:00:00 / Modified: 23:01:01" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+              <time title="Created: 2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-20 17:48:41" itemprop="dateModified" datetime="2019-04-20T17:48:41+08:00">2019-04-20</time>
               
             
           </span>
@@ -391,9 +403,7 @@
       
         <hr>
 <a id="more"></a>
-<ul>
-<li><h6 id="当我们在浏览器中输入一个URL后，发生了什么"><a href="#当我们在浏览器中输入一个URL后，发生了什么" class="headerlink" title="当我们在浏览器中输入一个URL后，发生了什么"></a>当我们在浏览器中输入一个URL后，发生了什么</h6><blockquote>
-<ul>
+<h5 id="当我们在浏览器中输入一个URL后，发生了什么"><a href="#当我们在浏览器中输入一个URL后，发生了什么" class="headerlink" title="当我们在浏览器中输入一个URL后，发生了什么"></a>当我们在浏览器中输入一个URL后，发生了什么</h5><ul>
 <li><p>1.DNS查询。DNS的作用就是通过域名查询到具体的IP。DNS查询顺序如下，若其中一步命中缓存就到进入建立TCP连接的部分</p>
 <ul>
 <li>浏览器缓存</li>
@@ -443,8 +453,10 @@
 </li>
 <li><p>5.客户端收到响应，并渲染页面 ——浏览器渲染原理</p>
 <ul>
-<li>浏览器收到HTML文件并转换为DOM树 （ 字节数据——字符串——Token——Node——DOM)</li>
-<li>将CSS文件转换为CSSOM树（字节数据——字符串——Token——Node——CSSOM)</li>
+<li><p>浏览器收到HTML文件并转换为DOM树 （ 字节数据——字符串——Token——Node——DOM)</p>
+</li>
+<li><p>将CSS文件转换为CSSOM树（字节数据——字符串——Token——Node——CSSOM)</p>
+</li>
 <li><p>DOM 树 + CSSOM树 就生成 Render Tree</p>
 </li>
 <li><p>涉及知识点：阻塞渲染、重绘、回流</p>
@@ -452,10 +464,7 @@
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h6><blockquote>
-<ul>
+<h5 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h5><ul>
 <li><p>DNS层面</p>
 <ul>
 <li>DNS查询方面<ul>
@@ -470,14 +479,45 @@
 <li><p>请求过程优化（HTTP请求优化，减小文件体积）</p>
 <ul>
 <li><p>构建工具性能优化（webpack优化）</p>
-<ul>
-<li><p>1.不要让 loader 做太多事情。</p>
+<p>1.不要让 loader 做太多事情。</p>
 <ul>
 <li>用 include 或 exclude 来帮我们避免不必要的转译。</li>
 <li>选择开启缓存将转译结果缓存至文件系统，则至少可以将 babel-loader 的工作效率提升两倍。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;         exclude: /(node_modules|bower_components)/</span><br><span class="line">&gt;         loader: &apos;babel-loader?cacheDirectory=true&apos;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exclude: /(node_modules|bower_components)/</span><br><span class="line">loader: &apos;babel-loader?cacheDirectory=true&apos;</span><br></pre></td></tr></table></figure>
+<p>2.不要放过第三方库（ DllPlugin ）</p>
+<ul>
+<li><strong>DLLPlugin</strong> 它能把第三方库代码分离开，并且每次文件更改的时候，它只会打包该项目自身的代码。所以打包速度会更快。</li>
+<li>在 webpack.dll.config.js 中使用<strong>DLLPlugin</strong>，把所有的第三方库依赖打包到一个bundle的dll文件里面，还会生成一个名为 manifest.json文件</li>
+<li>在 webpack.config.js 中使用<strong>DllReferencePlugin</strong>，读取vendor-manifest.json文件，看看是否有该第三方库。vendor-manifest.json文件就是有一个第三方库的一个映射而已。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//webpack.dll.config.js   打包第三方依赖的库文件</span><br><span class="line">         plugins: [</span><br><span class="line">               new webpack.DllPlugin(&#123;</span><br><span class="line">                 // DllPlugin的name属性需要和libary保持一致</span><br><span class="line">                 name: &apos;[name]_[hash]&apos;,</span><br><span class="line">                path: path.join(__dirname, &apos;dist&apos;, &apos;[name]-manifest.json&apos;),</span><br><span class="line">                 // context需要和webpack.config.js保持一致</span><br><span class="line">                context: __dirname,</span><br><span class="line">               &#125;),</span><br><span class="line">          ]</span><br><span class="line">          </span><br><span class="line">         //webpack.config.js </span><br><span class="line">         // dll相关配置</span><br><span class="line">           plugins: [</span><br><span class="line">             new webpack.DllReferencePlugin(&#123;</span><br><span class="line">               context: __dirname,</span><br><span class="line">               // manifest就是我们第一步中打包出来的json文件</span><br><span class="line">               manifest: require(&apos;./dist/vendor-manifest.json&apos;),</span><br><span class="line">             &#125;)</span><br><span class="line">          ]</span><br></pre></td></tr></table></figure>
+<p>3.Happypack——将 loader 由单进程转为多进程 (webpack 是单线程的, CPU 是多核的)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">             ...</span><br><span class="line">             new HappyPack(&#123;</span><br><span class="line">               // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应</span><br><span class="line">               id: &apos;happyBabel&apos;,</span><br><span class="line">               // 指定进程池</span><br><span class="line">               threadPool: happyThreadPool,</span><br><span class="line">               loaders: [&apos;babel-loader?cacheDirectory&apos;]</span><br><span class="line">             &#125;)</span><br><span class="line">         ]</span><br></pre></td></tr></table></figure>
+<p>4.Tree-Shaking ——删除冗余代码</p>
+<ul>
+<li>采用es6的模块语法，因为es6的模块采用的是静态分析，也就是从字面量对代码进行分析。适合用来处理<strong>模块级别</strong>的冗余代码。</li>
+<li><strong>粒度更细</strong>的冗余代码的去除，往往会被整合进 JS 或 CSS 的压缩或分离过程中。在 webpack4 中，我们是通过配置optimization.minimize 和optimization.minimizer 来自定义压缩相关的操作的。</li>
+</ul>
+<p>5.Code-Spliting ——按需加载</p>
+<ul>
+<li>核心方法 ：require.ensure(dependencies, callback, chunkName)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a: function() &#123;</span><br><span class="line">    require.ensure([&apos;./a&apos;], (require) =&gt; &#123;</span><br><span class="line">    let a = require(&apos;./a&apos;);</span><br><span class="line">    //do something</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>Gzip压缩原理</p>
+<ul>
+<li>Gzip 是高效的，压缩后<strong>通常</strong>能帮我们减少响应 70% 左右的大小</li>
+<li>Webpack 中 Gzip 压缩操作的存在，事实上就是为了在构建过程中去做一部分服务器的工作，<strong>为服务器分压</strong>。</li>
+<li>开启 Gzip 的做法 ：设置  request headers  的 accept-encoding : gzip</li>
+</ul>
+</li>
+<li>图片优化（寻求一个图片质量与性能之间的平衡点）<ul>
+<li>色彩丰富的图片使用  JPG 格式 (有损压缩，不支持透明)。适用于呈现<strong>色彩丰富</strong>的图片，在我们日常开发中，JPG 图片经常作为大的背景图、轮播图或 Banner 图出现。但当它处理<strong>矢量图形</strong>和 <strong>Logo</strong> 等线条感较强、颜色对比强烈的图像时，人为压缩导致的图片模糊会相当明显。</li>
+<li>Logo使用 PNG 格式(无损压缩，支持透明) 。 PNG-8 和 PNG-24，8 位的 PNG 最多支持 256 种颜色，而 24 位的可以呈现约 1600 万种颜色。呈现小的 Logo、颜色简单且对比强烈的图片或背景等。</li>
+<li>小图使用Base64格式。通过对图片进行 Base64 编码，我们可以直接将编码结果写入 HTML 或者写入 CSS，从而减少 HTTP 请求的次数。</li>
+<li>大量小图标使用雪碧图（CSS Sprites)</li>
+<li>尽量使用WebP格式的图片。注意WebP的兼容性处理。</li>
 </ul>
 </li>
 </ul>
@@ -485,66 +525,18 @@
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-<pre><code>* 2.不要放过第三方库（ DllPlugin ）
-
-  * **DLLPlugin** 它能把第三方库代码分离开，并且每次文件更改的时候，它只会打包该项目自身的代码。所以打包速度会更快。
-  * 在 webpack.dll.config.js 中使用**DLLPlugin**，把所有的第三方库依赖打包到一个bundle的dll文件里面，还会生成一个名为 manifest.json文件
-  * 在 webpack.config.js 中使用**DllReferencePlugin**，读取vendor-manifest.json文件，看看是否有该第三方库。vendor-manifest.json文件就是有一个第三方库的一个映射而已。
-
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt;         //webpack.dll.config.js   打包第三方依赖的库文件</span><br><span class="line">&gt;          plugins: [</span><br><span class="line">&gt;               new webpack.DllPlugin(&#123;</span><br><span class="line">&gt;                 // DllPlugin的name属性需要和libary保持一致</span><br><span class="line">&gt;                 name: &apos;[name]_[hash]&apos;,</span><br><span class="line">&gt;                 path: path.join(__dirname, &apos;dist&apos;, &apos;[name]-manifest.json&apos;),</span><br><span class="line">&gt;                 // context需要和webpack.config.js保持一致</span><br><span class="line">&gt;                 context: __dirname,</span><br><span class="line">&gt;               &#125;),</span><br><span class="line">&gt;          ]</span><br><span class="line">&gt;          </span><br><span class="line">&gt;         //webpack.config.js </span><br><span class="line">&gt;         // dll相关配置</span><br><span class="line">&gt;           plugins: [</span><br><span class="line">&gt;             new webpack.DllReferencePlugin(&#123;</span><br><span class="line">&gt;               context: __dirname,</span><br><span class="line">&gt;               // manifest就是我们第一步中打包出来的json文件</span><br><span class="line">&gt;               manifest: require(&apos;./dist/vendor-manifest.json&apos;),</span><br><span class="line">&gt;             &#125;)</span><br><span class="line">&gt;          ]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</code></pre></blockquote>
-<blockquote>
-<pre><code>* 3.Happypack——将 loader 由单进程转为多进程 (webpack 是单线程的, CPU 是多核的)
-
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;         plugins: [</span><br><span class="line">&gt;             ...</span><br><span class="line">&gt;             new HappyPack(&#123;</span><br><span class="line">&gt;               // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应</span><br><span class="line">&gt;               id: &apos;happyBabel&apos;,</span><br><span class="line">&gt;               // 指定进程池</span><br><span class="line">&gt;               threadPool: happyThreadPool,</span><br><span class="line">&gt;               loaders: [&apos;babel-loader?cacheDirectory&apos;]</span><br><span class="line">&gt;             &#125;)</span><br><span class="line">&gt;         ]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</code></pre></blockquote>
-<blockquote>
-<pre><code>* 4.Tree-Shaking ——删除冗余代码
-
-  * 采用es6的模块语法，因为es6的模块采用的是静态分析，也就是从字面量对代码进行分析。适合用来处理**模块级别**的冗余代码。
-  * **粒度更细**的冗余代码的去除，往往会被整合进 JS 或 CSS 的压缩或分离过程中。在 webpack4 中，我们是通过配置optimization.minimize 和optimization.minimizer 来自定义压缩相关的操作的。
-
-* 5.Code-Spliting ——按需加载
-
-  * 核心方法 ：require.ensure(dependencies, callback, chunkName)
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;           a: function() &#123;</span><br><span class="line">&gt;               require.ensure([&apos;./a&apos;], (require) =&gt; &#123;</span><br><span class="line">&gt;                   let a = require(&apos;./a&apos;);</span><br><span class="line">&gt;                   //do something</span><br><span class="line">&gt;               &#125;)</span><br><span class="line">&gt;            &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</code></pre></blockquote>
-<blockquote>
-<pre><code>* Gzip压缩原理
-
-  *  Gzip 是高效的，压缩后**通常**能帮我们减少响应 70% 左右的大小
-  * Webpack 中 Gzip 压缩操作的存在，事实上就是为了在构建过程中去做一部分服务器的工作，**为服务器分压**。
-  * 开启 Gzip 的做法 ：设置  request headers  的 accept-encoding : gzip
-
-* 图片优化（寻求一个图片质量与性能之间的平衡点）
-
-  * 色彩丰富的图片使用  JPG 格式 (有损压缩，不支持透明)。适用于呈现**色彩丰富**的图片，在我们日常开发中，JPG 图片经常作为大的背景图、轮播图或 Banner 图出现。但当它处理**矢量图形**和 **Logo** 等线条感较强、颜色对比强烈的图像时，人为压缩导致的图片模糊会相当明显。
-
-  * Logo使用 PNG 格式(无损压缩，支持透明) 。 PNG-8 和 PNG-24，8 位的 PNG 最多支持 256 种颜色，而 24 位的可以呈现约 1600 万种颜色。呈现小的 Logo、颜色简单且对比强烈的图片或背景等。
-
-  * 小图使用Base64格式。通过对图片进行 Base64 编码，我们可以直接将编码结果写入 HTML 或者写入 CSS，从而减少 HTTP 请求的次数。
-
-  * 大量小图标使用雪碧图（CSS Sprites)
-
-  * 尽量使用WebP格式的图片。注意WebP的兼容性处理。
-</code></pre><ul>
+<ul>
 <li><p>减少网络请求 （缓存和存储）</p>
 <ul>
-<li><p>浏览器的缓存机制</p>
-<ul>
-<li><p>缓存位置</p>
-<ul>
+<li>浏览器的缓存机制<ul>
+<li>缓存位置<ul>
 <li>Service Worker Cache    运行在浏览器背后的独立线程，一般用于实现缓存功能。传输协议必须是<strong>HTTPS</strong>。优点是可以自由缓存，并且缓存是持续性的</li>
 <li>Memory  Cache    内存中的缓存，读取高效，但是持续性很短，会随着进程的释放而释放。一旦我们关闭页面，内存中的缓存也就被释放了。</li>
 <li>Disk  Cache     磁盘中的缓存，读取速度慢点，但是较之Memory cache 胜在容量和持续性（存储时效性）上。</li>
 <li>Push Cache   HTTP/2中的内容，当以上三种缓存都没有命中时，它才会被使用。<strong>并且缓存时间很短暂，只在会话中存在，一旦会话结束就被释放</strong>。</li>
 </ul>
 </li>
-<li><p>缓存策略（强缓存和协商缓存）</p>
-<ul>
+<li>缓存策略（强缓存和协商缓存）<ul>
 <li>强缓存：利用 http 头中的 Expires 和 Cache-Control 两个字段来控制的。在缓存期间，不会再与服务端发生通信。<ul>
 <li>Expires ：是一个时间戳，受限于本地时间。继续使用 expires 的唯一目的就是<strong>向下兼容</strong>。</li>
 <li>Cache-Control：HTTP 1.1出现，优先级更高</li>
@@ -559,8 +551,7 @@
 </li>
 </ul>
 </li>
-<li><p>离线存储技术</p>
-<ul>
+<li>离线存储技术<ul>
 <li>Cookie : “维持状态”，它可以携带用户信息，当服务器检查 Cookie 的时候，便可以获取到客户端的状态。同一个域名下的所有请求，都会携带 Cookie。大小只有4K，不适宜用来做存储。</li>
 <li>Web Storage : Local Storage 与 Session Storage。Web Storage 保存的数据内容和 Cookie 一样，是<strong>文本内容</strong>，以<strong>键值对</strong>的形式存在<ul>
 <li>存储数据：setItem()、读取数据： getItem()、删除某一键名对应的数据： removeItem()、清空数据记录：clear()</li>
@@ -577,7 +568,8 @@
 <ul>
 <li><p>渲染层面</p>
 <ul>
-<li>浏览器的渲染机制<ul>
+<li><p>浏览器的渲染机制</p>
+<ul>
 <li>CSS性能方案<ul>
 <li>把样式表放在<code>&lt;head&gt;</code>中，让页面渐进渲染，尽早呈现视觉反馈，给用户加载速度很快的感觉</li>
 <li>不要使用CSS表达式</li>
@@ -620,115 +612,113 @@
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h6><blockquote>
-<p>HTTP版本</p>
+<h5 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h5><p>HTTP版本</p>
 <ul>
-<li>HTTP 1.0 只支持GET POST HEAD 方法</li>
-<li>HTTP 1.1 加了 OPTIONS PUT DELETE 等方法 长连接 管线化</li>
-<li>HTTP 2.0 帧 流 多路复用 头部压缩 服务器推送 二进制分帧层</li>
-</ul>
-</blockquote>
+<li><p>HTTP 1.0 只支持GET POST HEAD 方法</p>
 </li>
-<li><h6 id="原生DOM操作"><a href="#原生DOM操作" class="headerlink" title="原生DOM操作"></a>原生DOM操作</h6><blockquote>
-<ul>
-<li>获取DOM结点 : getElementById、getElementsByTagName、getElementsByClassName、querySelectorAll</li>
-<li>获取父节点、获取子节点 ：parentElement、childNodes</li>
-<li>新增节点，删除节点 : appendChild 、removeChild</li>
-</ul>
-</blockquote>
+<li><p>HTTP 1.1 加了 OPTIONS PUT DELETE 等方法 长连接 管线化</p>
 </li>
-<li><h6 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h6><blockquote>
-<ul>
-<li>一个JS编译器</li>
-<li>很多浏览器目前还不支持ES6的代码，babel的作用就是把浏览器不支持的代码编译成支持的代码</li>
-<li>注意：Babel 只是转译新标准引入的语法（语法糖），比如ES6的箭头函数转译成ES5的函数。但是，对于新标准引入的新的原生对象，部分原生对象新增的原型方法，新增的API等（如Set、Promise)，这些Babel是不会转译的，需要引入polyfill来解决。</li>
-<li>shim:将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现</li>
-<li>polyfill:一个用在浏览器API上的shim。我们通常的做法是先检查当前浏览器是否支持某个API,如果不支持的话就加载对应的polyfill.然后新旧浏览器就都可以使用这个API了。</li>
-<li>编译过程<ul>
-<li>解析(Parsing)：将代码字符串解析成抽象语法树。</li>
-<li>转换(Transformation)：对抽象语法树进行转换操作。</li>
-<li>生成(Code Generation): 根据变换后的抽象语法树再生成代码字符串。  ——babel-generator</li>
-</ul>
+<li><p>HTTP 2.0 帧 流 多路复用 头部压缩 服务器推送 二进制分帧层</p>
 </li>
 </ul>
-</blockquote>
+<h5 id="原生DOM操作"><a href="#原生DOM操作" class="headerlink" title="原生DOM操作"></a>原生DOM操作</h5><ul>
+<li><p>获取DOM结点 : getElementById、getElementsByTagName、getElementsByClassName、querySelectorAll</p>
 </li>
-<li><h6 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h6><blockquote>
+<li><p>获取父节点、获取子节点 ：parentElement、childNodes</p>
+</li>
+<li><p>新增节点，删除节点 : appendChild 、removeChild</p>
+</li>
+</ul>
+<h5 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h5><ul>
+<li><p>一个JS编译器</p>
+</li>
+<li><p>很多浏览器目前还不支持ES6的代码，babel的作用就是把浏览器不支持的代码编译成支持的代码</p>
+</li>
+<li><p>注意：Babel 只是转译新标准引入的语法（语法糖），比如ES6的箭头函数转译成ES5的函数。但是，对于新标准引入的新的原生对象，部分原生对象新增的原型方法，新增的API等（如Set、Promise)，这些Babel是不会转译的，需要引入polyfill来解决。</p>
+</li>
+<li><p>shim:将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现</p>
+</li>
+<li><p>polyfill:一个用在浏览器API上的shim。我们通常的做法是先检查当前浏览器是否支持某个API,如果不支持的话就加载对应的polyfill.然后新旧浏览器就都可以使用这个API了。</p>
+</li>
+<li><p>编译过程</p>
 <ul>
-<li><p>流程</p>
-<ul>
+<li><p>解析(Parsing)：将代码字符串解析成抽象语法树。</p>
+</li>
+<li><p>转换(Transformation)：对抽象语法树进行转换操作。</p>
+</li>
+<li><p>生成(Code Generation): 根据变换后的抽象语法树再生成代码字符串。  ——babel-generator</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h5><ul>
+<li>流程<ul>
 <li>创建一个ajax对象（拥有一个手机）</li>
 <li>连接到服务器（拨号）</li>
 <li>发送请求（说）</li>
 <li>接收返回值（听）</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url,fnSucc,fnFail</span>)</span>&#123;</span><br><span class="line">&gt;       <span class="comment">//创建oAjax对象（拥有一个手机）</span></span><br><span class="line">&gt;       <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">&gt;           <span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();<span class="comment">//非IE6</span></span><br><span class="line">&gt;       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;           <span class="keyword">var</span> oAjax=<span class="keyword">new</span> ActiveXObject(<span class="string">'MicroSoft.XMLHTTP'</span>);<span class="comment">//IE6</span></span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       </span><br><span class="line">&gt;       <span class="comment">//连接到服务器（拨号)</span></span><br><span class="line">&gt;       oAjax.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</span><br><span class="line">&gt;       <span class="comment">//发送请求（说）</span></span><br><span class="line">&gt;       oAjax.send();</span><br><span class="line">&gt;       <span class="comment">//接收返回值（听）</span></span><br><span class="line">&gt;       oAjax.onreadystatechange=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&gt;           <span class="keyword">if</span>(oAjax.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">&gt;               <span class="keyword">if</span>(oAjax.status==<span class="number">200</span>)&#123;</span><br><span class="line">&gt;                   fnSucc(oAjax.responseText);</span><br><span class="line">&gt;               &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&gt;                   <span class="keyword">if</span>(fnFail)&#123;</span><br><span class="line">&gt;                       fnFail(oAjax.status);</span><br><span class="line">&gt;                   &#125;</span><br><span class="line">&gt;               &#125;</span><br><span class="line">&gt;           &#125;</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
-<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url,fnSucc,fnFail</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//创建oAjax对象（拥有一个手机）</span></span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">       <span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();<span class="comment">//非IE6</span></span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> oAjax=<span class="keyword">new</span> ActiveXObject(<span class="string">'MicroSoft.XMLHTTP'</span>);<span class="comment">//IE6</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//连接到服务器（拨号)</span></span><br><span class="line">   oAjax.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</span><br><span class="line">   <span class="comment">//发送请求（说）</span></span><br><span class="line">   oAjax.send();</span><br><span class="line">   <span class="comment">//接收返回值（听）</span></span><br><span class="line">   oAjax.onreadystatechange=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(oAjax.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">           <span class="keyword">if</span>(oAjax.status==<span class="number">200</span>)&#123;</span><br><span class="line">               fnSucc(oAjax.responseText);</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="keyword">if</span>(fnFail)&#123;</span><br><span class="line">                   fnFail(oAjax.status);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>readyState(服务器和浏览器，进行到哪一步了，请求状态)</p>
 <ul>
-<li>0 ——未初始化，还没调用open方法，没有连接到服务器 </li>
-<li>1——（载入）已调用send()方法，正在发送请求</li>
-<li>2——（载入完成）send()方法完成，浏览器已接收到全部响应内容</li>
-<li>3——（解析）正在解析响应内容 </li>
-<li>4——（完成）响应内容解析完成，还要判断是否解析成功</li>
+<li><p>0 ——未初始化，还没调用open方法，没有连接到服务器 </p>
+</li>
+<li><p>1——（载入）已调用send()方法，正在发送请求</p>
+</li>
+<li><p>2——（载入完成）send()方法完成，浏览器已接收到全部响应内容</p>
+</li>
+<li><p>3——（解析）正在解析响应内容 </p>
+</li>
+<li><p>4——（完成）响应内容解析完成，还要判断是否解析成功</p>
+</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-<li><h6 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a>null 和 undefined</h6><blockquote>
-<ul>
+<h5 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a>null 和 undefined</h5><ul>
 <li><p><strong>null 表示”没有对象”，即该处不应该有值。</strong>典型用法是：</p>
 <ul>
-<li><p>（1） 作为函数的参数，表示该函数的参数不是对象。</p>
-</li>
-<li><p>（2） 作为对象原型链的终点。</p>
-</li>
+<li>（1） 作为函数的参数，表示该函数的参数不是对象。</li>
+<li>（2） 作为对象原型链的终点。</li>
 </ul>
 </li>
 <li><p><strong>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</strong>典型用法是：</p>
 <ul>
-<li>（1）变量被声明了，但没有赋值时，就等于undefined。</li>
-<li>（2)  调用函数时，应该提供的参数没有提供，该参数等于undefined。</li>
-<li>（3）对象没有赋值的属性，该属性的值为undefined。</li>
-<li>（4）函数没有返回值时，默认返回undefined。</li>
+<li><p>（1）变量被声明了，但没有赋值时，就等于undefined。</p>
+</li>
+<li><p>（2)  调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
+</li>
+<li><p>（3）对象没有赋值的属性，该属性的值为undefined。</p>
+</li>
+<li><p>（4）函数没有返回值时，默认返回undefined。</p>
+</li>
 </ul>
 </li>
 </ul>
-</blockquote>
+<h5 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h5><ul>
+<li><p>code-splitting 、tree-shaking 、scope hoisting</p>
 </li>
-<li><h6 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h6><blockquote>
+<li><p>loader 和 plugin</p>
 <ul>
-<li>code-splitting 、tree-shaking 、scope hoisting</li>
-<li>loader 和 plugin<ul>
 <li><code>loader</code>  如何转化处理某一类型的文件。比如说分析转换scss为css，或者把下一代的JS文件（ES6，ES7)转换为现代浏览器兼容的JS文件</li>
 <li>插件（Plugins）是用来拓展Webpack功能。hot-module-replacement 热模块更新、HappyPack 开启多线程，并行执行、html-webpack-plugin 可以在项目文件夹下自动生成index.html</li>
 </ul>
 </li>
-<li><code>chunk</code> 是webpack使用 code splitting 后的产物，也就是按需加载的分块，装载了不同的 <code>module</code>。</li>
-</ul>
-</blockquote>
+<li><p><code>chunk</code> 是webpack使用 code splitting 后的产物，也就是按需加载的分块，装载了不同的 <code>module</code>。</p>
 </li>
-<li><h6 id="栈和堆内存"><a href="#栈和堆内存" class="headerlink" title="栈和堆内存"></a>栈和堆内存</h6><blockquote>
-<ul>
-<li><p>栈</p>
+</ul>
+<h5 id="栈和堆内存"><a href="#栈和堆内存" class="headerlink" title="栈和堆内存"></a>栈和堆内存</h5><ul>
+<li>栈</li>
+</ul>
 <p>栈会自动分配内存空间，会自动释放，存放的是<strong>基本类型</strong>，简单的数据段，占据固定大小的空间。</p>
 <p><strong>基本类型</strong>：null,undefined,number,string,boolean,symbol</p>
-</li>
-<li><p>堆</p>
+<ul>
+<li>堆</li>
+</ul>
 <p>堆是动态分配的内存，大小不定也不会自动释放，存放的是<strong>引用类型</strong>，其地址存放在栈内存中，值存放在堆内存中。</p>
 <p><strong>引用类型</strong>:Object,Array,Function</p>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
 
       
     </div>
@@ -762,8 +752,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/计算机网络/" rel="next" title="计算机网络">
-                <i class="fa fa-chevron-left"></i> 计算机网络
+              <a href="/2019/04/01/JS面试考点解析/" rel="next" title="JavaScript面试考点">
+                <i class="fa fa-chevron-left"></i> JavaScript面试考点
               </a>
             
           </div>
@@ -772,8 +762,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/各种手写代码/" rel="prev" title="手写代码题">
-                手写代码题 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/Vue和React/" rel="prev" title="Vue 和 React">
+                Vue 和 React <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -971,7 +961,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#当我们在浏览器中输入一个URL后，发生了什么"><span class="nav-number">1.</span> <span class="nav-text">当我们在浏览器中输入一个URL后，发生了什么</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#前端性能优化"><span class="nav-number">2.</span> <span class="nav-text">前端性能优化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-number">3.</span> <span class="nav-text">HTTP和HTTPS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#原生DOM操作"><span class="nav-number">4.</span> <span class="nav-text">原生DOM操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#babel"><span class="nav-number">5.</span> <span class="nav-text">babel</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Ajax"><span class="nav-number">6.</span> <span class="nav-text">Ajax</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#null-和-undefined"><span class="nav-number">7.</span> <span class="nav-text">null 和 undefined</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#webpack"><span class="nav-number">8.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈和堆内存"><span class="nav-number">9.</span> <span class="nav-text">栈和堆内存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#当我们在浏览器中输入一个URL后，发生了什么"><span class="nav-number">1.</span> <span class="nav-text">当我们在浏览器中输入一个URL后，发生了什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前端性能优化"><span class="nav-number">2.</span> <span class="nav-text">前端性能优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-number">3.</span> <span class="nav-text">HTTP和HTTPS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原生DOM操作"><span class="nav-number">4.</span> <span class="nav-text">原生DOM操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#babel"><span class="nav-number">5.</span> <span class="nav-text">babel</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Ajax"><span class="nav-number">6.</span> <span class="nav-text">Ajax</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null-和-undefined"><span class="nav-number">7.</span> <span class="nav-text">null 和 undefined</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack"><span class="nav-number">8.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#栈和堆内存"><span class="nav-number">9.</span> <span class="nav-text">栈和堆内存</span></a></li></ol></div>
             
 
           </div>

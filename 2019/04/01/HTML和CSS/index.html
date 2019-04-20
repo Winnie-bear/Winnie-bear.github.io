@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/HTML和CSS/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-09T05:34:49.816Z">
+<meta property="og:updated_time" content="2019-04-20T08:08:23.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML、CSS">
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-09 13:34:49" itemprop="dateModified" datetime="2019-04-09T13:34:49+08:00">2019-04-09</time>
+                <time title="Modified: 2019-04-20 16:08:23" itemprop="dateModified" datetime="2019-04-20T16:08:23+08:00">2019-04-20</time>
               
             
           </span>
@@ -431,40 +431,25 @@
 <ul>
 <li><h6 id="三角形的实现"><a href="#三角形的实现" class="headerlink" title="三角形的实现"></a>三角形的实现</h6></li>
 </ul>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="selector-tag">width</span>: 0;</span><br><span class="line">&gt; <span class="selector-tag">height</span>: 0;</span><br><span class="line">&gt; <span class="selector-tag">border-width</span>: 40<span class="selector-tag">px</span>;</span><br><span class="line">&gt; <span class="selector-tag">border-style</span>: <span class="selector-tag">solid</span>;</span><br><span class="line">&gt; <span class="selector-tag">border-color</span>: <span class="selector-tag">red</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 0;</span><br><span class="line"><span class="selector-tag">height</span>: 0;</span><br><span class="line"><span class="selector-tag">border-width</span>: 40<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border-style</span>: <span class="selector-tag">solid</span>;</span><br><span class="line"><span class="selector-tag">border-color</span>: <span class="selector-tag">red</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h6 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h6></li>
+<li><h6 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h6><ul>
+<li>触发父元素的BFC</li>
 </ul>
-<blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>触发父元素的BFC</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>父元素定义伪类</li>
 </ul>
-</blockquote>
-<blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layout</span><span class="selector-class">.float</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">   <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">   <span class="attribute">display</span>: block;</span><br><span class="line">   <span class="attribute">visibility</span>: hidden;</span><br><span class="line">   <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>父元素定义伪类</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="selector-class">.layout</span><span class="selector-class">.float</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">&gt;       width: 0;</span><br><span class="line">&gt;       <span class="selector-tag">height</span>: 0;</span><br><span class="line">&gt;       content: '';</span><br><span class="line">&gt;       <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">&gt;       <span class="selector-tag">visibility</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">&gt;       <span class="selector-tag">clear</span>: <span class="selector-tag">both</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>加空标签并设置css 为 clear:both</li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><p>加空标签并设置css 为 clear:both</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>父元素定义height</li>
 </ul>
-</blockquote>
+</li>
+</ul>
 <ul>
 <li><h6 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h6></li>
 </ul>
@@ -533,30 +518,18 @@
 </ul>
 </blockquote>
 <ul>
-<li><h6 id="不定宽元素垂直水平居中"><a href="#不定宽元素垂直水平居中" class="headerlink" title="不定宽元素垂直水平居中"></a>不定宽元素垂直水平居中</h6></li>
-</ul>
-<blockquote>
-<ul>
+<li><h6 id="不定宽元素垂直水平居中"><a href="#不定宽元素垂直水平居中" class="headerlink" title="不定宽元素垂直水平居中"></a>不定宽元素垂直水平居中</h6><ul>
 <li><p>absolute+transform</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="selector-class">.parent</span>&#123;</span><br><span class="line">&gt;       position: relative;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="selector-class">.child</span>&#123;</span><br><span class="line">&gt;       position: absolute;</span><br><span class="line">&gt;       <span class="selector-tag">top</span><span class="selector-pseudo">:50</span>%;</span><br><span class="line">&gt;       <span class="selector-tag">left</span>: 50%;</span><br><span class="line">&gt;       <span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">-50</span>%,<span class="selector-tag">-50</span>%);<span class="comment">/* 相对自身的宽和高 */</span></span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: absolute;</span><br><span class="line">   <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);<span class="comment">/* 相对自身的宽和高 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li><p>flex</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="selector-class">.parent</span>&#123;</span><br><span class="line">&gt;       display: flex;</span><br><span class="line">&gt;       <span class="selector-tag">justify-content</span>: <span class="selector-tag">center</span>;</span><br><span class="line">&gt;       <span class="selector-tag">align-items</span>: <span class="selector-tag">center</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">   <span class="attribute">display</span>: flex;</span><br><span class="line">   <span class="attribute">justify-content</span>: center;</span><br><span class="line">   <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li><p>grid</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="selector-class">.parent</span>&#123;</span><br><span class="line">&gt;   	display: grid;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="selector-class">.child</span>&#123;</span><br><span class="line">&gt;       align-self:center;</span><br><span class="line">&gt;       <span class="selector-tag">justify-self</span>: <span class="selector-tag">center</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: grid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">   <span class="attribute">align-self</span>:center;</span><br><span class="line">   <span class="attribute">justify-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
-<ul>
+</li>
 <li><h6 id="rem、em"><a href="#rem、em" class="headerlink" title="rem、em"></a>rem、em</h6></li>
 </ul>
 <blockquote>
@@ -583,7 +556,7 @@
 <ul>
 <li>所谓<strong>语义化HTML</strong>，就是从代码层次表达程序员的想法、思路，同时描绘出网站页面的结构</li>
 <li>文档章节类HTML标签<ul>
-<li>&lt; article &gt;<code>/</code>&lt; section &gt;</li>
+<li>&lt; article &gt; /&lt; section &gt;</li>
 <li>&lt; header &gt;/ &lt; footer &gt;</li>
 <li>&lt; main &gt;</li>
 <li>&lt; aside &gt;</li>
@@ -620,22 +593,18 @@
 </ul>
 </blockquote>
 <ul>
-<li><h6 id="单行文本和多行文本溢出"><a href="#单行文本和多行文本溢出" class="headerlink" title="单行文本和多行文本溢出"></a>单行文本和多行文本溢出</h6></li>
+<li><h6 id="单行文本和多行文本溢出"><a href="#单行文本和多行文本溢出" class="headerlink" title="单行文本和多行文本溢出"></a>单行文本和多行文本溢出</h6><ul>
+<li><p>单行文本溢出</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span><span class="selector-pseudo">:ellipsis</span>;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<blockquote>
 <ul>
-<li>单行文本溢出</li>
+<li><p>多行文本溢出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;//首先是溢出隐藏，不可或缺</span><br><span class="line">display: -webkit-box;//弹性盒模型显示</span><br><span class="line">-webkit-box-orient: vertical;//盒模型元素的排列方式</span><br><span class="line">-webkit-line-clamp: 3;//显示行数</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">&gt; <span class="selector-tag">text-overflow</span><span class="selector-pseudo">:ellipsis</span>;</span><br><span class="line">&gt; <span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>多行文本溢出</li>
+</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; overflow: hidden;//首先是溢出隐藏，不可或缺</span><br><span class="line">&gt; display: -webkit-box;//弹性盒模型显示</span><br><span class="line">&gt; -webkit-box-orient: vertical;//盒模型元素的排列方式</span><br><span class="line">&gt; -webkit-line-clamp: 3;//显示行数</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
 
       
     </div>
@@ -671,8 +640,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="next" title="数据结构与算法">
-                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              <a href="/2019/04/01/各种手写代码/" rel="next" title="手写代码题">
+                <i class="fa fa-chevron-left"></i> 手写代码题
               </a>
             
           </div>
@@ -681,8 +650,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/Vue和React/" rel="prev" title="Vue 和 React">
-                Vue 和 React <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/JS面试考点解析/" rel="prev" title="JavaScript面试考点">
+                JavaScript面试考点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
