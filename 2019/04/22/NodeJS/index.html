@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/22/NodeJS/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-22T15:03:02.676Z">
+<meta property="og:updated_time" content="2019-04-27T14:19:36.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS">
 
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Created: 2019-04-22 00:00:00 / Modified: 23:03:02" itemprop="dateCreated datePublished" datetime="2019-04-22T00:00:00+08:00">2019-04-22</time>
+              <time title="Created: 2019-04-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-22T00:00:00+08:00">2019-04-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-27 22:19:36" itemprop="dateModified" datetime="2019-04-27T22:19:36+08:00">2019-04-27</time>
               
             
           </span>
@@ -434,7 +446,54 @@
 <li>Buffer、process、console</li>
 <li>timer</li>
 </ul>
-
+<h3 id="基础API"><a href="#基础API" class="headerlink" title="基础API"></a>基础API</h3><ul>
+<li>path<ul>
+<li>和路径有关的一切</li>
+<li>path.basename  path.extname  path.delimiter  path.sep  path.format  path.parse  path.resolve  path.join  path.normalize  </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意点：</p>
+<p>1.<strong> dirname、</strong> filename总是返回文件的绝对路径</p>
+<p>2.process.cwd()总是返回执行node 命令所在文件夹</p>
+<p>3.对于”./“ ,在require方法中总是相对当前文件所在的文件夹；在其他地方和 process.cwd()一样，相对 node 启动文件夹</p>
+</blockquote>
+<ul>
+<li><p>Buffer</p>
+<ul>
+<li><p>挂载在全局对象global上</p>
+</li>
+<li><p>Buffer 用于处理二进制数据流</p>
+</li>
+<li>实例类似整数数组，大小固定</li>
+<li>C++ 代码在V8堆外分配物理内存</li>
+</ul>
+</li>
+<li><p>events</p>
+<ul>
+<li><p>所有能触发事件的对象都是 <code>EventEmitter</code> 类的实例。 这些对象有一个 <code>eventEmitter.on()</code> 函数，用于将<strong>一个或多个函数</strong>绑定到命名事件上。 事件的命名通常是驼峰式的字符串。</p>
+</li>
+<li><p><code>eventEmitter.on()</code> 用于注册监听器， <code>eventEmitter.emit()</code> 用于触发事件。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyEmitter</span> <span class="keyword">extends</span> <span class="title">EventEmitter</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myEmitter = <span class="keyword">new</span> MyEmitter();</span><br><span class="line">myEmitter.on(<span class="string">'event'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'触发事件'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(<span class="string">'event'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fs</p>
+<ul>
+<li>所有文件系统操作都具有同步和异步的形式。</li>
+<li>异步的形式总是将完成回调作为其最后一个参数。 传给完成回调的参数取决于具体方法，但<strong>第一个参数始终预留用于异常</strong>。 如果操作成功完成，则第一个参数将为 <code>null</code> 或 <code>undefined</code>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.unlink(<span class="string">'/tmp/hello'</span>, (err) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'已成功删除 /tmp/hello'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="cli-版本号"><a href="#cli-版本号" class="headerlink" title="cli 版本号"></a>cli 版本号</h3><ul>
+<li>格式：x.y.z    fix bugs的时候升级z位。新增兼容功能的时候升级y位。新增功能，不保证兼容，是新的API的时候升级x位。 </li>
+<li>1.2.*等价于~1.2.0   自动升级z位，x、y位固定</li>
+<li>2.x等价于^2.0.0  自动升级y、z位，x位固定，大版本不任意升级</li>
+</ul>
+<hr>
+<h3 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h3>
       
     </div>
 
@@ -467,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/18/数据库/" rel="next" title="SQL">
-                <i class="fa fa-chevron-left"></i> SQL
+              <a href="/2019/04/18/Express/" rel="next" title="Express">
+                <i class="fa fa-chevron-left"></i> Express
               </a>
             
           </div>
@@ -476,6 +535,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/27/重学前端之JS系列/" rel="prev" title="重学前端之JS系列（模块一）">
+                重学前端之JS系列（模块一） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +612,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -627,7 +690,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -672,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS是什么"><span class="nav-number">1.</span> <span class="nav-text">NodeJS是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS的单线程"><span class="nav-number">2.</span> <span class="nav-text">NodeJS的单线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS常用场景"><span class="nav-number">3.</span> <span class="nav-text">NodeJS常用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">4.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-规则"><span class="nav-number">5.</span> <span class="nav-text">require 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-特性"><span class="nav-number">6.</span> <span class="nav-text">require 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-exports-和-exports的区别"><span class="nav-number">7.</span> <span class="nav-text">module.exports 和 exports的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global-全局对象"><span class="nav-number">8.</span> <span class="nav-text">global 全局对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS是什么"><span class="nav-number">1.</span> <span class="nav-text">NodeJS是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS的单线程"><span class="nav-number">2.</span> <span class="nav-text">NodeJS的单线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS常用场景"><span class="nav-number">3.</span> <span class="nav-text">NodeJS常用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">4.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-规则"><span class="nav-number">5.</span> <span class="nav-text">require 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-特性"><span class="nav-number">6.</span> <span class="nav-text">require 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-exports-和-exports的区别"><span class="nav-number">7.</span> <span class="nav-text">module.exports 和 exports的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global-全局对象"><span class="nav-number">8.</span> <span class="nav-text">global 全局对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础API"><span class="nav-number">9.</span> <span class="nav-text">基础API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cli-版本号"><span class="nav-number">10.</span> <span class="nav-text">cli 版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建工具"><span class="nav-number">11.</span> <span class="nav-text">构建工具</span></a></li></ol></div>
             
 
           </div>

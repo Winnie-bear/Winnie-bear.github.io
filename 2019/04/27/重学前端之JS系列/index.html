@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重学前端之JS系列（模块一）">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/04/27/重学前端之JS系列/index.html">
+<meta property="og:site_name" content="Winnie-bear">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/04/28/5cc56b483c4c5.png">
+<meta property="og:updated_time" content="2019-04-29T14:36:12.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重学前端之JS系列（模块一）">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/28/5cc56b483c4c5.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/27/重学前端之JS系列/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>重学前端之JS系列（模块一） | Winnie-bear</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Winnie-bear</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/27/重学前端之JS系列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winnie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Winnie-bear">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">重学前端之JS系列（模块一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-27T00:00:00+08:00">2019-04-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-29 22:36:12" itemprop="dateModified" datetime="2019-04-29T22:36:12+08:00">2019-04-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Feweb/" itemprop="url" rel="index"><span itemprop="name">Feweb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>编程语言的一般规律：用一定的<strong>词法和语法</strong>，表达一定<strong>语义</strong>，从而操作<strong>运行时</strong>。</li>
+</ul>
+<h3 id="1-文法"><a href="#1-文法" class="headerlink" title="1.文法"></a>1.文法</h3><h3 id="2-语义"><a href="#2-语义" class="headerlink" title="2.语义"></a>2.语义</h3><hr>
+<h3 id="3-运行时"><a href="#3-运行时" class="headerlink" title="3.运行时"></a>3.运行时</h3><blockquote>
+<p>程序 = 数据结构+算法。“算法“ -&gt; 逻辑，“数据结构“ -&gt; 存储。</p>
+</blockquote>
+<h4 id="3-1-数据结构"><a href="#3-1-数据结构" class="headerlink" title="3.1 数据结构"></a>3.1 数据结构</h4><blockquote>
+<p> 定义：计算机存储、组织数据的方式。</p>
+</blockquote>
+<h5 id="3-1-1-7种基本类型（值类型-引用类型-或者-原始类型-对象类型）"><a href="#3-1-1-7种基本类型（值类型-引用类型-或者-原始类型-对象类型）" class="headerlink" title="3.1.1   7种基本类型（值类型+引用类型 或者 原始类型+对象类型）"></a>3.1.1   7种基本类型（值类型+引用类型 或者 原始类型+对象类型）</h5><ul>
+<li>原始类型（值类型）：Undefined；Null；Boolean；String；Number；Symbol</li>
+<li>对象类型（引用类型）：Object</li>
+</ul>
+<h6 id="3-1-1-1-Undefined、Null"><a href="#3-1-1-1-Undefined、Null" class="headerlink" title="3.1.1.1  Undefined、Null"></a>3.1.1.1  Undefined、Null</h6><p>​      JavaScript的最初版本是这样区分的：<strong>null是一个表示”无”的对象，转为数值时为0；undefined是一个表示”无”的原始值，转为数值时为NaN。</strong></p>
+<p>​      Undefined 类型<strong>表示”缺少值”，就是此处应该有一个值，但是还没有定义</strong>，它的类型只有一个值，就是 undefined。 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是JavaScript 语言公认的设计失误之一。为了避免无意中被篡改，建议使用void 0 来获取 undefined 值。<strong>void 运算符</strong> 对给定的表达式进行求值，然后返回 undefined。</p>
+<p>​     典型用法：</p>
+<p>（1)  调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
+<p>（2）函数没有返回值时，默认返回undefined。</p>
+<p>（3）变量被声明了，但没有赋值时，就等于undefined。</p>
+<p>（4）对象没有赋值的属性，该属性的值为undefined。</p>
+<blockquote>
+<p>补充：undefined在全局环境没法被赋值，在局部环境是可以被赋值的。</p>
+</blockquote>
+<p>​      验证如下，左图表示在全局环境，右图表示在局部环境：</p>
+<center><br>&lt;img src=”<a href="https://i.loli.net/2019/04/28/5cc56b483c4db.png&quot;&quot;" target="_blank" rel="noopener">https://i.loli.net/2019/04/28/5cc56b483c4db.png&quot;&quot;</a> width=”350” height=”80”/&gt;<img src="https://i.loli.net/2019/04/28/5cc56b483c4c5.png" width="350" height="80"><br></center>
+
+<p>​     Null 类型<strong>表示”没有对象”，即该处不应该有值</strong>”，也只有一个值，就是 null。它的语义表示空值，与 undefined 不同，null 是JavaScript 关键字，所以在任何代码中，你都可以放心用 null 关键字来获取 null 值。</p>
+<p>​     典型用法：</p>
+<p>（1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>（2） 作为对象原型链的终点。</p>
+<h6 id="3-1-1-2-Number"><a href="#3-1-1-2-Number" class="headerlink" title="3.1.1.2  Number"></a>3.1.1.2  Number</h6><ul>
+<li>JavaScript 中的 Number 类型基本符合 IEEE 754-2008 规定的双精度浮点数规则。即第一位用来表示符号，接下来的11位用来表示指数，其他的位数用来表示有效位。</li>
+</ul>
+<p>正确比较浮点数的方法：</p>
+<p>1.Math.abs(0.1 + 0.2 - 0.3) &lt;= Number.EPSILON</p>
+<p>2.parseFloat((0.1+0.2).toFixed(10)) === 0.3</p>
+<blockquote>
+<p>补充知识：ES6 在<code>Number</code>对象上面，新增一个极小的常量<code>Number.EPSILON</code>。<code>Number.EPSILON</code>实际上是 JavaScript 能够表示的最小精度。误差如果小于这个值，就可以认为已经没有意义了，即不存在误差了。</p>
+</blockquote>
+<h6 id="3-1-1-3-Object"><a href="#3-1-1-3-Object" class="headerlink" title="3.1.1.3  Object"></a>3.1.1.3  Object</h6><ul>
+<li><p>为什么给对象添加的方法能用在基本类型（值类型或者原始类型）上?</p>
+<p>​     原因是装箱和拆箱操作。JavaScript 中的几个基本类型，都在对象类型中有一个“亲戚”。它们是：Number；String；Boolean；Symbol。<strong>装箱：将值类型转化为对应的引用类型的操作。 拆箱：将引用类型转换为对应的值类型的操作</strong></p>
+<p>举栗子~</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//装箱</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="string">"abc"</span>;</span><br><span class="line"><span class="keyword">var</span> s2 = s1.indexOf(<span class="string">"a"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*实现机制如下</span></span><br><span class="line"><span class="comment">（1）创建String类型的一个实例；</span></span><br><span class="line"><span class="comment">（2）在实例上调用指定的方法；</span></span><br><span class="line"><span class="comment">（3）销毁这个实例；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> s1  = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"some text"</span>);</span><br><span class="line"><span class="keyword">var</span> s2 = s1.substring(<span class="number">2</span>);</span><br><span class="line">s1 = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//拆箱</span></span><br><span class="line"> <span class="keyword">var</span> objNum = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);  </span><br><span class="line"> <span class="keyword">var</span> objStr =<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"123"</span>);   </span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objNum ); <span class="comment">//object</span></span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objStr ); <span class="comment">//object </span></span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objNum.valueOf() ); <span class="comment">//number</span></span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objStr.valueOf() ); <span class="comment">//string</span></span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objNum.toString() ); <span class="comment">// string </span></span><br><span class="line"> <span class="built_in">console</span>.log( <span class="keyword">typeof</span> objStr.toString() ); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>补充知识：</p>
+<p>1.每一类装箱对象皆有私有的 Class 属性，这些属性可以用 Object.prototype.toString 获取。在JavaScript 中，没有任何方法可以更改私有的 Class 属性，因此 Object.prototype.toString 是可以准确识别对象对应的<strong>基本类型</strong>的方法，它比  instanceof  更加准确。</p>
+<p>2.在 JavaScript 标准中，规定了 ToPrimitive 函数，它是对象类型到基本类型的转换（即拆箱转换）。拆箱转换会尝试调用 valueOf 和 toString 来获得拆箱后的基本类型。如果 valueOf 和toString 都不存在，或者没有返回基本类型，则会产生类型错误 TypeError。在 ES6 之后，还允许对象通过显式指定 Symbol.toPrimitive 来覆盖原有的行为。</p>
+</blockquote>
+<p>​       举栗子~</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> symbolObject = <span class="built_in">Object</span>(<span class="built_in">Symbol</span>(<span class="string">"a"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(symbolObject)); <span class="comment">//[object Symbol]</span></span><br><span class="line"><span class="keyword">var</span> numberObject = <span class="built_in">Object</span>(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(numberObject)); <span class="comment">//[object Number]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">valueOf : <span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"valueOf"</span>); <span class="keyword">return</span> &#123;&#125;&#125;,</span><br><span class="line">toString : <span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"toString"</span>); <span class="keyword">return</span> &#123;&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line">o * <span class="number">2</span></span><br><span class="line"><span class="comment">//valueOf</span></span><br><span class="line"><span class="comment">//toString</span></span><br><span class="line"><span class="comment">//TypeError</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">valueOf : <span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"valueOf"</span>); <span class="keyword">return</span> &#123;&#125;&#125;,</span><br><span class="line">toString : <span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"toString"</span>); <span class="keyword">return</span> &#123;&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line">o[<span class="built_in">Symbol</span>.toPrimitive] = <span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"toPrimitive"</span>); <span class="keyword">return</span> <span class="string">"hello"</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o + <span class="string">""</span>)</span><br><span class="line"><span class="comment">// toPrimitive</span></span><br><span class="line"><span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>js中string和number类型互转换技巧(不用原生的 Number 和 parseInt)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numSwitchStr</span>(<span class="params">param</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> type=<span class="keyword">typeof</span> param;</span><br><span class="line">    <span class="keyword">if</span>(type===<span class="string">'string'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">typeof</span> (param * <span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type===<span class="string">'number'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">typeof</span> (param + <span class="string">'1'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JavaScript：面向对象还是基于对象？</p>
+<p>对象的特点：具有唯一标识性、有状态、有行为。</p>
+<blockquote>
+<p>唯一标识性：通过内存地址来体现的。任何不同的 JavaScript 对象其实是互不相等的，栈内存不同，堆内存相同。</p>
+<p>状态和行为：C++ 中称它们为“成员变量”和“成员函数”，Java 中则称它们为“属性”和“方法”，在 JavaScript 中，将状态和行为统一抽象为“属性”。考虑到 JavaScript 中将函数设计成一种特殊对象，所以 JavaScript 中的行为和状态都能用属性来抽象。</p>
+</blockquote>
+<p>​     在实现了对象基本特征的基础上, JavaScript 中对象独有的特色是：<strong>对象具有高度的动态性</strong>，这是因为 JavaScript 赋予了使用者在<strong>运行时为对象添改状态和行为的能力</strong>。</p>
+<p>​     为了提高抽象能力，JavaScript 的属性被设计成比别的语言更加复杂的形式，它提供了<strong>数据属性和访问器属性（getter/setter）</strong>两类。</p>
+<blockquote>
+<p>数据属性具有四个特征：value：就是属性的值。writable：决定属性能否被赋值。enumerable：决定 for in 能否枚举该属性。configurable：决定该属性能否被删除或者改变特征值。         [Object.defineProperty 来定义属性 , Object.getOwnPropertyDescriptor 来查看属性 ]</p>
+<p>访问器属性也具有四个特性：getter：函数或 undefined，在取属性值时被调用。setter：函数或 undefined，在设置属性值时被调用。enumerable：决定 for in 能否枚举该属性。configurable：决定该属性能否被删除或者改变特征值。</p>
+</blockquote>
+<p>​     实际上 JavaScript 对象的运行时是一个<strong>“属性的集合”</strong>，属性以字符串或者 Symbol 为 key，以数据属性特征值 或者访问器属性特征值为 value。</p>
+<p>​     JavaScript 语言标准也已经明确说明，JavaScript 是一门<strong>面向对象</strong>的语言，我想标准中能这样说，正是因为 JavaScript 的高度动态性的对象系统。（多态：同一接口的多种不同的实现方式。有继承才有多态。）</p>
+</li>
+<li><p>JavaScript：我们真的需要模拟类吗？（模拟基于类的面向对象）</p>
+<blockquote>
+<p>前置知识：所有对象都有私有字段 [[prototype]]，就是对象的原型；读一个属性，如果对象本身没有，则会继续访问对象的原型，直到原型为空或者找到为止。</p>
+<p>补充知识：</p>
+<p>1.ES6 以来，JavaScript 提供了一系列内置函数，以便更为直接地访问操纵原型。三个方法分别为：Object.create 根据指定的原型创建新对象，原型可以是 null；Object.getPrototypeOf 获得一个对象的原型；Object.setPrototypeOf 设置一个对象的原型。</p>
+<p>2.在早期版本的 JavaScript 中，“类”的定义是一个私有属性 [[class]]，语言标准为内置类型诸如Number、String、Date 等指定了 [[class]] 属性，以表示它们的类。语言使用者唯一可以访问 [[class]] 属性的方式是 Object.prototype.toString。</p>
+<p>3.在 ES5 开始，[[class]] 私有属性被 Symbol.toStringTag 代替，Object.prototype.toString 的意义从命名上不再跟 class 相关。</p>
+</blockquote>
+<p>栗子~</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o + <span class="string">""</span>);<span class="comment">//[object Object]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Symbol.toStringTag 修改[[class]]属性</span></span><br><span class="line"><span class="keyword">var</span> o = &#123; [<span class="built_in">Symbol</span>.toStringTag]: <span class="string">"MyObject"</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(o + <span class="string">""</span>);<span class="comment">//[object MyObject]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*代码解释：o + ''会触发类型转换，Object转String需要进行拆箱转换，调用o.toString()得到"[object Object]" */</span></span><br></pre></td></tr></table></figure>
+<p>​     ES6 中加入了新特性 class，new 跟 function 搭配的怪异行为终于可以退休了（虽然运行时没有改变），在任何场景，我都推荐使用 ES6 的语法来定义类，而令 function回归原本的函数语义。</p>
+<p>​     ES6 中引入了 class 关键字，并且在标准中删除了所有 [[class]] 相关的私有属性描述，类的概念正式从属性升级成语言的基础设施，从此<strong>基于类的编程方式成为了 JavaScript 的官方编程范式,因此不再需要模拟类了</strong>。</p>
+</li>
+<li><p>JavaScript对象：你知道全部的对象分类吗？</p>
+<ul>
+<li><p>宿主对象（host Objects）：由 JavaScript 宿主环境提供的对象，它们的行为完全由宿主环境决定。</p>
+<ul>
+<li>所有的 BOM 和 DOM 对象都是宿主对象。</li>
+<li>BOM 对象  ： window、location、navigator、screen、history…</li>
+<li>DOM 对象：Document、Body、Event、Form、Image、事件对象 event…</li>
+</ul>
+</li>
+<li><p>内置对象（Built-in Objects）：由 JavaScript 语言提供的对象。</p>
+<ul>
+<li><p>固有对象（Intrinsic Objects ）：由标准规定，随着 JavaScript 运行时创建而自动创<br>建的对象实例。eval isFinite  isNaN parseFloat parseInt decodeURI decodeURIComponent<br>encodeURI   encodeURIComponent   Math   JSON    Reflect</p>
+</li>
+<li><p>原生对象（Native Objects）：可以由用户通过 Array、RegExp 等内置构造器或者特殊语法创建</p>
+<p>的对象。</p>
+</li>
+<li><p>普通对象（Ordinary Objects）：由{}语法、Object 构造器或者 class 关键字定义类创建的对象，它能够被原型继承。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="3-1-2-对象的分类"><a href="#3-1-2-对象的分类" class="headerlink" title="3.1.2   对象的分类"></a>3.1.2   对象的分类</h6><h4 id="3-2-算法（执行过程）"><a href="#3-2-算法（执行过程）" class="headerlink" title="3.2 算法（执行过程）"></a>3.2 算法（执行过程）</h4><blockquote>
+<p>定义：一系列解决问题的明确指令。换言之，对于符合一定规范的<strong>输入</strong>，能够在<strong>有限时间</strong>内获得要求的<strong>输出</strong>。</p>
+<p>前置知识：</p>
+<p>JavaScript运行环境一般都由<strong>宿主环境和执行期环境</strong>共同构成。其中宿主环境是由外壳程序生成的，如Web浏览器就是一个外壳程序，它提供了 一个可控制浏览器窗口的宿主环境。执行期环境则由嵌入到外壳程序中的JavaScript引擎（或称为JavaScript解释器）生成。</p>
+<p>宏观任务：宿主发起的任务。微观任务： JavaScript 引擎发起的任务。</p>
+<p>当拿到一段 JavaScript 代码时，浏览器或者 Node 环境首先要做的就是：传递给 JavaScript 引擎，并且要求它去执行。</p>
+</blockquote>
+<h6 id="3-2-1-事件循环"><a href="#3-2-1-事件循环" class="headerlink" title="3.2.1  事件循环"></a>3.2.1  事件循环</h6><h6 id="3-2-2-函数的执行"><a href="#3-2-2-函数的执行" class="headerlink" title="3.2.2  函数的执行"></a>3.2.2  函数的执行</h6><h6 id="3-2-3-语句级的执行"><a href="#3-2-3-语句级的执行" class="headerlink" title="3.2.3  语句级的执行"></a>3.2.3  语句级的执行</h6>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/22/NodeJS/" rel="next" title="NodeJS">
+                <i class="fa fa-chevron-left"></i> NodeJS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/27/2019值得关注的前端技术/" rel="prev" title="2019 值得关注的前端技术">
+                2019 值得关注的前端技术 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Winnie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Winnie-bear" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-文法"><span class="nav-number">2.</span> <span class="nav-text">1.文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-语义"><span class="nav-number">3.</span> <span class="nav-text">2.语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-运行时"><span class="nav-number">4.</span> <span class="nav-text">3.运行时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-数据结构"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1-7种基本类型（值类型-引用类型-或者-原始类型-对象类型）"><span class="nav-number">4.1.1.</span> <span class="nav-text">3.1.1   7种基本类型（值类型+引用类型 或者 原始类型+对象类型）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-1-1-Undefined、Null"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">3.1.1.1  Undefined、Null</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-1-2-Number"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">3.1.1.2  Number</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-1-3-Object"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">3.1.1.3  Object</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-2-对象的分类"><span class="nav-number">4.1.1.4.</span> <span class="nav-text">3.1.2   对象的分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-算法（执行过程）"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 算法（执行过程）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-1-事件循环"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">3.2.1  事件循环</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-2-函数的执行"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">3.2.2  函数的执行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-3-语句级的执行"><span class="nav-number">4.2.0.3.</span> <span class="nav-text">3.2.3  语句级的执行</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Winnie</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
