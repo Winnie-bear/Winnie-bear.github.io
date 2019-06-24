@@ -105,19 +105,22 @@
   <meta name="keywords" content="HTML,CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML、CSS">
-<meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/HTML和CSS/index.html">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/06/24/HTML和CSS/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-05T16:04:10.228Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/23/ZPS6cn.png">
+<meta property="og:updated_time" content="2019-06-24T12:09:16.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML、CSS">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/01/HTML和CSS/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/06/24/HTML和CSS/"/>
 
 
 
@@ -291,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/01/HTML和CSS/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/06/24/HTML和CSS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winnie">
@@ -333,24 +336,12 @@
                 
               
 
-              <time title="Created: 2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+              <time title="Created: 2019-06-24 00:00:00 / Modified: 20:09:16" itemprop="dateCreated datePublished" datetime="2019-06-24T00:00:00+08:00">2019-06-24</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-06 00:04:10" itemprop="dateModified" datetime="2019-05-06T00:04:10+08:00">2019-05-06</time>
               
             
           </span>
@@ -512,6 +503,22 @@
 </li>
 <li><p>service worker 离线缓存</p>
 </li>
+<li><p>Doctype</p>
+<ul>
+<li><p>作用：声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明，那么compatMode默认就是BackCompat</p>
+</li>
+<li><p>文档的解析类型</p>
+<ul>
+<li>BackCompat：怪异模式/混杂模式/兼容模式，浏览器使用自己的怪异模式解析渲染页面，页面以宽松的向后兼容的方式显示。</li>
+<li>CSS1Compat：标准模式/严格模式，浏览器使用W3C的标准解析渲染页面。</li>
+</ul>
+</li>
+<li><p>Doctype可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。</p>
+</li>
+<li>模式触发 ：</li>
+</ul>
+<p><a href="https://imgchr.com/i/ZFJdV1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png" alt="ZFJdV1.md.png"></a></p>
+</li>
 <li><p>h5 web worker 和 websocket</p>
 <blockquote>
 <ul>
@@ -554,11 +561,45 @@
 </ul>
 </blockquote>
 <ul>
-<li><h6 id="吸顶效果"><a href="#吸顶效果" class="headerlink" title="吸顶效果"></a>吸顶效果</h6></li>
-<li><h6 id="瀑布流"><a href="#瀑布流" class="headerlink" title="瀑布流"></a>瀑布流</h6></li>
-<li><h6 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h6></li>
-<li><h6 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h6></li>
-<li><h6 id="浏览器兼容"><a href="#浏览器兼容" class="headerlink" title="浏览器兼容"></a>浏览器兼容</h6></li>
+<li><h6 id="可继承属性和不可继承属性"><a href="#可继承属性和不可继承属性" class="headerlink" title="可继承属性和不可继承属性"></a>可继承属性和不可继承属性</h6><ul>
+<li>不可继承属性<ul>
+<li>display</li>
+<li>text-decoration 添加文本样式</li>
+<li>list-style</li>
+<li>盒子模型属性（padding、border、margin、width）</li>
+<li>背景属性 background系列</li>
+<li>定位属性 position float clear z-index overflow</li>
+</ul>
+</li>
+<li>可继承属性<ul>
+<li>字体系列 font系列</li>
+<li>文本系列 text-indent 文字缩进  text-align line-height  color</li>
+<li>visibility</li>
+<li>cursor</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h6 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h6><ul>
+<li>伪类<ul>
+<li>获取不存在于DOM树中的信息。比如<code>&lt;a&gt;</code>标签的<code>:link</code>、<code>visited</code>等，这些信息不存于与DOM树结构中，只能通过CSS选择器来获取</li>
+<li>获取不能被常规CSS选择器获取的信息。比如伪类<code>:target</code>，它的作用是匹配文档(页面)的URI中某个标志符的目标元素</li>
+</ul>
+</li>
+<li>伪元素<ul>
+<li>DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的（可以理解为html源码）。比如：document接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的<code>::before</code>,<code>::after</code>）</li>
+<li>简单来说，伪元素创建了一个虚拟容器，这个容器不包含任何DOM元素，但是可以包含内容。另外，开发者还可以为伪元素定制样式。</li>
+<li>不存在于DOM文档中，是虚拟的元素，是创建新元素。 这个新元素(伪元素)  是某个元素的子元素，这个子元素虽然在逻辑上存在，但却并不实际存在于文档树中</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；</li>
+<li>伪元素本质上是创建了一个有内容的虚拟容器；</li>
+<li>CSS3中伪类和伪元素的语法不同；</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><h6 id="三角形的实现"><a href="#三角形的实现" class="headerlink" title="三角形的实现"></a>三角形的实现</h6></li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 0;</span><br><span class="line"><span class="selector-tag">height</span>: 0;</span><br><span class="line"><span class="selector-tag">border-width</span>: 40<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border-style</span>: <span class="selector-tag">solid</span>;</span><br><span class="line"><span class="selector-tag">border-color</span>: <span class="selector-tag">red</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span> <span class="selector-tag">transparent</span>;</span><br></pre></td></tr></table></figure>
@@ -587,12 +628,13 @@
 <ul>
 <li>概念和分类<ul>
 <li>CSS盒模型就是一个盒子，封装周围的HTML元素，它包括内容content、边框border、内边距 padding、外边距margin</li>
-<li>CSS盒模型分为标准模型和IE模型</li>
+<li>CSS盒模型分为标准模型(content-box)、IE模型和 padding-box</li>
 </ul>
 </li>
 <li>标准模型和IE模型的区别<ul>
 <li>标准模型：width=内容content的宽度（默认) ;   设置方式为 box-sizing:content-box;<strong>盒子总宽度= width + margin(左右) + padding(左右) + border(左右)</strong></li>
 <li>IE模型：width=内容 content+内边距 padding+边框 border 的宽度 ；设置方式 为box-sizing:border-box;<strong>盒子总宽度= width + margin(左右)（即width已经包含了padding和border值）</strong></li>
+<li>padding-box:width=内容 content+内边距 padding;设置方式 为box-sizing:padding-box;<strong>盒子总宽度= width + border(左右)+margin(左右)（即width已经包含了padding值）</strong></li>
 </ul>
 </li>
 <li>通过js如何获取盒模型的宽高<ul>
@@ -610,8 +652,7 @@
 </ul>
 <blockquote>
 <ul>
-<li><p>BFC的基本概念</p>
-<p>Block Formatting context,块级格式化上下文</p>
+<li><p>BFC的基本概念：Block Formatting context,块级格式化上下文</p>
 </li>
 <li><p>BFC的原理（BFC的渲染原则）</p>
 <ul>
@@ -648,6 +689,45 @@
 </ul>
 </blockquote>
 <ul>
+<li><h6 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h6><ul>
+<li><p>定义：元素提升为一个比较特殊的图层，在三维空间中 <strong>(z轴)</strong> 高出普通元素一等。</p>
+</li>
+<li><p>触发条件：</p>
+<ul>
+<li>根层叠上下文(html)</li>
+<li>position</li>
+<li>css3属性<ul>
+<li>flex</li>
+<li>transform</li>
+<li>opacity</li>
+<li>filter</li>
+<li>will-change</li>
+<li>-webkit-overflow-scrolling</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>补充知识：</p>
+<p>will-change:为web开发者提供了一种告知浏览器该元素会有哪些变化的方法，这样浏览器可以在元素属性真正发生变化之前提前做好对应的优化准备工作。这个属性作用很单纯，就是“增强页面渲染性能”。</p>
+<p>-webkit-overflow-scrolling:控制元素在移动设备上是否使用滚动回弹效果。</p>
+<p>GPU：图形处理器，是与处理和绘制图形相关的硬件。GPU是专为执行复杂的数学和几何计算而设计的，可以让CPU从图形处理的任务中解放出来，从而执行其他更多的系统任务，例如，页面的计算与重绘。</p>
+<p>GPU加速：浏览器的GPU加速功能是将需要进行动画的元素提升到一个独立的层（layer），这样就可以避免浏览器进行重新布局（Reflow）和绘制（Repaint），将原先的浏览器使用CPU绘制位图来实现的动画效果转为让GPU使用图层合成（composite）来实现，如果两张图层内部没有发生改变，浏览器就不再进行布局和绘制，直接使用GPU的缓存来绘制每个图层，GPU只负责将各个图层合成来实现动画，这就可以充分利用GPU的资源和优势，减轻CPU的负载，可以使动画更流畅。通过改变两张图片之间的相对位置代替绘制一张图片的每一帧来实现动画，虽然视觉效果相同，但省去了许多绘制的时间。为了让浏览器将动画元素提升到一个独立的层，可以使用transform和opacity属性来实现动画，当设置了这两个属性之一时，浏览器会自动进行这一优化操作（透明度的变化可以通过GPU改变a通道来实现，不需要浏览器进行重绘）。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/will-change" target="_blank" rel="noopener">MDN:will-change</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling" target="_blank" rel="noopener">MDN:-webkit-overflow-scrolling</a></p>
+<p><a href="https://segmentfault.com/a/1190000008015671#articleHeader3" target="_blank" rel="noopener">一篇文章说清浏览器解析和CSS（GPU）动画优化</a></p>
+<p><a href="https://www.cnblogs.com/zyfd/p/9882726.html" target="_blank" rel="noopener">CSS动画的性能分析和浏览器GPU加速</a></p>
+<p><a href="https://www.cnblogs.com/yeshiqiu/p/5178222.html" target="_blank" rel="noopener">使用CSS3 will-change提高页面滚动、动画等渲染性能 —张鑫旭</a></p>
+</blockquote>
+</li>
+<li><p>层叠等级：层叠上下文在z轴上的排序</p>
+<ul>
+<li>在同一层叠上下文中，层叠等级才有意义</li>
+<li><code>z-index</code>的优先级最高</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/06/23/ZPS6cn.png" alt="ZPS6cn.png"></p>
+</li>
+</ul>
+</li>
 <li><h6 id="不定宽元素垂直水平居中"><a href="#不定宽元素垂直水平居中" class="headerlink" title="不定宽元素垂直水平居中"></a>不定宽元素垂直水平居中</h6><ul>
 <li><p>absolute+transform</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">   <span class="attribute">position</span>: absolute;</span><br><span class="line">   <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">   <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);<span class="comment">/* 相对自身的宽和高 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -692,6 +772,25 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li><h6 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h6><ul>
+<li><code>!important</code> &gt; 行内样式 &gt; <code>#id</code> &gt; <code>.class</code> &gt; <code>tag</code> &gt; * &gt; 继承 &gt; 默认</li>
+<li>选择器 <strong>从右往左</strong> 解析</li>
+</ul>
+</li>
+<li><h6 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与 @import 的区别"></a>link 与 @import 的区别</h6><ul>
+<li>区别1：link除了引用样式文件，还可以引用图片等资源文件，而import只引用样式文件</li>
+<li>区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</li>
+<li>区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</li>
+<li>区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。</li>
+</ul>
+</li>
+<li><h6 id="吸顶效果"><a href="#吸顶效果" class="headerlink" title="吸顶效果"></a>吸顶效果</h6></li>
+</ul>
+<ul>
+<li><h6 id="浏览器兼容"><a href="#浏览器兼容" class="headerlink" title="浏览器兼容"></a>浏览器兼容</h6></li>
+</ul>
+<p><a href="https://juejin.im/post/5c64d15d6fb9a049d37f9c20#heading-5" target="_blank" rel="noopener">参考资料：中高级前端大厂面试秘籍</a></p>
 
       
     </div>
@@ -727,8 +826,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="next" title="数据结构与算法">
-                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              <a href="/2019/04/27/重学前端之JS系列/" rel="next" title="重学前端之JS系列（模块一）">
+                <i class="fa fa-chevron-left"></i> 重学前端之JS系列（模块一）
               </a>
             
           </div>
@@ -737,7 +836,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/Vue和React/" rel="prev" title="Vue 和 React">
+              <a href="/2019/06/24/Vue和React/" rel="prev" title="Vue 和 React">
                 Vue 和 React <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -942,7 +1041,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#自适应布局（两栏和三栏）"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">自适应布局（两栏和三栏）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#吸顶效果"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">吸顶效果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#瀑布流"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">瀑布流</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#懒加载"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">懒加载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#伪类和伪元素"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">伪类和伪元素</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#浏览器兼容"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">浏览器兼容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三角形的实现"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">三角形的实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#盒模型"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#BFC和IFC"><span class="nav-number">2.0.0.10.</span> <span class="nav-text">BFC和IFC</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#不定宽元素垂直水平居中"><span class="nav-number">2.0.0.11.</span> <span class="nav-text">不定宽元素垂直水平居中</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#rem、em"><span class="nav-number">2.0.0.12.</span> <span class="nav-text">rem、em</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#媒体查询"><span class="nav-number">2.0.0.13.</span> <span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#单行文本和多行文本溢出"><span class="nav-number">2.0.0.14.</span> <span class="nav-text">单行文本和多行文本溢出</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#自适应布局（两栏和三栏）"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">自适应布局（两栏和三栏）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#可继承属性和不可继承属性"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">可继承属性和不可继承属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#伪类和伪元素"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">伪类和伪元素</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三角形的实现"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">三角形的实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#盒模型"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#BFC和IFC"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">BFC和IFC</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#层叠上下文"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#不定宽元素垂直水平居中"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">不定宽元素垂直水平居中</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#rem、em"><span class="nav-number">2.0.0.10.</span> <span class="nav-text">rem、em</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#媒体查询"><span class="nav-number">2.0.0.11.</span> <span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#单行文本和多行文本溢出"><span class="nav-number">2.0.0.12.</span> <span class="nav-text">单行文本和多行文本溢出</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#选择器优先级"><span class="nav-number">2.0.0.13.</span> <span class="nav-text">选择器优先级</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#link-与-import-的区别"><span class="nav-number">2.0.0.14.</span> <span class="nav-text">link 与 @import 的区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#吸顶效果"><span class="nav-number">2.0.0.15.</span> <span class="nav-text">吸顶效果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#浏览器兼容"><span class="nav-number">2.0.0.16.</span> <span class="nav-text">浏览器兼容</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
