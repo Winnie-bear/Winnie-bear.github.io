@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/22/NodeJS/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-27T14:19:36.811Z">
+<meta property="og:updated_time" content="2019-08-05T15:30:58.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS">
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-27 22:19:36" itemprop="dateModified" datetime="2019-04-27T22:19:36+08:00">2019-04-27</time>
+                <time title="Modified: 2019-08-05 23:30:58" itemprop="dateModified" datetime="2019-08-05T23:30:58+08:00">2019-08-05</time>
               
             
           </span>
@@ -488,12 +488,189 @@
 </li>
 </ul>
 <h3 id="cli-版本号"><a href="#cli-版本号" class="headerlink" title="cli 版本号"></a>cli 版本号</h3><ul>
-<li>格式：x.y.z    fix bugs的时候升级z位。新增兼容功能的时候升级y位。新增功能，不保证兼容，是新的API的时候升级x位。 </li>
+<li>格式：x.y.z    fix bugs的时候升级z位。新增兼容功能的时候升级y位。新增功能，不保证兼容，是新的API的时候升级x位。 如果只是修复bug，需要更新z位。如果是新增了功能，但是向下兼容，需要更新y位。如果有大变动，向下不兼容，需要更新x位。</li>
 <li>1.2.*等价于~1.2.0   自动升级z位，x、y位固定</li>
 <li>2.x等价于^2.0.0  自动升级y、z位，x位固定，大版本不任意升级</li>
+<li><code>~</code>会匹配最近的小版本依赖包，比如~1.2.3会匹配所有1.2.x版本，但是不包括1.3.0</li>
+<li><code>^</code>会匹配最新的大版本依赖包，比如^1.2.3会匹配所有1.x.x的包，包括1.3.0，但是不包括2.0.0</li>
 </ul>
 <hr>
-<h3 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h3>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><strong>1、node有哪些特征，与其他服务器端对比</strong></p>
+<p>　　特征：单线程、事件驱动、非阻塞I/O</p>
+<p>　　node 比其他服务端性能更好，速度更快</p>
+<p><strong>2、CommonJS中require/exports和ES6中import/export区别</strong></p>
+<ul>
+<li>前者不支持动态导入，后者支持</li>
+<li>前者是异步导入，因为用于浏览器，需要下载文件，如果采用同步导入会对渲染有很大影响; 后者是同步导入，因为用于服务器，文件都在本地</li>
+<li>前者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会随导出值变化；后者在导出时都是值拷贝，就算导出值改变了，导入值也不会改变。如果想更新值，就要重新导入一次</li>
+<li>ES Module 会编译成 require/exports 来执行</li>
+</ul>
+<p><strong>3、谈谈对node.js npm webpack的理解</strong></p>
+<p>​      Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 </p>
+<p>​     npm全称为Node Package Manager，是一个基于<a href="http://lib.csdn.net/base/nodejs" target="_blank" rel="noopener">Node.js</a>的包管理器，也是整个Node.js社区最流行、支持的第三方模块最多的包管理器。</p>
+<p>​    npm的使用场景：</p>
+<ul>
+<li>允许用户获取第三方包并使用。</li>
+<li>允许用户将自己编写的包或命令行程序进行发布分享。</li>
+</ul>
+<p>​    <em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。当 webpack 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)</em>，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 <em>bundle</em>。</p>
+<p><strong>4、使用npm有哪些好处？</strong></p>
+<p>　　通过NPM，你可以安装和管理项目的依赖，并且能够指明依赖项的具体版本号，可以通过package.json文件来管理项目信息，配置脚本</p>
+<p><strong>5、AMD CMD规范的区别</strong></p>
+<p>　　CommonJS和AMD都是JavaScript模块化规范</p>
+<p>　　CMD依赖就近，而AMD依赖前置</p>
+<p>　　CMD是延迟执行的，而AMD是提前执行的</p>
+<p><strong>6、如何判断当前脚本运行在浏览器还是node环境中</strong></p>
+<p>　　通过判断 Global 对象是否为 window ，如果不为window ，当前脚本没有运行在浏览器中</p>
+<p><strong>7、简述同步和异步的区别，如何避免回调地狱</strong></p>
+<p>　　同步方法调用一旦开始，调用者必须等到方法调用返回后，才能继续后续的行为</p>
+<p>　　异步方法调用一旦开始，方法调用就会立即返回，调用者就可以继续后续的操作。而异步方法通常会在另外一个线程中，整个过程，不会阻碍调用者的工作</p>
+<p>　　避免回调地狱：</p>
+<p>　　1）Promise</p>
+<p>　　2）async/await</p>
+<p>　　3）generator</p>
+<p>　　4）事件发布/监听模式</p>
+<p>　　</p>
+<p><strong>8、几种常见模块化规范的简介</strong></p>
+<ul>
+<li><p>AMD/CMD    主要用于浏览器</p>
+<ul>
+<li>Asynchronous Module Definition(AMD 异步模块定义)     RequireJS在推广过程中对模块定义的规范化产出。特点是依赖前置，会先尽早地执行依赖</li>
+<li>Common Module Definition(CMD  公共模块定义)     SeaJS在推广过程中对模块定义的规范化产出。特点是依赖就近，延迟执行。</li>
+</ul>
+</li>
+<li><p>CommonJS     主要用于服务器</p>
+<ul>
+<li>NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式写的</li>
+</ul>
+</li>
+<li><p>ES6 Module     浏览器和服务器通用的模块解决方案</p>
+<ul>
+<li><p>两个命令构成：import 和 export</p>
+</li>
+<li><p>ES6 Module 与 CommonJS的区别</p>
+<ul>
+<li><p>前者不支持动态导入，后者支持</p>
+</li>
+<li><p>前者是异步导入，因为用于浏览器，需要下载文件，如果采用同步导入会对渲染有很大影响; 后者是同步导入，因为用于服务器，文件都在本地</p>
+</li>
+<li><p>前者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会随导出值变化；后者在导出时都是值拷贝，就算导出值改变了，导入值也不会改变。如果想更新值，就要重新导入一次</p>
+</li>
+<li><p>ES Module 会编译成 require/exports 来执行</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>9、app.use和app.get区别</strong></p>
+<p>　　app.use(path,callback)中的callback既可以是router(路由)对象又可以是函数</p>
+<p>　　app.get(path,callback)中的callback只能是函数</p>
+<p><strong>10、说一下事件循环eventloop</strong> </p>
+<ul>
+<li><p>六个阶段：timers，pending callbacks，idle、prepare，poll，check，close callbacks</p>
+</li>
+<li><p>执行顺序：按阶段顺序执行，并且每一阶段结束都要查询是否存在微任务，若存在，则全部执行（nextTick优先)</p>
+</li>
+<li><p><strong>timers</strong>      执行setTimeout、setInterval</p>
+</li>
+<li><p><strong>poll</strong>    1.回到timers阶段执行回调2.执行I/O回调</p>
+</li>
+<li><p><strong>check</strong>         执行setImmediate</p>
+</li>
+</ul>
+<p><strong>11、node怎么跟MongoDB建立连接</strong></p>
+<p>　　1）引入mongoose</p>
+<p>　　2）使用mongoose.connect()方法连接到MongoDB数据库</p>
+<p>　　3）监听连接是否成功</p>
+<p>　　4）然后通过node，书写接口，对数据库进行增删改查</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="string">"mongodb://mallAdmin:winniebear98813@127.0.0.1:27017/mall?authSource=mall"</span></span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line">mongoose.connect(url,&#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接不上的时候</span></span><br><span class="line">mongoose.connection.on(<span class="string">'disconnected'</span>,()=&gt;&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'MongoDB connected fail'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//数据库出现错误的时候</span></span><br><span class="line">mongoose.connection.on(<span class="string">'error'</span>,err=&gt;&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接打开的时候</span></span><br><span class="line">mongoose.connection.once(<span class="string">'open'</span>,()=&gt;&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'MongoDB Connected successfully!'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>12、KOA</strong></p>
+<p>主要是async和await，下面是简单实现一个async函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spawn</span>(<span class="params">genF</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> gen = genF();</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">step</span>(<span class="params">nextF</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> next;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                next = nextF();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                <span class="keyword">return</span> reject(e);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (next.done) &#123;</span><br><span class="line">                <span class="keyword">return</span> resolve(next.value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">Promise</span>.resolve(next.value).then(</span><br><span class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">                    step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> gen.next(v);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                    step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> gen.throw(e);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">        step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> gen.next(<span class="literal">undefined</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><ul>
+<li><p>支持类型</p>
+<ul>
+<li>字符串类型</li>
+<li>字符串模式类型</li>
+<li>正则表达式类型</li>
+<li>参数类型</li>
+</ul>
+</li>
+<li><p>路由拆分</p>
+<ul>
+<li>路由拆分前，无论是新增还是修改路由，都要带着<code>/user</code>前缀，这对于代码的可维护性来说是大忌。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/user/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/list'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/user/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用<code>express.Router()</code>进行了路由拆分，新增、修改路由都变得极为便利</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = express.Router();</span><br><span class="line"></span><br><span class="line">user.get(<span class="string">'/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/list'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">user.get(<span class="string">'/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/user'</span>, user); <span class="comment">// mini app，通常做应用拆分</span></span><br></pre></td></tr></table></figure>
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><ul>
+<li>中间件其实是一个函数，在响应发送之前对请求进行一些操作</li>
+<li>express内部维护一个函数数组，这个函数数组表示在发出响应之前要执行的所有函数，也就是中间件数组。</li>
+<li>使用<code>app.use(fn)</code>后，传进来的<code>fn</code>就会被扔到这个数组里，执行完毕后调用<code>next()</code>方法执行函数数组里的下一个函数，如果没有调用<code>next()</code>的话，就不会调用下一个函数了，也就是说调用就会被终止。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现原理</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">express</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> funcs = []; <span class="comment">// 待执行的函数数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> app = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> task = funcs[i++];  <span class="comment">// 取出函数数组里的下一个函数</span></span><br><span class="line">            <span class="keyword">if</span> (!task) &#123;    <span class="comment">// 如果函数不存在,return</span></span><br><span class="line">              <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">              task(req, res, next);   <span class="comment">// 否则,执行下一个函数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * use方法就是把函数添加到函数数组中</span></span><br><span class="line"><span class="comment">    * @param task</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   app.use = <span class="function"><span class="keyword">function</span> (<span class="params">task</span>) </span>&#123;</span><br><span class="line">       funcs.push(task);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> app;    <span class="comment">// 返回实例</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h4><ul>
+<li><p>jade</p>
+</li>
+<li><p>ejs</p>
+<ul>
+<li><p>语法</p>
+<ul>
+<li>1.&lt;% code %&gt;用于执行其中javascript代码  </li>
+<li>2.&lt;%= code %&gt;会对code进行html转义</li>
+<li>3.&lt;%- code %&gt; 注释</li>
+</ul>
+</li>
+<li><p>类似于JSP</p>
+<ul>
+<li><p>四大作用域：page、request、session、application</p>
+</li>
+<li><p>九大内置对象：page、config、application、request、response、session、out、exception、pageContext</p>
+</li>
+<li><p>指令 </p>
+<ul>
+<li><p>格式：&lt;%@ directive {attribute=value}  %&gt;</p>
+</li>
+<li><p>例子</p>
+<ul>
+<li><p><code>language</code>  </p>
+<p>&lt;%@ page language=”java” contentType=”text/html  charset=UTF-8” pageEncoding=”UTF-8”%&gt;</p>
+</li>
+<li><p><code>import</code>    &lt;%@ page import=”java.util.List,java.util.ArrayList”%&gt;</p>
+</li>
+<li><p><code>include</code>    &lt;%@ include file=”relativeURL”%&gt;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>行为</p>
+<ul>
+<li>格式：&lt;jsp:elements ｛attribute=”value”｝/&gt;　</li>
+<li>&lt;jsp:include /&gt;行为</li>
+<li>&lt;jsp:forward /&gt;行为</li>
+<li>Java bean行为，包括useBean行为、setProperty行为、getProperty行为</li>
+</ul>
+</li>
+<li><p>语法</p>
+<ul>
+<li>1.使用&lt;% 编写java代码 %&gt;，中间java代码必须遵循Java语法</li>
+<li>2.使用&lt;%=xxx %&gt;来输出结果</li>
+<li>3.使用 &lt;%– –%&gt; 来注释</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -526,8 +703,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/18/数据库/" rel="next" title="SQL">
-                <i class="fa fa-chevron-left"></i> SQL
+              <a href="/2019/04/18/Linux/" rel="next" title="Linux">
+                <i class="fa fa-chevron-left"></i> Linux
               </a>
             
           </div>
@@ -536,8 +713,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/27/2019值得关注的前端技术/" rel="prev" title="2019 值得关注的前端技术">
-                2019 值得关注的前端技术 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/27/重学前端之JS系列/" rel="prev" title="重学前端之JS系列（模块一）">
+                重学前端之JS系列（模块一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,7 +789,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -696,7 +873,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -741,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS是什么"><span class="nav-number">1.</span> <span class="nav-text">NodeJS是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS的单线程"><span class="nav-number">2.</span> <span class="nav-text">NodeJS的单线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS常用场景"><span class="nav-number">3.</span> <span class="nav-text">NodeJS常用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">4.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-规则"><span class="nav-number">5.</span> <span class="nav-text">require 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-特性"><span class="nav-number">6.</span> <span class="nav-text">require 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-exports-和-exports的区别"><span class="nav-number">7.</span> <span class="nav-text">module.exports 和 exports的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global-全局对象"><span class="nav-number">8.</span> <span class="nav-text">global 全局对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础API"><span class="nav-number">9.</span> <span class="nav-text">基础API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cli-版本号"><span class="nav-number">10.</span> <span class="nav-text">cli 版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建工具"><span class="nav-number">11.</span> <span class="nav-text">构建工具</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS是什么"><span class="nav-number">1.</span> <span class="nav-text">NodeJS是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS的单线程"><span class="nav-number">2.</span> <span class="nav-text">NodeJS的单线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS常用场景"><span class="nav-number">3.</span> <span class="nav-text">NodeJS常用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">4.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-规则"><span class="nav-number">5.</span> <span class="nav-text">require 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#require-特性"><span class="nav-number">6.</span> <span class="nav-text">require 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-exports-和-exports的区别"><span class="nav-number">7.</span> <span class="nav-text">module.exports 和 exports的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global-全局对象"><span class="nav-number">8.</span> <span class="nav-text">global 全局对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础API"><span class="nav-number">9.</span> <span class="nav-text">基础API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cli-版本号"><span class="nav-number">10.</span> <span class="nav-text">cli 版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题"><span class="nav-number">11.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Express"><span class="nav-number">12.</span> <span class="nav-text">Express</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">12.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中间件"><span class="nav-number">12.2.</span> <span class="nav-text">中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板引擎"><span class="nav-number">12.3.</span> <span class="nav-text">模板引擎</span></a></li></ol></li></ol></div>
             
 
           </div>

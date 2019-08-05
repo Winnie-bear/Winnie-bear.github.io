@@ -110,7 +110,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/23/ZPS6cn.png">
-<meta property="og:updated_time" content="2019-06-24T12:09:16.667Z">
+<meta property="og:updated_time" content="2019-08-05T15:42:03.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML、CSS">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png">
@@ -336,12 +336,24 @@
                 
               
 
-              <time title="Created: 2019-06-24 00:00:00 / Modified: 20:09:16" itemprop="dateCreated datePublished" datetime="2019-06-24T00:00:00+08:00">2019-06-24</time>
+              <time title="Created: 2019-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-24T00:00:00+08:00">2019-06-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-05 23:42:03" itemprop="dateModified" datetime="2019-08-05T23:42:03+08:00">2019-08-05</time>
               
             
           </span>
@@ -395,6 +407,83 @@
         <hr>
 <a id="more"></a>
 <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
+<li><p>浏览器页面有哪三层构成，分别是什么，作用是什么?</p>
+<ul>
+<li><p>结构层、表示层、行为层</p>
+</li>
+<li><p>HTML、CSS、JavaScript</p>
+</li>
+<li><p>HTML实现页面结构，CSS完成页面的表现与风格，JavaScript实现一些客户端的功能与业务。</p>
+</li>
+</ul>
+</li>
+<li><p>HTML5有哪些新特性、移除了哪些元素？</p>
+<ul>
+<li><p>新特性：canvas，web storage，web worker，service worker，语义化标签</p>
+</li>
+<li><p>移除的元素——纯表现元素、框架集</p>
+<ul>
+<li>&lt; basefont &gt; 默认字体，不设置字体，以此渲染，&lt; font &gt; 字体标签，  &lt; center &gt; 水平居中，  &lt; u &gt; 下划线，&lt; big &gt; 大字体，  &lt; strike &gt; 中横线，  &lt; tt &gt; 文本等宽</li>
+<li>&lt; frameset &gt;，&lt; noframes &gt;，  &lt; frame &gt;</li>
+</ul>
+</li>
+<li><p>把 HTML5 的元素按优先级定义为结构性元素、级块性元素、行内语义性元素和交互性元素 4 大类</p>
+<ul>
+<li><p><strong>结构性元素主要负责web上下文结构的定义</strong></p>
+<p>section：在 web 页面应用中，该元素也可以用于区域的章节描述。</p>
+<p>header：页面主体上的头部， header 元素往往在一对 body 元素中。</p>
+<p>footer：页面的底部（页脚），通常会标出网站的相关信息。</p>
+<p>nav：专门用于菜单导航、链接导航的元素，是 navigator 的缩写。</p>
+<p>article：用于表现一篇文章的主体内容，一般为文字集中显示的区域。</p>
+</li>
+<li><p><strong>级块性元素主要完成web页面区域的划分，确保内容的有效分割。</strong></p>
+<p>aside：用于表达注记、贴士、侧栏、摘要、插入的引用等作为补充主体的内容。</p>
+<p>figure：是对多个元素进行组合并展示的元素，通常与 ficaption 联合使用。</p>
+<p>code：表示一段代码块。</p>
+<p>dialog：用于表达人与人之间的对话，该元素包含 dt 和 dd 这两个组合元素， dt 用于表示说话者，而 dd 用来表示说话内容。</p>
+</li>
+<li><p><strong>行内语义性元素主要完成web页面具体内容的引用和描述，是丰富内容展示的基础。</strong></p>
+<p>meter：表示特定范围内的数值，可用于工资、数量、百分比等。</p>
+<p>time：表示时间值。</p>
+<p>progress：用来表示进度条，可通过对其 max 、 min 、 step 等属性进行控制，完成对进度的表示和监事。</p>
+<p>video：视频元素，用于支持和实现视频文件的直接播放，支持缓冲预载和多种视频媒体格式。</p>
+<p>audio：音频元素，用于支持和实现音频文件的直接播放，支持缓冲预载和多种音频媒体格式。</p>
+</li>
+<li><p><strong>交互性元素主要用于功能性的内容表达，会有一定的内容和数据的关联，是各种事件的基础。</strong></p>
+<p>details：用来表示一段具体的内容，但是内容默认可能不显示，通过某种手段（如单击）与 legend 交互才会显示出来。</p>
+<p>datagrid：用来控制客户端数据与显示，可以由动态脚本及时更新。</p>
+<p>menu：主要用于交互菜单（曾被废弃又被重新启用的元素）。</p>
+<p>command：用来处理命令按钮。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>你做的网页在哪些浏览器测试过,这些浏览器的内核分别是什么?</p>
+<ul>
+<li><p>IE: trident 内核</p>
+</li>
+<li><p>Firefox ： gecko 内核</p>
+</li>
+<li><p>Safari : webkit 内核</p>
+</li>
+<li><p>Opera: 以前是 presto 内核， Opera 现已改用 Google Chrome 的 Blink 内核</p>
+</li>
+<li>Chrome:Blink( 基于 webkit ， Google 与 Opera Software 共同开发 )</li>
+<li>浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。最开始渲染引擎和JS引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</li>
+</ul>
+</li>
+<li><p>说说超链接target属性的取值和作用？</p>
+<ul>
+<li><p>target这个属性指定所链接的页面在浏览器窗口中的打开方式。</p>
+<p>它的参数值主要有：</p>
+<p>  _blank ：在新浏览器窗口中打开链接文件</p>
+<p>  _self ：在同一框架或窗口中打开所链接的文档。此参数为默认值，通常不用指定。</p>
+<p>  _top ：在当前的整个浏览器窗口中打开所链接的文档，因而会删除所有框架。</p>
+<p>  _parent ：将链接的文件载入含有该链接框架的父框架集或父窗口中。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，就象 _self 参数一样</p>
+</li>
+</ul>
+</li>
 <li><p>语义化标签</p>
 <ul>
 <li><p>定义：用最恰当的HTML元素标记的内容，描述的是业务。</p>
@@ -501,20 +590,20 @@
 </li>
 </ul>
 </li>
-<li><p>service worker 离线缓存</p>
-</li>
 <li><p>Doctype</p>
 <ul>
-<li><p>作用：声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明，那么compatMode默认就是BackCompat</p>
-</li>
-<li><p>文档的解析类型</p>
-<ul>
+<li>作用：声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明，那么compatMode默认就是BackCompat</li>
+<li>文档的解析类型<ul>
 <li>BackCompat：怪异模式/混杂模式/兼容模式，浏览器使用自己的怪异模式解析渲染页面，页面以宽松的向后兼容的方式显示。</li>
 <li>CSS1Compat：标准模式/严格模式，浏览器使用W3C的标准解析渲染页面。</li>
 </ul>
 </li>
-<li><p>Doctype可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。</p>
-</li>
+<li>Doctype可声明三种DTD类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。</li>
+</ul>
+<blockquote>
+<p>URI标记了一个网络资源，仅此而已；  URL标记了一个WWW互联网资源（用地址标记），并给出了它的访问地址。</p>
+</blockquote>
+<ul>
 <li>模式触发 ：</li>
 </ul>
 <p><a href="https://imgchr.com/i/ZFJdV1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZFJdV1.md.png" alt="ZFJdV1.md.png"></a></p>
@@ -549,7 +638,8 @@
 <li>6.grid (grid-template-columns: 300px 1fr)</li>
 </ul>
 </li>
-<li>三栏<ul>
+<li><p>三栏</p>
+<ul>
 <li>1.浮动布局</li>
 <li>2.绝对布局</li>
 <li>3.flex布局</li>
@@ -557,6 +647,7 @@
 <li>5.圣杯布局（利用父级的padding）</li>
 <li>6.双飞翼布局 （利用center的margin)</li>
 </ul>
+<p><a href="https://www.jianshu.com/p/81ef7e7094e8" target="_blank" rel="noopener">圣杯布局和双飞翼布局的理解与思考</a></p>
 </li>
 </ul>
 </blockquote>
@@ -826,8 +917,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/27/重学前端之JS系列/" rel="next" title="重学前端之JS系列（模块一）">
-                <i class="fa fa-chevron-left"></i> 重学前端之JS系列（模块一）
+              <a href="/2019/06/24/Vue和React/" rel="next" title="Vue 和 React">
+                <i class="fa fa-chevron-left"></i> Vue 和 React
               </a>
             
           </div>
@@ -836,8 +927,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/24/Vue和React/" rel="prev" title="Vue 和 React">
-                Vue 和 React <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/24/各种手写代码/" rel="prev" title="手写代码题">
+                手写代码题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -912,7 +1003,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -996,7 +1087,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

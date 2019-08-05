@@ -110,7 +110,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/21/5c934f0e04922.png">
-<meta property="og:updated_time" content="2019-06-23T14:21:09.446Z">
+<meta property="og:updated_time" content="2019-06-25T07:50:37.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-23 22:21:09" itemprop="dateModified" datetime="2019-06-23T22:21:09+08:00">2019-06-23</time>
+                <time title="Modified: 2019-06-25 15:50:37" itemprop="dateModified" datetime="2019-06-25T15:50:37+08:00">2019-06-25</time>
               
             
           </span>
@@ -567,7 +567,7 @@
 <ul>
 <li>我们习惯将var a=2；看作一个声明，而实际上JS引擎并不那么认为，它将var a和a=2当作两个单独的声明，第一个<strong>定义声明</strong>是在编译阶段进行，第二个<strong>赋值声明</strong>会被留在原地等待执行阶段。</li>
 <li>变量提升：在编译阶段，无论作用域中的变量出现在什么地方，所有的声明（变量和函数）都会被“移动”到各自作用域的最顶端，这个过程被称为“提升”。</li>
-<li>每进入到一个不同的运行环境（全局环境、函数环境）都会创建 一个相应的<strong>执行上下文（execution context，EC）</strong>，那么在一段js程序中一般都会创建多个执行上下文，js引擎会以栈的数据结构对这些执行进行处理，形成<strong>执行上下文栈（ECStack），</strong>栈底永远是<strong>全局执行上下文（global execution context）</strong>，栈顶则永远时当前的执行上下文。</li>
+<li>每进入到一个不同的运行环境（全局环境、函数环境）都会创建 一个相应的<strong>执行上下文（execution context，EC）</strong>，那么在一段js程序中一般都会创建多个执行上下文，js引擎会以栈的数据结构对这些执行进行处理，形成<strong>执行上下文栈（ECStack），</strong>栈底永远是<strong>全局执行上下文（global execution context）</strong>，栈顶则永远是当前的执行上下文。</li>
 </ul>
 </li>
 </ul>
@@ -856,7 +856,7 @@
 </ul>
 </li>
 <li><p>通过MessageChannel实现，可以处理undefind和循环引用对象，但还是不能解决函数的问题</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">structuralClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,rejcct</span>) =&gt;</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; port1,port2 &#125;=<span class="keyword">new</span> MessageChannel();<span class="comment">//解构赋值</span></span><br><span class="line">     port2.onmessage=<span class="function">(<span class="params">ev</span>)=&gt;</span>&#123; resolve(ev.data)&#125;;</span><br><span class="line">     port1.postMessage(obj);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">  a:<span class="number">1</span>,</span><br><span class="line">  b:&#123;</span><br><span class="line">    c:<span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  d:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line">obj.b.e=obj.b;</span><br><span class="line"><span class="keyword">const</span> test=<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> clone=<span class="keyword">await</span> structuralClone(obj);<span class="comment">//await等待resolve中的参数值</span></span><br><span class="line">  <span class="built_in">console</span>.log(clone);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">structuralClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; port1,port2 &#125;=<span class="keyword">new</span> MessageChannel();<span class="comment">//解构赋值</span></span><br><span class="line">     port2.onmessage=<span class="function">(<span class="params">ev</span>)=&gt;</span>&#123; resolve(ev.data)&#125;;</span><br><span class="line">     port1.postMessage(obj);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">  a:<span class="number">1</span>,</span><br><span class="line">  b:&#123;</span><br><span class="line">    c:<span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  d:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line">obj.b.e=obj.b;</span><br><span class="line"><span class="keyword">const</span> test=<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> clone=<span class="keyword">await</span> structuralClone(obj);<span class="comment">//await等待resolve中的参数值</span></span><br><span class="line">  <span class="built_in">console</span>.log(clone);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1356,8 +1356,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="next" title="数据结构与算法">
-                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              <a href="/2019/04/01/高频面试题/" rel="next" title="高频面试题">
+                <i class="fa fa-chevron-left"></i> 高频面试题
               </a>
             
           </div>
@@ -1366,8 +1366,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/高频面试题/" rel="prev" title="高频面试题">
-                高频面试题 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/14/React 开发简书项目实战总结/" rel="prev" title="React 开发简书项目实战总结">
+                React 开发简书项目实战总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1442,7 +1442,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1526,7 +1526,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

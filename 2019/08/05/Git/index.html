@@ -102,22 +102,22 @@
 
 
 
-  <meta name="keywords" content="Node">
+  <meta name="keywords" content="interview,Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Express">
-<meta property="og:url" content="https://github.com/winnie-bear/2019/04/18/Express/index.html">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://github.com/winnie-bear/2019/08/05/Git/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-20T09:26:07.212Z">
+<meta property="og:updated_time" content="2019-08-05T14:59:08.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express">
+<meta name="twitter:title" content="Git">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/winnie-bear/2019/04/18/Express/"/>
+  <link rel="canonical" href="https://github.com/winnie-bear/2019/08/05/Git/"/>
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>Express | Winnie-bear</title>
+  <title>Git | Winnie-bear</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/04/18/Express/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/winnie-bear/2019/08/05/Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winnie">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Express
+          <h1 class="post-title" itemprop="name headline">Git
               
             
           </h1>
@@ -333,24 +333,12 @@
                 
               
 
-              <time title="Created: 2019-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">2019-04-18</time>
+              <time title="Created: 2019-08-05 00:00:00 / Modified: 22:59:08" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">2019-08-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-20 17:26:07" itemprop="dateModified" datetime="2019-04-20T17:26:07+08:00">2019-04-20</time>
               
             
           </span>
@@ -403,81 +391,28 @@
       
         <hr>
 <a id="more"></a>
-<h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><ul>
-<li>支持类型<ul>
-<li>字符串类型</li>
-<li>字符串模式类型</li>
-<li>正则表达式类型</li>
-<li>参数类型</li>
-</ul>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Git是一个分布式的版本控制系统，与集中式的版本控制系统不同的是，每个人都工作在通过克隆建立的本地版本库中。也就是说每个人都拥有一个完整的版本库，查看提交日志、提交、创建里程碑和分支、合并分支、回退等所有操作都直接在本地完成而不需要网络连接。</p>
+<h4 id="四个区"><a href="#四个区" class="headerlink" title="四个区"></a>四个区</h4><ul>
+<li><p>workspace: 本地的工作目录。（记作A）</p>
+</li>
+<li><p>index/stage：缓存区域，临时保存本地改动。（记作B）</p>
+</li>
+<li><p>local repository: 本地仓库，只想最后一次提交HEAD。（记作C）</p>
+</li>
+<li><p>remote repository：远程仓库。（记作D）</p>
 </li>
 </ul>
-<ul>
-<li>路由拆分<ul>
-<li>路由拆分前，无论是新增还是修改路由，都要带着<code>/user</code>前缀，这对于代码的可维护性来说是大忌。</li>
-</ul>
+<h4 id="四个状态"><a href="#四个状态" class="headerlink" title="四个状态"></a>四个状态</h4><ul>
+<li><p>“changed /unstaged”（已修改）</p>
+</li>
+<li><p>“staged”（已修改并暂存）</p>
+</li>
+<li><p>“commited”（已提交） 三种状态</p>
+</li>
+<li><p>特殊状态 “untracked”（未跟踪）</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/user/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/list'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/user/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>利用<code>express.Router()</code>进行了路由拆分，新增、修改路由都变得极为便利</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = express.Router();</span><br><span class="line"></span><br><span class="line">user.get(<span class="string">'/list'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/list'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">user.get(<span class="string">'/detail'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line"> res.send(<span class="string">'/detail'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/user'</span>, user); <span class="comment">// mini app，通常做应用拆分</span></span><br></pre></td></tr></table></figure>
-<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><ul>
-<li>中间件其实是一个函数，在响应发送之前对请求进行一些操作</li>
-<li>express内部维护一个函数数组，这个函数数组表示在发出响应之前要执行的所有函数，也就是中间件数组。</li>
-<li>使用<code>app.use(fn)</code>后，传进来的<code>fn</code>就会被扔到这个数组里，执行完毕后调用<code>next()</code>方法执行函数数组里的下一个函数，如果没有调用<code>next()</code>的话，就不会调用下一个函数了，也就是说调用就会被终止。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现原理</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">express</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> funcs = []; <span class="comment">// 待执行的函数数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> app = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> task = funcs[i++];  <span class="comment">// 取出函数数组里的下一个函数</span></span><br><span class="line">            <span class="keyword">if</span> (!task) &#123;    <span class="comment">// 如果函数不存在,return</span></span><br><span class="line">              <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">              task(req, res, next);   <span class="comment">// 否则,执行下一个函数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * use方法就是把函数添加到函数数组中</span></span><br><span class="line"><span class="comment">    * @param task</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   app.use = <span class="function"><span class="keyword">function</span> (<span class="params">task</span>) </span>&#123;</span><br><span class="line">       funcs.push(task);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> app;    <span class="comment">// 返回实例</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h4><ul>
-<li>jade</li>
-<li><p>ejs</p>
-<ul>
-<li>语法<ul>
-<li>1.&lt;% code %&gt;用于执行其中javascript代码  </li>
-<li>2.&lt;%= code %&gt;会对code进行html转义</li>
-<li>3.&lt;%- code %&gt; 注释</li>
-</ul>
-</li>
-<li><p>类似于JSP</p>
-<ul>
-<li>四大作用域：page、request、session、application</li>
-<li>九大内置对象：page、config、application、request、response、session、out、exception、pageContext</li>
-<li><p>指令 </p>
-<ul>
-<li>格式：&lt;%@ directive {attribute=value}  %&gt;</li>
-<li><p>例子</p>
-<ul>
-<li><p><code>language</code>  </p>
-<p> &lt;%@ page language=”java” contentType=”text/html  charset=UTF-8” pageEncoding=”UTF-8”%&gt;</p>
-</li>
-<li><p><code>import</code>    &lt;%@ page import=”java.util.List,java.util.ArrayList”%&gt;</p>
-</li>
-<li><p><code>include</code>    &lt;%@ include file=”relativeURL”%&gt;</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>行为<ul>
-<li>格式：&lt;jsp:elements ｛attribute=”value”｝/&gt;　</li>
-<li>&lt;jsp:include /&gt;行为</li>
-<li>&lt;jsp:forward /&gt;行为</li>
-<li>Java bean行为，包括useBean行为、setProperty行为、getProperty行为</li>
-</ul>
-</li>
-<li>语法<ul>
-<li>1.使用&lt;% 编写java代码 %&gt;，中间java代码必须遵循Java语法</li>
-<li>2.使用&lt;%=xxx %&gt;来输出结果</li>
-<li>3.使用 &lt;%– –%&gt; 来注释</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#初始设置</span><br><span class="line">git config --global user.name &quot;&lt;用户名&gt;&quot; #设置用户名</span><br><span class="line">git config --global user.email &quot;&lt;电子邮件&gt;&quot; #设置电子邮件</span><br><span class="line"></span><br><span class="line">#本地操作</span><br><span class="line">git add [-i] #保存更新，-i为逐个确认。</span><br><span class="line">git status #检查更新。</span><br><span class="line">git commit [-a] -m &quot;&lt;更新说明&gt;&quot; #提交更新，-a为包含内容修改和增删，-m为说明信息，也可以使用 -am。</span><br><span class="line"></span><br><span class="line">#远端操作</span><br><span class="line">git clone &lt;git地址&gt; #克隆到本地。</span><br><span class="line">git fetch #远端抓取。</span><br><span class="line">git merge #与本地当前分支合并。</span><br><span class="line">git pull [&lt;远端别名&gt;] [&lt;远端branch&gt;] #抓取并合并,相当于第2、3步</span><br><span class="line">git push [-f] [&lt;远端别名&gt;] [&lt;远端branch&gt;] #推送到远端，-f为强制覆盖</span><br><span class="line">git remote add &lt;别名&gt; &lt;git地址&gt; #设置远端别名</span><br><span class="line">git remote [-v] #列出远端，-v为详细信息</span><br><span class="line">git remote show &lt;远端别名&gt; #查看远端信息</span><br><span class="line">git remote rename &lt;远端别名&gt; &lt;新远端别名&gt; #重命名远端</span><br><span class="line">git remote rm &lt;远端别名&gt; #删除远端</span><br><span class="line">git remote update [&lt;远端别名&gt;] #更新分支列表</span><br><span class="line"></span><br><span class="line">#分支相关</span><br><span class="line">git branch [-r] [-a] #列出分支，-r远端 ,-a全部</span><br><span class="line">git branch &lt;分支名&gt; #新建分支</span><br><span class="line">git branch -b &lt;分支名&gt; #新建并切换分支</span><br><span class="line">git branch -d &lt;分支名&gt; #删除分支</span><br><span class="line">git checkout &lt;分支名&gt; #切换到分支</span><br><span class="line">git checkout -b &lt;本地branch&gt; [-t &lt;远端别名&gt;/&lt;远端分支&gt;] #-b新建本地分支并切换到分支, -t绑定远端分支</span><br><span class="line">git merge &lt;分支名&gt; #合并某分支到当前分支</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -497,7 +432,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Node/" rel="tag"># Node</a>
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
         </div>
       
@@ -510,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/18/Linux/" rel="next" title="Linux">
-                <i class="fa fa-chevron-left"></i> Linux
+              <a href="/2019/08/05/构建工具-----webpack/" rel="next" title="构建工具-----webpack">
+                <i class="fa fa-chevron-left"></i> 构建工具-----webpack
               </a>
             
           </div>
@@ -519,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/18/数据库/" rel="prev" title="SQL">
-                SQL <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +529,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -680,7 +613,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -725,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中间件"><span class="nav-number">2.</span> <span class="nav-text">中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板引擎"><span class="nav-number">3.</span> <span class="nav-text">模板引擎</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四个区"><span class="nav-number">1.2.</span> <span class="nav-text">四个区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四个状态"><span class="nav-number">1.3.</span> <span class="nav-text">四个状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用指令"><span class="nav-number">1.4.</span> <span class="nav-text">常用指令</span></a></li></ol></li></ol></div>
             
 
           </div>
