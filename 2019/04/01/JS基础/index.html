@@ -110,7 +110,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/21/5c934f0e04922.png">
-<meta property="og:updated_time" content="2019-06-25T07:50:37.356Z">
+<meta property="og:updated_time" content="2019-08-21T03:50:20.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/08/5c8222d4419dd.png">
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-25 15:50:37" itemprop="dateModified" datetime="2019-06-25T15:50:37+08:00">2019-06-25</time>
+                <time title="Modified: 2019-08-21 11:50:20" itemprop="dateModified" datetime="2019-08-21T11:50:20+08:00">2019-08-21</time>
               
             
           </span>
@@ -687,7 +687,7 @@
 </li>
 <li><p>使用场景:</p>
 <ul>
-<li><p>1.箭头函数：<code>this</code>关键字指向是它所在上下文（定义时的位置）的环境</p>
+<li><p>1.箭头函数：<strong>this是在定义函数时绑定的，不是在执行过程中绑定的。简单的说，函数在定义时，this就继承了定义函数的对象。</strong></p>
 <p>栗子~</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">a</span>) =&gt;</span>&#123;</span><br><span class="line">      <span class="comment">//this继承自foo()</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    a:<span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar=foo.call(obj1);</span><br><span class="line">bar.call(obj2);<span class="comment">//2,不是3！</span></span><br><span class="line"><span class="comment">/* 代码解析：foo()内部创建的箭头函数会捕获调用时foo()的this。由于foo()的this绑定到obj1，bar的this也会绑定到obj1。箭头函数没有this指向，对其使用call绑定无效。*/</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -1356,8 +1356,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/高频面试题/" rel="next" title="高频面试题">
-                <i class="fa fa-chevron-left"></i> 高频面试题
+              <a href="/2019/04/01/计算机网络/" rel="next" title="计算机网络">
+                <i class="fa fa-chevron-left"></i> 计算机网络
               </a>
             
           </div>

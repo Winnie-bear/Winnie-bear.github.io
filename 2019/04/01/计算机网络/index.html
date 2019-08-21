@@ -108,7 +108,7 @@
 <meta property="og:url" content="https://github.com/winnie-bear/2019/04/01/计算机网络/index.html">
 <meta property="og:site_name" content="Winnie-bear">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-25T08:39:28.688Z">
+<meta property="og:updated_time" content="2019-08-21T07:22:17.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-25 16:39:28" itemprop="dateModified" datetime="2019-06-25T16:39:28+08:00">2019-06-25</time>
+                <time title="Modified: 2019-08-21 15:22:17" itemprop="dateModified" datetime="2019-08-21T15:22:17+08:00">2019-08-21</time>
               
             
           </span>
@@ -497,6 +497,19 @@
 <li>只有GET和HEAD请求可以进行管线化，而POST则有所限制。</li>
 </ul>
 </li>
+<li>get 和 post 区别<ul>
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被加入到书签，而POST不可以。</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST没有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+<li>GET参数通过URL传递，POST放在Request body中。</li>
+<li>大多数浏览器通常都会限制url长度在2K个字节，而大多数服务器最多处理64K大小的url。</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <ul>
@@ -545,29 +558,42 @@
 </ul>
 <blockquote>
 <ul>
-<li>概念<ul>
+<li><p>概念</p>
+<ul>
 <li>帧——HTTP 2.0 通信的最小单元，以二进制传输代替原本的明文传输，有一个固定9字节的头部和一个指定长度的负载。sid(Stream Identifier) 31位，用作流控制，标明这一帧属于哪个流。Type 8位 定义了frame的类型。</li>
 <li>消息：一个完整的帧序列，它映射到逻辑的请求和响应消息</li>
 <li>流——已建立的TCP连接上的双向字节流，可以承载一个或多个消息</li>
 </ul>
 </li>
-<li>线头堵塞<ul>
+<li><p>线头堵塞</p>
+<ul>
 <li>每个TCP连接同时只能处理一个请求—响应，浏览器按FIFO原则处理请求，如果上一个响应没返回，后续请求—响应都会受阻。</li>
 <li>管线化的问题：第一个响应慢会阻塞后续响应，服务器为了按序返回响应，则需要缓存多个响应，占用更多的资源</li>
 </ul>
 </li>
-<li>优点<ul>
+<li><p>优点</p>
+<ul>
 <li>多路复用</li>
-<li>服务器推送：推送额外的资源，而不需要客户端明确请求每一个资源</li>
-<li>头部压缩：HTTP/1.x版本中，元数据始终以纯文本形式发送，如果再使用HTTP cookie，那么头部体积将会变得很重。HTTP/2.0 使用HPACK压缩了头部</li>
-<li>二进制分帧层</li>
+</ul>
+<p>​       HTTP2采用二进制格式传输，取代了HTTP1.x的文本格式，二进制格式解析更高效。<br>​       多路复用代替了HTTP1.x的序列和阻塞机制，所有的相同域名请求都通过同一个TCP连接并发完  成。在HTTP1.x中，并发多个请求需要多个TCP连接，浏览器为了控制资源会有6-8个TCP连接都限制。<br>​      HTTP2中</p>
+<ul>
+<li>同域名下所有通信都在单个连接上完成，消除了因多个 TCP 连接而带来的延时和内存消耗。</li>
+<li><p>单个连接上可以并行交错的请求和响应，之间互不干扰</p>
+</li>
+<li><p>服务器推送：推送额外的资源，而不需要客户端明确请求每一个资源</p>
+</li>
+<li><p>头部压缩：HTTP/1.x版本中，元数据始终以纯文本形式发送，如果再使用HTTP cookie，那么头部体积将会变得很重。HTTP/2.0 使用HPACK压缩了头部</p>
+</li>
+<li><p>二进制分帧层</p>
+</li>
 </ul>
 </li>
 </ul>
 </blockquote>
 <h6 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h6><blockquote>
 <ul>
-<li>TCP的三次握手和四次挥手<ul>
+<li><p>TCP的三次握手和四次挥手</p>
+<ul>
 <li>三次握手<ul>
 <li>客户端——发送带有SYN标志的数据包–一次握手–服务端</li>
 <li>服务端——发送带有SYN/ACK标志的数据包–二次握手–客户端</li>
@@ -583,19 +609,33 @@
 </li>
 </ul>
 </li>
-<li>TCP和UDP的区别</li>
-<li>ARP(（Address Resolution Protocol 地址解析协议)  <strong>用于实现从 IP 地址到 MAC （Media Access Control 媒体访问控制）地址的映射，即询问目标IP对应的MAC地址</strong>，MAC地址又称以太网地址或物理地址。</li>
-<li>ARP工作原理<ul>
+<li><p>TCP和UDP的区别</p>
+<p>1.连接性：TCP面向连接；UDP是无连接的。（TCP需要三次握手，而UDP不需要握手）</p>
+<p>2.可靠性：TCP提供可靠的服务；UDP尽最大努力交付，即不保证可靠交付。（通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP则可能出现丢包，不保证顺序到达）</p>
+<p>3.面向对象：TCP面向字节流;UDP是面向报文的。（ 面向报文的是指发送方的UDP对应用层交下来的数据报文，不合并不拆分，只是在其上面加上首部后就交给了下面的网络层。）。<br>【 举个例子：<br>  发送方使用TCP协议先发送 100个字节的包1，再发送10个字节的包2；等待2秒后，接收方只需要接收一次就能能将数据（110字节）接收下来。<br>  发送方使用UDP协议先发送 100个字节的包1，再发送10个字节的包2；等待2秒后，接收方必须要接收两次才能将包1（100字节）和包2（10字节）分别接收。】</p>
+<p>4.差错拥塞控制：UDP没有差错和拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低。（TCP拥塞控制，当另一端出现阻塞时，会降低发送速率）。</p>
+<p>5.系统开销：TCP首部开销20字节（具有报文段序号，应答序号，窗口大小等）;UDP的首部开销小，只有8个字节（2个字节的源端口，2个字节的目的端口，2个字节的报文长度，2个字节的校验和）。</p>
+<p>6.信道：TCP的逻辑通信信道是全双工的可靠信道，即可以流入也可以流出的信道；UDP则是不可靠信道。</p>
+<p>7.有序性：TCP是有序的字节流；UDP则是无序的。（这是由于tcp头部存在报文段的序号，而udp没有）</p>
+</li>
+<li><p>ARP(（Address Resolution Protocol 地址解析协议)  <strong>用于实现从 IP 地址到 MAC （Media Access Control 媒体访问控制）地址的映射，即询问目标IP对应的MAC地址</strong>，MAC地址又称以太网地址或物理地址。</p>
+</li>
+<li><p>ARP工作原理</p>
+<ul>
 <li>1：首先，每个主机都会在自己的ARP缓冲区中建立一个ARP列表，以表示IP地址和MAC地址之间的对应关系。</li>
 <li>2：当源主机要发送数据时，首先检查ARP列表中是否有对应IP地址的目的主机的MAC地址，如果有，则直接发送数据，如果没有，就向本网段的所有主机发送ARP数据包，该数据包包括的内容有：源主机 IP地址，源主机MAC地址，目的主机的IP 地址。</li>
 <li>3：当本网络的所有主机收到该ARP数据包时，首先检查数据包中的IP地址是否是自己的IP地址，如果不是，则忽略该数据包，如果是，则首先从数据包中取出源主机的IP和MAC地址写入到ARP列表中，如果已经存在，则覆盖，然后将自己的MAC地址写入ARP响应包中，告诉源主机自己是它想要找的MAC地址。</li>
 <li>4：源主机收到ARP响应包后。将目的主机的IP和MAC地址写入ARP列表，并利用此信息发送数据。如果源主机一直没有收到ARP响应数据包，表示ARP查询失败。<br><strong>广播发送ARP请求，单播发送ARP响应。</strong></li>
 </ul>
 </li>
-<li>IP地址指明了是哪个局域网，MAC地址指明了指定局域网下某台设备的地址。</li>
-<li>以太网协议解决了局域网的点对点通信，但是，以太网协议不能解决多个局域网如何互通，这由 IP 协议解决。</li>
-<li>IP 协议可以连接多个局域网。路由器就是基于 IP 协议。局域网之间要靠路由器连接。</li>
-<li><strong>为什么要等待2MSL</strong>( Maximum Segment Lifetime 报文段最大生存时间，它是任何报文段被丢弃前在网络内的最长时间) ？客户端在发送完 ACK 后，会等待2MSL后依然没有收到回复，则证明Server端已正常关闭，那么客户端也可以关闭连接<ul>
+<li><p>IP地址指明了是哪个局域网，MAC地址指明了指定局域网下某台设备的地址。</p>
+</li>
+<li><p>以太网协议解决了局域网的点对点通信，但是，以太网协议不能解决多个局域网如何互通，这由 IP 协议解决。</p>
+</li>
+<li><p>IP 协议可以连接多个局域网。路由器就是基于 IP 协议。局域网之间要靠路由器连接。</p>
+</li>
+<li><p><strong>为什么要等待2MSL</strong>( Maximum Segment Lifetime 报文段最大生存时间，它是任何报文段被丢弃前在网络内的最长时间) ？客户端在发送完 ACK 后，会等待2MSL后依然没有收到回复，则证明Server端已正常关闭，那么客户端也可以关闭连接</p>
+<ul>
 <li>保证TCP协议的全双工连接能够可靠关闭<ul>
 <li>特殊情况，因为IP协议的不可靠性或者是其它网络原因，导致服务器端没有收到客户端最后回复的ACK。那么服务器端就会在超时之后继续发送FIN，如果客户端等待2MSL，则还可以接收到FIN。</li>
 </ul>
@@ -606,12 +646,14 @@
 </li>
 </ul>
 </li>
-<li><strong>TCP流量控制</strong><ul>
+<li><p><strong>TCP流量控制</strong></p>
+<ul>
 <li><strong>流量控制</strong>就是让发送方的发送速率不要太快，要让接收方来得及接收，利用<strong>滑动窗口机制</strong>。</li>
-<li>滑动窗口分为四个窗口：已发送并被确认，已送未被确认、可发送、不可发送</li>
+<li>滑动窗口分为四个窗口：已发送并被确认，已发送未被确认、可发送、不可发送</li>
 </ul>
 </li>
-<li><strong>TCP拥塞控制</strong><ul>
+<li><p><strong>TCP拥塞控制</strong></p>
+<ul>
 <li>包括四部分<ul>
 <li>慢启动<ul>
 <li>发送方维持一个拥塞窗口 cwnd ( congestion window )的状态变量。拥塞窗口的大小取决于网络的拥塞程度，并且动态地在变化。为了防止拥塞窗口过大引起网络拥塞，我们需要设置一个慢开始门限 ssthreth 状态变量。</li>
@@ -674,8 +716,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/电子商城项目总结/" rel="next" title="电子商城项目总结">
-                <i class="fa fa-chevron-left"></i> 电子商城项目总结
+              <a href="/2019/04/01/面试题收集/" rel="next" title="面试题收集">
+                <i class="fa fa-chevron-left"></i> 面试题收集
               </a>
             
           </div>
@@ -684,8 +726,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/数据结构与算法/" rel="prev" title="数据结构与算法">
-                数据结构与算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/01/JS基础/" rel="prev" title="JavaScript基础">
+                JavaScript基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
